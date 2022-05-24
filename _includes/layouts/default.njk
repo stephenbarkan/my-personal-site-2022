@@ -11,7 +11,13 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
         <link rel="stylesheet" href="https://use.typekit.net/bpn0sjs.css">
-        <link rel="stylesheet" href="./style.css"/>
+
+        {# include main.css if in development mode #}
+        {% if helpers.environment === 'development' %}
+            <link rel="stylesheet" href="/style.css">
+        {% else %}
+            <link rel="stylesheet" href="./style.css">
+        {% endif %}
         {% block head %}{% endblock %}
     </head >
     <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll bg-ui-wallpaper">
