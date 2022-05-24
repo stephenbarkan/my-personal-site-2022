@@ -1,0 +1,199 @@
+{% extends "components/appletShell.njk" %}
+{% import "components/button.njk" as "btn"%}
+{% set chevronRightIcon %}{% include "icons/chevron-right.svg" %}{% endset %}
+{% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
+{% set externalLinkIcon %}{% include "icons/external-link.svg" %}{% endset %}
+
+{% macro designItemDisplay() %}
+    <div class="h-full overflow-auto">
+        {% for design in collections.design %}
+            {% set typeIcon %}
+            {% if design.data.type === "website" %}{% include "icons/website.svg" %}
+            {% endif %}
+            {% if design.data.type === "game" %}{% include "icons/dice.svg" %}
+            {% endif %}
+            {% if design.data.type === "plugin" %}{% include "icons/plugin.svg" %}
+            {% endif %}
+            {% if design.data.type === "fun" %}{% include "icons/mix.svg" %}
+            {% endif %}
+            {% if design.data.type === "work" %}{% include "icons/briefcase.svg" %}
+            {% endif %}
+            {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}
+            {% endif %}
+            {% endset %}
+            <template x-if="currentItem === '{{design.data.title}}'">
+                <div class="flex-shrink-0 overflow-auto flex flex-col items-start gap-8 sm:gap-6 px-2 py-4 sm:px-4 sm:w-[300px]">
+                    <div class="flex flex-col gap-5">
+                        <div class="grid flex-shrink-0 w-12 h-12 transition transform rounded-lg sm:hidden shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
+                            <div class="w-6 h-6">{{typeIcon | safe}}</div>
+                        </div>
+                        <div class="flex flex-col items-start gap-1">
+                            <h3 class="text-xl">{{design.data.title}}
+                                <span class="capitalize">{{design.data.type}}</span></h3>
+                            <p class="text-display-tertiary">{{design.data.excerpt}}</p>
+                        </div>
+                    </div>
+                    {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
+                    <div class="hidden w-full sm:block divider"></div>
+                    <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
+                        <dt class="text-sm text-display-tertiary">Contribution</dt>
+                        <dl class="capitalize">{{design.data.contribution}}</dl>
+                        <dt class="text-sm text-display-tertiary">Date</dt>
+                        <dl>{{design.data.publishDate}}</dl>
+                    </dl>
+                </div>
+            </template>
+        {% endfor %}
+    </div>
+{% endmacro %}
+
+{% block content %}
+    <div
+    x-data="{currentFolder: 0, currentItem: null}"
+    class="h-full">
+        {# desktop folders #}
+        <div x-ref="scroller"
+            class="hidden h-full gap-3 px-3 overflow-auto sm:flex">
+            {# design folders #}
+            <ul
+            x-data="{openDesign: 0}"
+            class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 sm:min-w-[250px]">
+                {% for design in designFolders %}
+                    <li>{{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type, id=design.id, content="folder", class="w-full")}}</li>
+                {% endfor %}
+                <div @click="openDesign = null; currentFolder = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
+            </ul>
+            <div class="hidden mb-3 sm:block divider vertical"></div>
+            {# collection items #}
+            <ul
+            x-cloak
+            x-data="{openDesign: 0}"
+            x-show="currentFolder"
+            x-transition.opacity
+            @reset-current-item.window="openDesign = 0; currentItem = null"
+            class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 sm:min-w-[250px]">
+                {% for design in collections.design %}
+                    <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
+                {% endfor %}
+                <div @click="openDesign = null; currentItem = null; $dispatch('reset-current-item')" class="flex-1 pb-6"></div>
+            </ul>
+            <div
+            x-show="currentFolder"
+            x-transition.opacity
+            class="mb-3 divider vertical"></div>
+            <div
+            x-show="currentItem"
+            x-transition.opacity>
+                {{designItemDisplay()}}
+            </div>
+        </div>
+        {# mobile folders #}
+        <div class="grid flex-col px-3 grid-absolute sm:hidden">
+            {# design folders #}
+            <ul
+            x-data="{openDesign: 0}"
+            x-show="!currentFolder"
+            x-transition:enter="transition duration-300"
+            x-transition:enter-start="opacity-0 -translate-x-16"
+            x-transition:enter-end="opacity-100 translate-x-0"
+            x-transition:leave="transition duration-300"
+            x-transition:leave-start="opacity-100 translate-x-0"
+            x-transition:leave-end="opacity-0"
+            @reset-mobile-folder.window="openDesign = 0"
+            class="flex flex-col gap-1 p-px overflow-auto bg-ui-applet-bg grid-inset-0">
+                {% for design in designFolders %}
+                    <li>{{designListItem(title=design.title, date=design.date, index=loop.index, type=design.type, id=design.id, content="folder", class="w-full")}}</li>
+                {% endfor %}
+            </ul>
+            {# collection items #}
+            <div
+            x-cloak
+            x-data="{openDesign: 0}"
+            x-show="currentFolder && !currentItem"
+            x-transition:enter="transition duration-300"
+            x-transition:enter-start="opacity-0 translate-x-16"
+            x-transition:enter-end="opacity-100 translate-x-0"
+            x-transition:leave="transition duration-300"
+            x-transition:leave-start="opacity-100 translate-x-0"
+            x-transition:leave-end="opacity-0"
+            @reset-mobile-collection.window="openDesign = 0"
+            class="flex flex-col gap-3 p-px overflow-auto grid-inset-0 bg-ui-applet-bg">
+                <div class="flex flex-col gap-3">
+                    {{btn.button(label="Back to portfolio", icon=chevronLeftIcon, as="button", class="w-max-content", onClick="openDesign = 0; currentFolder = null; $dispatch('reset-mobile-folder')")}}
+                    <div class="w-full divider"></div>
+                </div>
+                <ul class="flex flex-col gap-1">
+                    {% for design in collections.design %}
+                        <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div
+            x-show="currentItem"
+            x-transition:enter="transition duration-300"
+            x-transition:enter-start="opacity-0 translate-x-16"
+            x-transition:enter-end="opacity-100 translate-x-0"
+            x-transition:leave="transition duration-300"
+            x-transition:leave-start="opacity-100 translate-x-0"
+            x-transition:leave-end="opacity-0"
+            class="flex flex-col gap-3 p-px grid-inset-0 bg-ui-applet-bg">
+                <div class="flex flex-col gap-3">
+                    {{btn.button(label="Back to folder", icon=chevronLeftIcon, as="button", class="w-max-content", onClick="openDesign = 0; currentItem=0; $dispatch('reset-mobile-collection')")}}
+                    <div class="w-full divider"></div>
+                </div>
+                {{designItemDisplay()}}
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% macro designListItem(title, date, class, onClick, type, index, id, content) %}
+    {% set icon %}
+    {% if type === "website" %}{% include "icons/website.svg" %}
+    {% endif %}
+    {% if type === "game" %}{% include "icons/dice.svg" %}
+    {% endif %}
+    {% if type === "plugin" %}{% include "icons/plugin.svg" %}
+    {% endif %}
+    {% if type === "fun" %}{% include "icons/mix.svg" %}
+    {% endif %}
+    {% if type === "work" %}{% include "icons/briefcase.svg" %}
+    {% endif %}
+    {% if type === "volunteer" %}{% include "icons/rocket.svg" %}
+    {% endif %}
+    {% endset %}
+
+    <button
+        @click="
+            openDesign = {{index}};
+            if ('{{content}}' === 'folder') {
+                currentFolder='{{id}}'
+                $dispatch('reset-current-item')
+            } else {
+                currentItem='{{id}}'
+            }
+            $nextTick(() => { $refs.scroller.scrollTo({ left: 1000 }) })"
+        :class="{ 'appletListItemActive': openDesign === {{index}} }"
+        class="{{class}} text-left group block pb-2 pt-1.5 px-2 appletListItem">
+        <div
+            :class="openDesign === {{index}} && 'translate-y-px'"
+            class="flex items-center gap-3 appletListItemContents">
+            <div
+                :class="openDesign === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
+                class="w-5 h-5 sm:w-15 sm:h-15">{{icon | safe }}
+            </div>
+            <div class="self-stretch sm:hidden divider vertical"></div>
+            <div class="flex-1 flex flex-col sm:flex-row sm:gap-1.5 gap-1 items-baseline overflow-hidden">
+                <p
+                    :class="openDesign === {{index}} ? 'text-display-primary' : 'group-active:text-display-primary text-display-secondary'"
+                    class="truncate">
+                    {{title}}
+                </p>
+                <time class="block text-sm text-display-tertiary">{{date}}</time>
+            </div>
+            <div class="w-15 h-15 text-display-tertiary">
+                {{chevronRightIcon | safe }}
+            </div>
+        </div>
+    </button>
+{% endmacro %}

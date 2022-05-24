@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>
+            {% block title %}Stephen Barkan{% endblock %}
+        </title>
+        <meta charset="UTF-8"/>
+        {% if description %}
+            <meta name="description" content="{{description}}"/>
+        {% endif %}
+        <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+        <link rel="stylesheet" href="https://use.typekit.net/bpn0sjs.css">
+        <link rel="stylesheet" href="/style.css?v={% version %}"/>
+        {% block head %}{% endblock %}
+    </head >
+    <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll bg-ui-wallpaper">
+        <div id="app"
+    x-data="{
+        activeApplet: 'posts',
+        z: 1,
+        allApplets: document.querySelectorAll('[data-is-applet]'),
+        getUrlParam(param) {
+            let value;
+            const queries = window.location.search.substring(1).split('&');
+            queries.forEach(function(query) {
+                const pair = query.split('=');
+                if(pair[0] == param) {
+                    value = pair[1];
+                }
+            })
+            return value;
+        },
+        getInitActiveApplet() {
+            if (this.getUrlParam('activeApplet')) {
+                this.activeApplet = this.getUrlParam('activeApplet');
+            }
+        },
+        setActiveApplet(applet) {
+            this.activeApplet = applet;
+            this.z++;
+            this.allApplets.forEach(el => {
+                el.classList.remove('applet-animate')
+                if (el.dataset.applet === applet) {
+                 el.style.zIndex = this.z
+                 el.classList.add('applet-animate')
+                }
+            });
+            history.replaceState({}, '', `?activeApplet=${applet}`);
+            this.setFavicons(applet)
+        },
+        setFavicons(favImg) {
+                let headTitle = document.querySelector('head');
+                const existingFavicons = headTitle.querySelectorAll(`link[rel='shortcut icon']`)
+                existingFavicons.forEach(el => el.remove())
+                let setFavicon = document.createElement('link');
+                setFavicon.setAttribute('rel', 'shortcut icon');
+                setFavicon.setAttribute('href', `./favicons/favicon-${favImg}.png`);
+                headTitle.appendChild(setFavicon);
+            }
+    }"
+    x-init="getInitActiveApplet(), setActiveApplet(activeApplet)"
+    :data-active-applet="activeApplet"
+    :data-applet="activeApplet"
+    class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
+    style="background-image: url(/images/dot-pattern.svg)">
+            <main class="grid w-full h-screen grid-rows-site">
+                <div class="z-[999] flex-shrink-0 hidden sm:block">{% include "components/topbar.njk" %}</div>
+                {% block content %}
+                    {{ content | safe }}
+                {% endblock %}
+                {# < div class = "row-start-3 p-2 pt-0 page-container xs:hidden" > {% include "components/bottombar.njk" %}</div> #}
+                <div class="lg:hidden flex-shrink-0 z-[999] bottom-0 row-start-3 page-container">{% include "components/appletIconFooter.njk" %}</div>
+            </main>
+        </div>
+        <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
+        <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
+        <script src="/../scripts/clock.js"></script>
+    </body>
+</html>
