@@ -107,7 +107,7 @@
                     class="flex items-end transition-shadow rounded bg-clr-highlight focus-within:shadow-list-inset">
                     <label class="relative inline-grid items-center flex-1 align-top input-wrapper">
                         <span x-text="formField.placeholder" class="hidden"></span>
-                        <textarea
+                        <textarea test
                             x-bind:name="formField.title"
                             @keydown.enter="formField.value && incrementFormField"
                             x-on:input="$event.target.parentNode.dataset.value = $event.target.value"
