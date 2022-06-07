@@ -108,7 +108,7 @@
                     <label class="relative inline-grid items-center flex-1 align-top input-wrapper">
                         <span x-text="formField.placeholder" class="hidden"></span>
                         <textarea
-                            name="formField.title"
+                            x-bind:name="formField.title"
                             @keydown.enter="formField.value && incrementFormField"
                             x-on:input="$event.target.parentNode.dataset.value = $event.target.value"
                             rows="1"
