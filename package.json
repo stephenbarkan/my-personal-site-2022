@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "ELEVENTY_ENV=development & eleventy --serve & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css --watch",
-    "build": "eleventy & NODE_ENV=production & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css --minify"
+    "build": "ELEVENTY_ENV=production & eleventy & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css --minify"
   },
   "repository": {
     "type": "git",
