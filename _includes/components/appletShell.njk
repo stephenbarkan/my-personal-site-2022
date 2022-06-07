@@ -4,7 +4,7 @@
     data-applet="{{title}}"
     :class="activeApplet !== '{{title}}' && 'hidden lg:block'"
     @click="setActiveApplet('{{title}}')"
-    class="h-full sm:h-auto sm:w-auto {{posX}} {{posY}} grid-inset-0 transform">
+    class="h-full grid place-items-center sm:h-auto sm:w-auto {{posX}} {{posY}} grid-inset-0 transform">
         <div
         class="sm:{{maxWidth}} max-w-full {{height}} h-full flex-1 max-w-full flex flex-col pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"
         :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle' :'shadow-applet-idle'">
