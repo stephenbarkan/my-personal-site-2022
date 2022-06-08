@@ -98,8 +98,14 @@
         </div>
 
         {# form section #}
+        <form data-netlify="true" hidden name="contact-form">
+            <textarea name="Name" id="Name"></textarea>
+            <textarea name="Message" id="Message"></textarea>
+            <textarea name="Email" id="Email"></textarea>
+        </form>
         <form x-ref="form" name="contact-form" id="contact-form" data-netlify="true" method="POST" class="flex flex-col gap-3">
             <div class="divider"></div>
+            <input type="hidden" name="form-name" value="contact-form"/>
             <template x-for="formField in formFields" :key="formField.id">
                 <div
                     x-show="activeField === formField.id"
@@ -111,13 +117,13 @@
                             @keydown.enter="formField.value && incrementFormField"
                             x-on:input="$event.target.parentNode.dataset.value = $event.target.value"
                             rows="1"
+                            x-bind:name="formField.name"
                             x-model="formField.value"
                             x-bind:id="'formField'+ formField.id"
                             x-bind:disabled="appletState === 'transitioning'"
                             x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
                             x-bind:placeholder="formField.placeholder"
                             resize=""
-                            name="formField"
                             class="flex-1 py-2 pl-3 pr-1.5 h-full focus:translate-y-px transition-transform active:ease-bounce bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder"></textarea>
                     </label>
                     <button
@@ -132,6 +138,7 @@
                     </button>
                 </div>
             </template>
+
         </form>
 
         {# confirm send dialog #}
