@@ -1,4 +1,5 @@
 {% set heartIcon %}{% include "icons/heart-fill.svg" %}{% endset %}
+{% from "snippets/loginAnimationTimings.njk" import topBarTiming %}
 {% macro topbarButton(title, featured, onClick, tab = true) %}
     <button
     {% if tab %}
@@ -14,7 +15,13 @@
     </button>
 {% endmacro %}
 
-<header :data-applet="activeApplet" class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar backdrop-blur">
+<header
+    :data-applet="activeApplet"
+    x-show="loggedIn"
+    x-transition:enter-start="-translate-y-full"
+    x-transition:enter="transition transform {{topBarTiming}}"
+    x-transition:enter-end="translate-0"
+    class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar backdrop-blur">
     <div class="flex space-x-1">
         <div x-data="{open: false}" class="relative">
             {{topbarButton(title="Stephen Barkan", featured=true, tab=false, onClick="open = !open")}}

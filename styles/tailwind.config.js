@@ -49,6 +49,7 @@ module.exports = {
       "list-inset": "0px 1px 3px -1px inset hsla(var(--scoped-shadow-color) / .15), 0px 0px .6px inset hsla(var(--scoped-shadow-color) / .2)",
       topbar: "0px 1px 1px hsla(var(--global-shadow-color) / 0.15), 0px 1px 40px 0px rgba(var(--clr-solid), 0.05), 0px 0px 0px 0.6px hsla(var(--global-shadow-color) / 0.15)",
       body: "0px 0px 40px 0px inset rgba(var(--clr-solid), 0.2)",
+      "body-login": "0px 0px 120px -40px inset rgba(var(--clr-solid), .6)",
       focus: "0px 0px 0px 2px #5A98F6, 0px 0px 0px 4px #DCEAFF",
       "applet-idle": "0px 1.5px 2.3px hsl(var(--global-shadow-color) / 0.03), 0px 3px 4.5px hsl(var(--global-shadow-color) / 0.08), 0px 5.9px 8.9px hsl(var(--global-shadow-color) / 0.12), 0 0 0 0.6px hsla(var(--global-shadow-color) / .16)",
       "applet-active":
@@ -147,6 +148,7 @@ module.exports = {
     },
     animation: {
       spin: "spin 1s infinite linear",
+      "spin-slow": "spin 20s infinite linear",
       "typing-dots": "typingDots 1s infinite linear",
       "slide-up": "slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both",
       "clear-typing-bubble": "clearTypingBubble 1.75s linear both",

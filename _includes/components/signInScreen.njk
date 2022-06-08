@@ -1,0 +1,27 @@
+{% import "components/avatar.njk" as "avatar"%}
+{% import "components/button.njk" as "btn"%}
+{% from "snippets/loginAnimationTimings.njk" import loginPanelTiming,
+loginBgTiming %}
+
+<div class="fixed inset-0 grid place-content-center">
+    <div
+        x-show="!loggedIn"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave="transition transform {{loginBgTiming}}"
+        x-transition:leave-end="opacity-0"
+        class="absolute inset-0 -z-1 bg-clr-highlight blur-[2px] filter shadow-body-login"
+        style="background-image: url(/images/dot-pattern.svg)"></div>
+    <div
+        x-show="!loggedIn"
+        x-transition:leave-start="opacity-100 scale-100"
+        x-transition:leave="transition transform {{loginPanelTiming}}"
+        x-transition:leave-end="scale-95 opacity-0"
+        class="relative flex flex-col items-center gap-8">
+        <div class="absolute rounded-full opacity-75 animate-spin-slow -inset-24 -z-1 bg-ui-applet-bg blur-2xl filter"></div>
+        {{avatar.avatar(size="w-28 h-28")}}
+        <div class="flex flex-col items-center gap-4">
+            <h2 class="text-xl font-medium">Welcome to StephOS</h2>
+            {{btn.button(label="Log in", as="button", onClick="loggedIn = true")}}
+        </div>
+    </div>
+</div>

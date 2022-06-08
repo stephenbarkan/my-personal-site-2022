@@ -3,7 +3,7 @@
 {% set editIcon %}{% include "icons/edit.svg" %}{% endset %}
 {% set musicIcon %}{% include "icons/music.svg" %}{% endset %}
 {% set chatIcon %}{% include "icons/chat.svg" %}{% endset %}
-
+{% from "snippets/loginAnimationTimings.njk" import bottomBarTiming %}
 
 {% macro bottombarButton(title, icon, class) %}
     <button
@@ -17,7 +17,12 @@
     </button>
 {% endmacro %}
 
-<footer class="relative flex flex-1 w-full gap-1 px-3 py-2 overflow-hidden rounded-lg bg-ui-applet-bg shadow-applet-idle">
+<footer
+    x-show="loggedIn"
+    x-transition:enter-start="translate-y-full"
+    x-transition:enter="transition transform {{bottomBarTiming}}"
+    x-transition:enter-end="translate-0"
+    class="relative flex flex-1 w-full gap-1 px-3 py-2 overflow-hidden rounded-lg bg-ui-applet-bg shadow-applet-idle">
     {{bottombarButton(title="photos", icon=heartIcon, class="flex-1")}}
     {{bottombarButton(title="design", icon=groupIcon, class="flex-1")}}
     {{bottombarButton(title="posts", icon=editIcon, class="flex-1")}}

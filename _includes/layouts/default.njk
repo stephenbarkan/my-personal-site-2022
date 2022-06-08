@@ -24,7 +24,8 @@
         <div id="app"
     x-data="{
         activeApplet: 'posts',
-        z: 1,
+        z: 2,
+        loggedIn: false,
         allApplets: document.querySelectorAll('[data-is-applet]'),
         getUrlParam(param) {
             let value;
@@ -49,7 +50,9 @@
                 el.classList.remove('applet-animate')
                 if (el.dataset.applet === applet) {
                  el.style.zIndex = this.z
-                 el.classList.add('applet-animate')
+                 if (this.z > 3) {
+                    el.classList.add('applet-animate')
+                 }
                 }
             });
             history.replaceState({}, '', `?activeApplet=${applet}`);
@@ -70,13 +73,14 @@
     :data-applet="activeApplet"
     class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
     style="background-image: url(/images/dot-pattern.svg)">
-            <main class="grid w-full h-screen grid-rows-site">
-                <div class="z-[999] flex-shrink-0 hidden sm:block">{% include "components/topbar.njk" %}</div>
+            <main class="grid w-full h-screen grid-rows-site" x-cloak>
+                <div class="z-10 flex-shrink-0 hidden sm:block">{% include "components/topbar.njk" %}</div>
                 {% block content %}
                     {{ content | safe }}
                 {% endblock %}
-                <div class="lg:hidden flex-shrink-0 z-[999] bottom-0 row-start-3 page-container">{% include "components/appletIconFooter.njk" %}</div>
+                <div class="bottom-0 z-10 flex-shrink-0 row-start-3 lg:hidden page-container">{% include "components/appletIconFooter.njk" %}</div>
             </main>
+            {% include "components/signInScreen.njk" %}
         </div>
         <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>

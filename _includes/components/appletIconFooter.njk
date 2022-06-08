@@ -3,6 +3,7 @@
 {% set chatIcon %}{% include "icons/chat-fill.svg" %}{% endset %}
 {% set musicIcon %}{% include "icons/music-fill.svg" %}{% endset %}
 {% set bookIcon %}{% include "icons/book-fill.svg" %}{% endset %}
+{% from "snippets/loginAnimationTimings.njk" import bottomBarTiming %}
 
 {% macro appletIcon(icon, applet) %}
     <div class="flex flex-col items-center gap-1">
@@ -23,17 +24,21 @@
             x-transition:leave=""
             x-transition:leave-start="scale-100 opacity-100"
             x-transition:leave-end="scale-0 opacity-0"
-            class="block w-1 h-1 transition rounded-full bg-clr-solid">
-        </span>
+            class="block w-1 h-1 transition rounded-full bg-clr-solid"></span>
     </div>
 {% endmacro %}
-        <footer class="flex justify-center w-full pb-2">
-            <nav class="flex px-3 pb-1 pt-3 rounded-[15px] gap-3 bg-ui-topbar-bg backdrop-blur shadow-applet-idle min-w-[200px]">
-                {{ appletIcon(applet="photos", icon=heartIcon) }}
-                {{ appletIcon(applet="design", icon=penIcon) }}
-                {{ appletIcon(applet="posts", icon=bookIcon) }}
-                {{ appletIcon(applet="music", icon=musicIcon) }}
-                {{ appletIcon(applet="chat", icon=chatIcon) }}
-            </nav>
+<footer
+        x-show="loggedIn"
+        x-transition:enter-start="translate-y-full"
+        x-transition:enter="transition transform {{bottomBarTiming}}"
+        x-transition:enter-end="translate-0"
+        class="flex justify-center w-full pb-2">
+    <nav class="flex px-3 pb-1 pt-3 rounded-[15px] gap-3 bg-ui-topbar-bg backdrop-blur shadow-applet-idle min-w-[200px]">
+        {{ appletIcon(applet="photos", icon=heartIcon) }}
+        {{ appletIcon(applet="design", icon=penIcon) }}
+        {{ appletIcon(applet="posts", icon=bookIcon) }}
+        {{ appletIcon(applet="music", icon=musicIcon) }}
+        {{ appletIcon(applet="chat", icon=chatIcon) }}
+    </nav>
 
-        </footer>
+</footer>

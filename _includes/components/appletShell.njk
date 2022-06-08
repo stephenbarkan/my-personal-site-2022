@@ -1,10 +1,15 @@
-{% macro applet(title, maxWidth, height, data, posX, posY) %}
+{% macro applet(title, maxWidth, height, data, posX, posY, transitionStart, transitionEnd, timing) %}
     <div
     data-is-applet
     data-applet="{{title}}"
     :class="activeApplet !== '{{title}}' && 'hidden lg:grid'"
+    x-show="loggedIn"
+    x-transition:enter-start="scale-110 opacity-0"
+    x-transition:enter="transition transform {{timing}}"
+    x-transition:enter-end="scale-100 opacity-100"
     @click="setActiveApplet('{{title}}')"
-    class="h-full grid place-items-center sm:h-auto sm:w-[min-content] {{posX}} {{posY}} grid-inset-0 transform">
+    class="h-full grid place-items-center sm:h-auto sm:w-[min-content] {{posX}} {{posY}} grid-inset-0 transform"
+    style="z-index: 1">
         <div
         class="{{maxWidth}} max-w-full {{height}} h-full flex-1 max-w-full flex flex-col pt-2 gap-3 rounded-lg bg-ui-applet-bg overflow-hidden transform xs:flex relative"
         :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle' :'shadow-applet-idle'">
