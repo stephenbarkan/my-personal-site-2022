@@ -5,8 +5,8 @@
 {% set twitterIcon %}{% include "icons/twitter.svg" %}{% endset %}
 {% set instagramIcon %}{% include "icons/instagram.svg" %}{% endset %}
 {% set heartIcon %}
-    <div class="grid grid-cols-1 grid-rows-1">
-        <span
+<div class="grid grid-cols-1 grid-rows-1">
+    <span
             x-transition:enter="transform ease-out delay-75 duration-200"
             x-transition:enter-start="opacity-50 scale-[.65]"
             x-transition:enter-end="opacity-100 scale-100"
@@ -14,7 +14,7 @@
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="scale-125 opacity-0"
             class="block col-span-1 col-start-1 row-start-1 transition text-display-tertiary group-active:scale-95" x-show="!liked">{% include "icons/heart-outline.svg" %}</span>
-        <span
+    <span
             x-transition:enter="ease-in duration-500 delay-150"
             x-transition:enter-start="opacity-0 scale-125"
             x-transition:enter-end="opacity-100 scale-100"
@@ -22,13 +22,13 @@
             x-transition:leave-start="opacity-100 "
             x-transition:leave-end="scale-150 opacity-0"
             class="block col-span-1 col-start-1 row-start-1 transition transform text-clr-solid group-active:scale-110" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
-    </div>
+</div>
 {% endset %}
 {% set label %}
-    <div class="grid grid-cols-1 grid-rows-1">
-        <span class="col-start-1 row-start-1" :class="liked && 'invisible'">0 Likes</span>
-        <span class="col-start-1 row-start-1" :class="!liked && 'invisible'">1 Like!</span>
-    </div>
+<div class="grid grid-cols-1 grid-rows-1">
+    <span class="col-start-1 row-start-1" :class="liked && 'invisible'">0 Likes</span>
+    <span class="col-start-1 row-start-1" :class="!liked && 'invisible'">1 Like!</span>
+</div>
 {% endset %}
 
 {% block content %}
@@ -53,7 +53,7 @@
         <div class="w-full divider"></div>
         <section class="flex flex-col flex-1 gap-8">
             {% for post in data %}
-            <div
+                <div
                 :key="{{loop.index}}"
                 x-data="{
                     count: {{post.images.length}},
@@ -68,11 +68,11 @@
                     }
                 }"
                 class="flex flex-col gap-3">
-                {# carousel #}
-                <div class="relative overflow-hidden rounded">
-                    {% if post.images.length > 1 %}
-                    <div class="absolute z-10 flex justify-between w-full transform -translate-y-1/2 top-1/2">
-                        <button
+                    {# carousel #}
+                    <div class="relative overflow-hidden rounded">
+                        {% if post.images.length > 1 %}
+                            <div class="absolute z-10 flex justify-between w-full transform -translate-y-1/2 top-1/2">
+                                <button
                             @click="prev"
                             x-transition:enter="duration-250 delay-150"
                             x-transition:enter-start="opacity-0 translate-x-8"
@@ -81,8 +81,9 @@
                             x-transition:leave-start="opacity-100 scale-100"
                             x-transition:leave-end="opacity-0 translate-x-8"
                             x-show="currentIndex > 1"
-                            class="z-10 p-3 transition transform active:scale-90 hover:scale-105"><span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic">{{prevPhoto | safe}}</span></button>
-                        <button
+                            class="z-10 p-3 transition transform active:scale-90 hover:scale-105">
+                                    <span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic">{{prevPhoto | safe}}</span></button>
+                                <button
                             @click="next"
                             x-transition:enter="duration-250 delay-150"
                             x-transition:enter-start="opacity-0 -translate-x-8"
@@ -91,39 +92,41 @@
                             x-transition:leave-start="opacity-100 scale-100"
                             x-transition:leave-end="opacity-0 -translate-x-8"
                             x-show="currentIndex < {{post.images.length}}"
-                            class="z-10 p-3 ml-auto transition active:scale-90 hover:scale-105"><span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic">{{nextPhoto | safe}}</span></button>
-                    </div>
-                    {% endif %}
+                            class="z-10 p-3 ml-auto transition active:scale-90 hover:scale-105">
+                                    <span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic">{{nextPhoto | safe}}</span></button>
+                            </div>
+                        {% endif %}
 
-                    <div x-ref="slider"
+                        <div x-ref="slider"
                         class="flex transition-transform duration-500 transform translate-x-0"
                         style="scroll-snap-type: x mandatory;">
-                        {% for image in post.images %}
-                            <img class="object-fill" style="scroll-snap-align: start;" src="{{image}}" alt="">
-                        {% endfor %}
+                            {% for image in post.images %}
+                                <img loading="lazy" class="object-fill" style="scroll-snap-align: start;" src="{{image}}" alt="">
+                            {% endfor %}
+                        </div>
                     </div>
-                </div>
 
-                {# like button and indicator dots #}
-                <div class="flex items-center">
-                    <div x-data="{liked: false}" class="flex-1">{{btn.button(label=label, icon=heartIcon, as="button", onClick="liked = !liked")}}</div>
-                    {% if post.images.length > 1 %}
-                    <div class="flex gap-1.5">
-                        {% for images in post.images %}
-                        <span
+                    {# like button and indicator dots #}
+                    <div class="flex items-center">
+                        <div x-data="{liked: false}" class="flex-1">{{btn.button(label=label, icon=heartIcon, as="button", onClick="liked = !liked")}}</div>
+                        {% if post.images.length > 1 %}
+                            <div class="flex gap-1.5">
+                                {% for images in post.images %}
+                                    <span
                             :class="currentIndex === {{loop.index}} ? 'opacity-100' : 'opacity-25'"
-                            class="block w-1.5 h-1.5 transition rounded-full bg-clr-solid">
-                        </span>
-                        {% endfor %}
+                            class="block w-1.5 h-1.5 transition rounded-full bg-clr-solid"></span>
+                                {% endfor %}
+                            </div>
+                            <div class="flex-1"></div>
+                        {% endif %}
                     </div>
-                    <div class="flex-1"></div>
-                    {% endif %}
+                    <div class="flex flex-col gap-1">
+                        <p class="text-display-secondary">
+                            <span class="font-medium text-display-primary">stephen_barkan</span>
+                            {{post.caption}}</p>
+                        <time class="text-sm text-display-tertiary">{{post.details}}</time>
+                    </div>
                 </div>
-                <div class="flex flex-col gap-1">
-                    <p class="text-display-secondary"><span class="font-medium text-display-primary">stephen_barkan</span> {{post.caption}}</p>
-                    <time class="text-sm text-display-tertiary">{{post.details}}</time>
-                </div>
-            </div>
             {% endfor %}
         </section>
     </div>
