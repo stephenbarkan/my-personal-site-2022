@@ -47,11 +47,23 @@
                     this.activeField = this.activeField + 1
                 }
             },
-            submitForm (e) {
-                    e.preventDefault()
+            submitForm () {
+                const formData = new FormData(this.$refs.form);
+                fetch(this.$refs.form.getAttribute('action'), {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/x-www-form-urlencoded;charset=UTF-8',
+                    'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+                    enctype: 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams(formData).toString(),
+                }).then((res) => {
+                if (res) {
                     setTimeout(() => {
                         this.sendBotMessage()
                     }, 500);
+                }
+                });
             },
 
         }"
@@ -91,7 +103,7 @@
             <textarea name="Message" id="Message"></textarea>
             <textarea name="Email" id="Email"></textarea>
         </form>
-        <form x-ref="form" name="contact-form" id="contact-form" data-netlify="true" method="POST" class="flex flex-col gap-3">
+        <form x-ref="form" name="contact-form" id="contact-form" method="POST" class="flex flex-col gap-3">
             <div class="divider"></div>
             <input type="hidden" name="form-name" value="contact-form"/>
             <template x-for="formField in formFields" :key="formField.id">
