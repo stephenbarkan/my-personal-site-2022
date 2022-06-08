@@ -1,6 +1,6 @@
 module.exports = {
   mode: "jit",
-  content: ["_site/**/*.html"],
+  content: ["*/**.md"],
   theme: {
     extend: {
       screens: {

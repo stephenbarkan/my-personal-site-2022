@@ -75,13 +75,11 @@
                 {% block content %}
                     {{ content | safe }}
                 {% endblock %}
-                {# < div class = "row-start-3 p-2 pt-0 page-container xs:hidden" > {% include "components/bottombar.njk" %}</div> #}
                 <div class="lg:hidden flex-shrink-0 z-[999] bottom-0 row-start-3 page-container">{% include "components/appletIconFooter.njk" %}</div>
             </main>
         </div>
         <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/interactjs/dist/interact.min.js"></script>
         <script src="/../scripts/clock.js"></script>
     </body>
 </html>
