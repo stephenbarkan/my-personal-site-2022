@@ -117,7 +117,7 @@
                             @keydown.enter="formField.value && incrementFormField"
                             x-on:input="$event.target.parentNode.dataset.value = $event.target.value"
                             rows="1"
-                            x-bind:name="formField.name"
+                            x-bind:name="formField.title"
                             x-model="formField.value"
                             x-bind:id="'formField'+ formField.id"
                             x-bind:disabled="appletState === 'transitioning'"
