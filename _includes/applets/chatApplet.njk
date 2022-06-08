@@ -49,7 +49,7 @@
             },
             submitForm () {
                 const formData = new FormData(this.$refs.form);
-                fetch(this.$refs.form.getAttribute('action'), {
+                fetch(`/`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/x-www-form-urlencoded;charset=UTF-8',
@@ -124,7 +124,7 @@
                             x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
                             x-bind:placeholder="formField.placeholder"
                             resize=""
-                            class="flex-1 py-2 pl-3 pr-1.5 h-full focus:translate-y-px transition-transform active:ease-bounce bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder"></textarea>
+                            class="flex-1 py-2 pl-3 pr-1.5 h-full focus:translate-y-px transition-transform active:ease-bounce bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder">test</textarea>
                     </label>
                     <button
                         type="button"
