@@ -17,10 +17,10 @@ loginBgTiming %}
         x-transition:leave="transition transform {{loginPanelTiming}}"
         x-transition:leave-end="scale-95 opacity-0"
         class="relative flex flex-col items-center gap-8">
-        <div class="absolute rounded-full opacity-75 animate-spin-slow -inset-24 -z-1 bg-ui-applet-bg blur-2xl filter"></div>
+        <div class="absolute rounded-full opacity-75 animate-spin-slow -inset-24 -z-1 bg-ui-applet-bg" style="filter: blur(40px)"></div>
         {{avatar.avatar(size="w-28 h-28")}}
         <div class="flex flex-col items-center gap-4">
-            <h2 class="text-xl font-medium">Welcome to StephOS</h2>
+            <h2 class="text-xl font-medium">Welcome to stephOS</h2>
             {{btn.button(label="Log in", as="button", onClick="loggedIn = true")}}
         </div>
     </div>
