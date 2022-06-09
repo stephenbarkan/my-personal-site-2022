@@ -1,16 +1,18 @@
 {% set heartIcon %}{% include "icons/heart-fill.svg" %}{% endset %}
-{% from "snippets/loginAnimationTimings.njk" import topBarTiming %}
-{% macro topbarButton(title, featured, onClick, tab = true) %}
+{% from "snippets/loginAnimationTimings.njk" import uiBarTimingOut,
+uiBarTimingIn %}
+{% macro topbarButton(title, featured, onClick, type = "tab", class) %}
     <button
-    {% if tab %}
+    {% if type === "tab" %}
         :class="activeApplet === '{{title}}' ? 'bg-ui-divider text-display-primary' : 'text-display-secondary'"
         @click="setActiveApplet('{{title}}')"
-    {% else %}
+    {% elseif type === "dropdown" %}
         @click="{{onClick}}"
         :class="open && ' bg-ui-divider'"
+    {% elseif type === "button" %}
+        @click="{{onClick}}"
     {% endif %}
-        class="{% if featured %}font-medium text-display-primary{% endif %}
-            {{class}} text-sm leading-none px-2 capitalize pt-[6px] pb-[7px] rounded-sm hover:bg-ui-divider">
+        class="{% if featured %}font-medium text-display-primary{% endif %} {{class}} text-sm leading-none px-2 capitalize pt-[6px] pb-[7px] rounded-sm hover:bg-ui-divider">
         {{title}}
     </button>
 {% endmacro %}
@@ -19,12 +21,15 @@
     :data-applet="activeApplet"
     x-show="loggedIn"
     x-transition:enter-start="-translate-y-full"
-    x-transition:enter="transition transform {{topBarTiming}}"
+    x-transition:enter="transition transform {{uiBarTimingIn}}"
     x-transition:enter-end="translate-0"
+    x-transition:leave-start="translate-0"
+    x-transition:leave="transition transform {{uiBarTimingOut}}"
+    x-transition:leave-end="-translate-y-full"
     class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar backdrop-blur">
     <div class="flex space-x-1">
         <div x-data="{open: false}" class="relative">
-            {{topbarButton(title="Stephen Barkan", featured=true, tab=false, onClick="open = !open")}}
+            {{topbarButton(title="stephOS", featured=true, type="dropdown", onClick="open = !open")}}
             <div
                 x-cloak x-show="open"
                 @click.away="open = false"
@@ -32,10 +37,13 @@
                 x-transition:enter-start="opacity-0 scale-90"
                 x-transition:leave="origin-top-left transition"
                 x-transition:leave-end="opacity-0"
-                class="w-[268px] mt-[3px] divide-y divide-ui-divider bg-ui-applet-bg shadow-applet-idle rounded flex flex-col gap-3 py-3 px-4 absolute z-[20]">
-                <p class="text-display-secondary">Thanks for being here! I hope this site brings you some joy.<span :data-applet="activeApplet" class="relative inline-block left-1 top-[3px] h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></p>
-                <span class="pt-3 text-display-tertiary">&copy; Stephen Barkan 2022</span>
-                {# {{topbarButton(title="Log out", class="w-full text-left", tab=false, onClick="loggedIn = false; open = !open")}} #}
+                class="w-[268px] mt-[3px] bg-ui-applet-bg shadow-applet-idle rounded flex flex-col gap-2 pt-3 pb-2 px-4 absolute z-[20]">
+                <div class="flex flex-col gap-3">
+                    <p class="text-display-secondary">Thanks for being here! I hope this site brings you some joy.<span :data-applet="activeApplet" class="relative inline-block left-1 top-[3px] h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></p>
+                    <span class="text-display-tertiary">&copy; Stephen Barkan 2022</span>
+                </div>
+                <div class="divider"></div>
+                {{topbarButton(title="Log out", class="-mx-2 text-left", type="button", onClick="loggedIn = false; open = !open")}}
             </div>
         </div>
         <nav class="flex space-x-1">

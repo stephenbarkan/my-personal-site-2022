@@ -549,15 +549,15 @@
   }
 
   .applet-animate {
-    animation: appletAnimate 700ms theme(transitionTimingFunction.DEFAULT);
+    animation: appletAnimate 500ms theme(transitionTimingFunction.DEFAULT);
   }
   @keyframes appletAnimate {
     0%,
     100% {
       transform: scale(1);
     }
-    10% {
-      transform: scale(1.007);
+    25% {
+      transform: scale(1.004);
     }
   }
 }
