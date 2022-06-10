@@ -19,7 +19,7 @@ postsAppletTimingOut %}
 
 {% block content %}
     <div
-    x-show="loggedIn" class="relative flex justify-center flex-1 row-start-2 gap-3 max-w-[100vw] items-center page-container">
+    x-show="appState === 'loggedIn'" class="relative flex justify-center flex-1 row-start-2 gap-3 max-w-[100vw] items-center page-container">
         <div class="relative sm:grid place-items-center w-full grid-absolute max-w-[1800px] xs:px-2 py-2 max-h-[1100px] h-full">
             {{designApplet.applet(title='design', maxWidth='w-full sm:w-[calc(100vw-1rem)] md:max-w-[780px]', height='sm:h-[350px]', data=collections.designs, posX='sm:absolute lg:left-[4.4vw]', posY='lg:top-[3vh]', timingIn=designAppletTimingIn, timingOut=designAppletTimingOut)}}
             {{musicApplet.applet(title='music', maxWidth='sm:w-[520px]', height='sm:h-[320px]', data=music, posX='sm:absolute lg:left-[2.4vw]', posY='lg:bottom-[3vh]', timingIn=musicAppletTimingIn, timingOut=musicAppletTimingOut)}}

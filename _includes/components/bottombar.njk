@@ -18,7 +18,7 @@
 {% endmacro %}
 
 <footer
-    x-show="loggedIn"
+    x-show="appState === 'loggedIn'"
     x-transition:enter-start="translate-y-full"
     x-transition:enter="transition transform {{bottomBarTiming}}"
     x-transition:enter-end="translate-0"

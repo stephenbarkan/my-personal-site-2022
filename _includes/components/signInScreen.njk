@@ -3,11 +3,12 @@
 {% from "snippets/loginAnimationTimings.njk" import loginPanelTimingIn,
 loginPanelTimingOut,
 loginBgTimingIn,
-loginBgTimingOut %}
+loginBgTimingOut,
+loadingBarTimingOut %}
 
-<div x-show="!loggedIn" class="fixed inset-0 grid place-content-center">
+<div x-show="appState !== 'loggedIn'" class="fixed inset-0 grid grid-absolute place-items-center">
     <div
-        x-show="!loggedIn"
+        x-show="appState !== 'loggedIn'"
         x-transition:leave-start="opacity-100"
         x-transition:leave="transition transform {{loginBgTimingOut}}"
         x-transition:leave-end="opacity-0"
@@ -16,28 +17,37 @@ loginBgTimingOut %}
         x-transition:enter-end="opacity-100"
         class="absolute inset-0 -z-1 bg-clr-highlight blur-[2px] filter shadow-body-login"
         style="background-image: url(/images/dot-pattern.svg)"></div>
-    <div class="relative flex flex-col items-center gap-8">
+    <div
+        x-show="appState === 'startUp'"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave="transition {{loadingBarTimingOut}}"
+        x-transition:leave-end="opacity-0"
+        class="grid-inset-0 w-48 h-1.5 overflow-hidden rounded-full bg-clr-highlight shadow-list-inset">
+        <div class="w-full h-full rounded-full animate-loading-bar bg-clr-solid"></div>
+    </div>
+    {# login panel #}
+    <div class="relative flex flex-col items-center gap-8 grid-inset-0">
         <div
-            x-show="!loggedIn"
+            x-show="appState === 'loggedOut'"
             x-transition:leave-start="opacity-100 scale-100 translate-y-0"
             x-transition:leave="transition transform {{loginPanelTimingOut}}"
-            x-transition:leave-end="-translate-y-6 scale-[110%] opacity-0"
+            x-transition:leave-end="-translate-y-12 opacity-0"
             x-transition:enter-start="opacity-0 scale-95"
             x-transition:enter="transition transform {{loginPanelTimingIn}}"
             x-transition:enter-end="scale-100 opacity-100">
             {{avatar.avatar(size="w-28 h-28")}}
         </div>
         <div
-            x-show="!loggedIn"
+            x-show="appState === 'loggedOut'"
             x-transition:leave-start="opacity-100 scale-100 translate-y-0"
             x-transition:leave="transition transform {{loginPanelTimingOut}}"
-            x-transition:leave-end="translate-y-6 scale-[110%] opacity-0"
+            x-transition:leave-end="-translate-y-6 opacity-0"
             x-transition:enter-start="opacity-0 scale-95"
             x-transition:enter="transition transform {{loginPanelTimingIn}}"
             x-transition:enter-end="scale-100 opacity-100"
             class="flex flex-col items-center gap-4">
             <h2 class="text-xl font-medium">Welcome to stephOS</h2>
-            {{btn.button(label="Log in", as="button", onClick="loggedIn = true")}}
+            {{btn.button(label="Log in", as="button", onClick="appState = 'loggedIn'")}}
         </div>
     </div>
 </div>

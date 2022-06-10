@@ -124,6 +124,23 @@ module.exports = {
           transform: "translateY(-1px)",
         },
       },
+      loadingBar: {
+        "0%": {
+          transform: "translateX(-100%)",
+        },
+        "10%": {
+          transform: "translateX(-90%)",
+        },
+        "35%": {
+          transform: "translateX(-50%)",
+        },
+        "60%": {
+          transform: "translateX(-40%)",
+        },
+        "100%": {
+          transform: "translateX(0)",
+        },
+      },
       slideUp: {
         "0%": {
           opacity: 0,
@@ -154,6 +171,7 @@ module.exports = {
       "typing-dots": "typingDots 1s infinite linear",
       "slide-up": "slideUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) both",
       "clear-typing-bubble": "clearTypingBubble 1.75s linear both",
+      "loading-bar": "loadingBar 1.5s linear both",
     },
   },
   variants: {},

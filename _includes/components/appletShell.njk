@@ -3,7 +3,7 @@
     data-is-applet
     data-applet="{{title}}"
     :class="activeApplet !== '{{title}}' && 'hidden lg:grid'"
-    x-show="loggedIn"
+    x-show="appState === 'loggedIn'"
     x-transition:enter-start="scale-110 opacity-0"
     x-transition:enter="transition transform {{timingIn}}"
     x-transition:enter-end="scale-100 opacity-100"

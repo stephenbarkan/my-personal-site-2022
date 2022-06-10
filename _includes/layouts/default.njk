@@ -25,7 +25,7 @@
     x-data="{
         activeApplet: 'posts',
         z: 2,
-        loggedIn: false,
+        appState: 'startUp',
         allApplets: document.querySelectorAll('[data-is-applet]'),
         getUrlParam(param) {
             let value;
@@ -68,7 +68,7 @@
                 headTitle.appendChild(setFavicon);
             }
     }"
-    x-init="getInitActiveApplet(), setActiveApplet(activeApplet)"
+    x-init="setTimeout(() => {appState = 'loggedOut'}, 1500), getInitActiveApplet(), setActiveApplet(activeApplet)"
     :data-active-applet="activeApplet"
     :data-applet="activeApplet"
     class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
