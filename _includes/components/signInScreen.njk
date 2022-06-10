@@ -15,8 +15,8 @@ loadingBarTimingOut %}
         x-transition:enter-start="opacity-0"
         x-transition:enter="transition transform {{loginBgTimingIn}}"
         x-transition:enter-end="opacity-100"
-        class="absolute inset-0 -z-1 bg-clr-highlight blur-[2px] filter shadow-body-login"
-        style="background-image: url(/images/dot-pattern.svg)"></div>
+        class="absolute inset-0 -z-1 bg-clr-highlight filter shadow-body-login"
+        style="background-image: url(/images/dot-pattern.svg); filter: blur(2px)"></div>
     <div
         x-show="appState === 'startUp'"
         x-transition:leave-start="opacity-100"
