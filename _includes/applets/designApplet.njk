@@ -69,7 +69,6 @@
             x-cloak
             x-data="{openDesign: 0}"
             x-show="currentFolder"
-            x-transition.opacity
             @reset-current-item.window="openDesign = 0; currentItem = null"
             class="flex flex-col gap-1 px-px overflow-auto flex-shrink-0 sm:min-w-[250px]">
                 {% for design in collections.design %}
@@ -79,11 +78,9 @@
             </ul>
             <div
             x-show="currentFolder"
-            x-transition.opacity
             class="mb-3 divider vertical"></div>
             <div
-            x-show="currentItem"
-            x-transition.opacity>
+            x-show="currentItem">
                 {{designItemDisplay()}}
             </div>
         </div>
