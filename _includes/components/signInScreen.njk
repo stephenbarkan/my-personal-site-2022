@@ -31,8 +31,8 @@ loadingBarTimingOut %}
             x-show="appState === 'loggedOut'"
             x-transition:leave-start="opacity-100 scale-100 translate-y-0"
             x-transition:leave="transition transform {{loginPanelTimingOut}}"
-            x-transition:leave-end="-translate-y-12 opacity-0"
-            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:leave-end="translate-y-6 opacity-0"
+            x-transition:enter-start="opacity-0 scale-90"
             x-transition:enter="transition transform {{loginPanelTimingIn}}"
             x-transition:enter-end="scale-100 opacity-100">
             {{avatar.avatar(size="w-28 h-28")}}
@@ -41,8 +41,8 @@ loadingBarTimingOut %}
             x-show="appState === 'loggedOut'"
             x-transition:leave-start="opacity-100 scale-100 translate-y-0"
             x-transition:leave="transition transform {{loginPanelTimingOut}}"
-            x-transition:leave-end="-translate-y-6 opacity-0"
-            x-transition:enter-start="opacity-0 scale-95"
+            x-transition:leave-end="translate-y-12 opacity-0"
+            x-transition:enter-start="opacity-0 scale-90"
             x-transition:enter="transition transform {{loginPanelTimingIn}}"
             x-transition:enter-end="scale-100 opacity-100"
             class="flex flex-col items-center gap-4">
