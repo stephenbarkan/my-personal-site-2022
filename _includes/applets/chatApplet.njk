@@ -22,6 +22,8 @@
             addBubble (typingDots, content, sentByUser) {
                 const newMessage = { id: this.conversation.length + 1, typingDots: typingDots, content: content, sentByUser: sentByUser }
                 this.conversation.push(newMessage)
+                setTimeout(() => { this.$refs.scroller.scrollTop = this.$refs.scroller.scrollHeight}, 10)
+
             },
             sendBotMessage () {
                 this.setAppletState()
@@ -68,9 +70,9 @@
 
         }"
         x-init="sendBotMessage"
-        class="flex flex-col flex-1 gap-3 px-3 pb-3 overflow-auto">
+        class="flex flex-col flex-1 max-h-full px-3 pb-3">
         {# conversation section #}
-        <div class="flex flex-col flex-1 gap-3">
+        <div x-ref="scroller" class="flex flex-col flex-1 gap-3 pb-3 overflow-auto">
             <template x-for="message in conversation" :key="message.id">
                 <div
                     :class="{
@@ -80,11 +82,13 @@
                     }"
                     class="flex">
                     <div
-                            :class="{'bg-clr-solid text-display-inverse-primary sentByUser': message.sentByUser,
-                                     'bg-clr-highlight text-display-secondary': !message.sentByUser,
-                                     'animate-clear-typing-bubble [animation-delay:750ms]': message.typingDots,
-                                     'animate-slide-up': !message.typingDots}"
-                                class="flex items-center px-3 py-2 min-h-[37px] rounded-xl max-w-full break-normal chat-bubble">
+                        :class="{
+                            'bg-clr-solid text-display-inverse-primary sentByUser': message.sentByUser,
+                            'bg-clr-highlight text-display-secondary': !message.sentByUser,
+                            'animate-clear-typing-bubble [animation-delay:750ms]': message.typingDots,
+                            'animate-slide-up': !message.typingDots
+                            }"
+                        class="flex items-center px-3 py-2 min-h-[37px] rounded-xl max-w-full break-normal chat-bubble">
                         <div x-show="message.typingDots" class="flex gap-1.5">
                             {% for i in[1, 2, 3] %}
                                 <div class="block w-1.5 h-1.5 bg-display-tertiary rounded-full animate-typing-dots" style="animation-delay: calc(-.33s * {{i}})"></div>
@@ -151,8 +155,8 @@
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
             class="absolute inset-0 flex items-center justify-center rounded-sm bg-ui-shade backdrop-blur">
-            <div class="w-full p-5">
-                <div class="flex flex-col gap-8 p-6 rounded bg-ui-applet-bg shadow-applet-header animate-slide-up [animation-delay:1500ms]">
+            <div class="flex flex-col w-full max-h-full p-5">
+                <div class="flex flex-col overflow-auto gap-8 p-6 rounded bg-ui-applet-bg shadow-applet-header animate-slide-up [animation-delay:1500ms]">
                     <div class="flex flex-col gap-6">
                         <header class="flex flex-col justify-center">
                             <h3 class="text-lg text-center">Ready to send?</h3>
@@ -168,7 +172,7 @@
                             </template>
                         </main>
                     </div>
-                    <footer>
+                    <footer class="sticky bottom-0">
                         {{btn.button(label="Send messages", highlighted=true, as="button", class="w-full", onClick="submitForm")}}
                     </footer>
                 </div>
