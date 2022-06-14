@@ -102,10 +102,11 @@ class="flex flex-col h-full gap-3 focus:outline-none">
         {# top section #}
         <div class="grid px-6 overflow-hidden sm:px-3 grid-absolute">
             <div x-show="appletState === 'idle'" class="grid grid-inset-0 place-content-center">
-                <h3 class="text-lg text-center sm:text-left">Choose a song to listen to some of the music I've written!</h3>
+                <h3 class="text-lg text-center sm:text-left">{{copy.musicEmptyState}}</h3>
             </div>
             <div x-show="appletState === 'playlistEnd'" x-cloak class="grid grid-inset-0 place-content-center">
-                <h3 class="text-lg text-center sm:text-left">Thanks for listening! <span :data-applet="activeApplet" class="relative inline-block left-1 top-[3px] h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></h3>
+                <h3 class="text-lg text-center sm:text-left">{{copy.musicCompletedState}}
+                    <span :data-applet="activeApplet" class="relative inline-block left-1 top-[3px] h-15 w-15 text-clr-solid">{{heartIcon | safe}}</span></h3>
             </div>
             <div
             x-cloak
