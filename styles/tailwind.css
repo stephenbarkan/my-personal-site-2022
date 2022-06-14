@@ -7,26 +7,23 @@
     --font-family: "darkmode-off";
     --font-family-inverse: "darkmode-on";
 
-    /* display colors */
-    --display-primary: rgba(22, 21, 30, 1);
-    --display-secondary: rgba(22, 21, 30, 0.78);
-    --display-tertiary: rgba(22, 21, 30, 0.5);
-    --display-inverse-primary: rgba(255, 255, 255, 1);
-    --display-inverse-secondary: rgba(255, 255, 255, 0.83);
-    --display-inverse-tertiary: rgba(255, 255, 255, 0.75);
-    --display-link: rgb(0, 115, 183, 1);
+    /* general display colors */
+    --display-inverse-primary: 0deg 0% 100%;
+    --display-inverse-secondary: 0deg 0% 100% / 83%;
+    --display-inverse-tertiary: 0deg 0% 100% / 75%;
+    --display-link: 202deg 100% 36%;
 
     /* ui colors */
-    --applet-bg: rgba(255, 255, 255, 1);
-    --divider: rgba(0, 0, 0, 0.07);
-    --shade: rgba(22, 21, 30, 0.5);
-    --topbar-bg: rgba(255, 255, 255, 0.4);
+    --applet-bg: 0deg 0% 100%;
+    --applet-header-highlight: 0deg 0% 100%;
+    --divider: 0deg 0% 0% / 7%;
+    --shade: 247deg 18% 10% / 50%;
+    --topbar-bg: 0deg 0% 100% / 40%;
 
     /* button colors */
-    --btn-bg: rgba(252, 252, 252, 1);
-    --btn-border: rgba(0, 0, 0, 0.12);
-    --btn-bg-hover: rgba(247, 247, 247, 1);
-    --btn-highlight: 255 255 255;
+    --btn-bg: 0deg 0% 99%;
+    --btn-border: 0deg 0% 0% / 12%;
+    --btn-bg-hover: 0deg 0% 97%;
 
     /* shadow colors */
     --shadow-photos: 20deg 100% 13%;
@@ -37,86 +34,86 @@
   }
 
   [data-active-applet="photos"] {
-    --wallpaper: rgba(247, 241, 238, 1);
+    --wallpaper: 20deg 36% 95%;
     --global-shadow-color: var(--shadow-photos);
   }
   [data-applet="photos"] {
-    --clr-solid: 252, 102, 79;
-    --clr-tint: rgba(255, 237, 228, 1);
-    --clr-highlight: rgba(245, 243, 243, 1);
-    --btn-bg: hsla(0deg 20% 99% / 1);
-    --btn-bg-hover: rgba(249, 247, 246, 1);
+    --clr-solid: 8deg 97% 65%;
+    --clr-tint: 20deg 100% 95%;
+    --clr-highlight: 0deg 9% 96%;
+    --btn-bg: 0deg 20% 99% / 1;
+    --btn-bg-hover: 20deg 20% 97%;
     --scoped-shadow-color: var(--shadow-photos);
-    --display-primary: hsl(8deg 18% 10%);
-    --display-secondary: hsl(8deg 40% 8% / 78%);
-    --display-tertiary: hsl(8deg 18% 10% / 50%);
+    --display-primary: 8deg 18% 10%;
+    --display-secondary: 8deg 40% 8% / 78%;
+    --display-tertiary: 8deg 18% 10% / 50%;
   }
 
   [data-active-applet="design"] {
-    --wallpaper: rgba(242, 238, 247, 1);
+    --wallpaper: 267deg 36% 95%;
     --global-shadow-color: var(--shadow-design);
   }
   [data-applet="design"] {
-    --clr-solid: 85, 71, 236;
-    --clr-tint: rgba(237, 235, 255, 1);
-    --clr-highlight: hsl(240deg 10% 96%);
-    --btn-bg: hsl(240deg 20% 99%);
-    --btn-bg-hover: rgba(247, 247, 248, 1);
+    --clr-solid: 245deg 81% 60%;
+    --clr-tint: 246deg 100% 96%;
+    --clr-highlight: 240deg 10% 96%;
+    --btn-bg: 240deg 20% 99%;
+    --btn-bg-hover: 240deg 7% 97%;
     --scoped-shadow-color: var(--shadow-design);
-    --display-primary: hsl(246deg 18% 10%);
-    --display-secondary: hsl(246deg 50% 8% / 78%);
-    --display-tertiary: hsl(246deg 28% 10% / 50%);
+    --display-primary: 246deg 18% 10%;
+    --display-secondary: 246deg 50% 8% / 78%;
+    --display-tertiary: 246deg 28% 10% / 50%;
   }
 
   [data-active-applet="posts"] {
-    --wallpaper: rgba(248, 245, 236, 1);
+    --wallpaper: 45deg 46% 95%;
     --global-shadow-color: var(--shadow-posts);
   }
   [data-applet="posts"] {
-    --clr-solid: 233, 155, 65;
-    --clr-tint: rgba(255, 245, 221, 1);
-    --clr-highlight: hsl(30deg 8% 96%);
-    --btn-bg: hsla(60deg 20% 99% / 1);
-    --btn-bg-hover: rgba(248, 248, 246, 1);
+    --clr-solid: 32deg 79% 58%;
+    --clr-tint: 42deg 100% 93%;
+    --clr-highlight: 30deg 8% 96%;
+    --btn-bg: 60deg 20% 99% / 1;
+    --btn-bg-hover: 60deg 13% 97%;
     --scoped-shadow-color: var(--shadow-posts);
-    --display-primary: hsl(22deg 18% 10%);
-    --display-secondary: hsl(22deg 30% 8% / 78%);
-    --display-tertiary: hsl(22deg 8% 10% / 50%);
+    --display-primary: 22deg 18% 10%;
+    --display-secondary: 22deg 30% 8% / 78%;
+    --display-tertiary: 22deg 8% 10% / 50%;
   }
 
   [data-active-applet="music"] {
-    --wallpaper: #f2f5ef;
+    --wallpaper: 90deg 23% 95%;
     --global-shadow-color: var(--shadow-music);
   }
   [data-applet="music"] {
-    --clr-solid: 50, 184, 168;
-    --clr-tint: rgba(221, 248, 232, 1);
-    --clr-highlight: rgba(244, 246, 245, 1);
-    --btn-bg: hsla(150deg 20% 99% / 1);
-    --btn-bg-hover: rgba(246, 248, 247, 1);
+    --clr-solid: 173deg 57% 46%;
+    --clr-tint: 144deg 66% 92%;
+    --clr-highlight: 150deg 10% 96%;
+    --btn-bg: 150deg 20% 99% / 1;
+    --btn-bg-hover: 150deg 13% 97%;
     --scoped-shadow-color: var(--shadow-music);
     --btn-highlight-border: 173deg 77% 34%;
     --btn-highlight-hover: 173deg 54% 43%;
-    --display-primary: hsl(144deg 18% 10%);
-    --display-secondary: hsl(144deg 60% 8% / 78%);
-    --display-tertiary: hsl(144deg 38% 10% / 50%);
+    --display-primary: 144deg 18% 10%;
+    --display-secondary: 144deg 60% 8% / 78%;
+    --display-tertiary: 144deg 38% 10% / 50%;
   }
 
   [data-active-applet="chat"] {
-    --wallpaper: #edf3f7;
+    --wallpaper: 204deg 38% 95%;
     --global-shadow-color: var(--shadow-chat);
   }
   [data-applet="chat"] {
-    --clr-solid: 10, 152, 235;
-    --clr-tint: rgba(225, 241, 255, 1);
-    --clr-highlight: rgba(240, 243, 245, 1);
-    --btn-bg-hover: rgba(246, 248, 249, 1);
+    --clr-solid: 202deg 92% 48%;
+    --clr-tint: 208deg 100% 94%;
+    --clr-highlight: 204deg 20% 95%;
+    --btn-bg-hover: 200deg 20% 97%;
     --scoped-shadow-color: var(--shadow-chat);
     --btn-highlight-border: 202deg 62% 40%;
     --btn-highlight-hover: 202deg 90% 43%;
-    --display-primary: hsl(208deg 18% 10%);
-    --display-secondary: hsl(208deg 60% 8% / 78%);
-    --display-tertiary: hsl(208deg 38% 10% / 50%);
+    --display-primary: 208deg 18% 10%;
+    --display-secondary: 208deg 60% 8% / 78%;
+    --display-tertiary: 208deg 38% 10% / 50%;
   }
 }
 
@@ -155,7 +152,7 @@
     line-height: 1.15;
   }
 
-  /*  */
+  /* prose */
 
   .prose {
     --base-font-size: 1em;
