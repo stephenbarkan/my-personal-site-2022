@@ -34,7 +34,10 @@
     x-data="{
         activeApplet: 'posts',
         z: 2,
-        appState: 'startUp',
+        appState: '',
+        setAppState(state) {
+            this.appState = state
+        },
         allApplets: document.querySelectorAll('[data-is-applet]'),
         getUrlParam(param) {
             let value;
@@ -46,6 +49,9 @@
                 }
             })
             return value;
+        },
+        setLoginState() {
+            `{{helpers.environment }}` !== `development` && setTimeout(() => {this.setAppState('loggedOut')}, 1500)
         },
         getInitActiveApplet() {
             if (this.getUrlParam('activeApplet')) {
@@ -77,13 +83,20 @@
                 headTitle.appendChild(setFavicon);
             }
     }"
-    x-init="setTimeout(() => {appState = 'loggedOut'}, 1500), getInitActiveApplet(), setActiveApplet(activeApplet)"
+    x-init="
+        setAppState(
+            `{{helpers.environment}}` === `development` ?  `loggedIn` :  `startUp`
+        ),
+        setLoginState(),
+        getInitActiveApplet(),
+        setActiveApplet(activeApplet)"
     :data-active-applet="activeApplet"
     :data-applet="activeApplet"
     class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
     style="background-image: url(/images/dot-pattern.svg)">
             <main class="grid w-full h-screen grid-rows-site" x-cloak>
                 <div class="z-[1000] flex-shrink-0 hidden sm:block">{% include "components/topbar.njk" %}</div>
+
                 {% block content %}
                     {{ content | safe }}
                 {% endblock %}

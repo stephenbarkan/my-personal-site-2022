@@ -37,8 +37,8 @@
             x-transition:leave="transition ease-in duration-150 transform"
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="-translate-x-full"
-            class="absolute top-0 bottom-0 left-0 z-10 flex flex-col w-48 gap-6 px-3 pt-6 overflow-auto transform bg-ui-applet-bg md:hidden">
-            <div @click="open = false" class="md:hidden">{{btn.button(label="Close list", icon=closeIcon, as="button", class="w-full")}}</div>
+            class="absolute top-0 bottom-0 left-0 z-10 flex flex-col w-64 max-w-[80%] gap-6 px-3 pt-6 overflow-auto transform bg-ui-applet-bg md:hidden">
+            <div @click="open = false" class="md:hidden">{{btn.button(label="Close list", icon=closeIcon, as="button", class="")}}</div>
             <div class="flex flex-col gap-1 md:mt-0">
                 {% for post in data %}
                     {% if post.data.featured == true %}
@@ -78,6 +78,7 @@
 {% macro postLink(title, date, isPinned, class, fileSlug) %}
     <button
         @click.prevent="openPost = '{{fileSlug}}'; open=false"
+        title="{{title}}"
         :class="{ 'appletListItemActive': openPost === '{{fileSlug}}' }"
         class="{{class}} text-left flex pb-2.5 pt-2 space-x-3 pr-2 pl-2.5 appletListItem group">
         <div class="space-y-1.5 overflow-hidden flex-1 appletListItemContents" :class="openPost === '{{fileSlug}}' && 'translate-y-px'">

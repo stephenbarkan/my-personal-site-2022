@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ELEVENTY_ENV=development & eleventy --serve & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css --watch",
-    "build": "ELEVENTY_ENV=production & eleventy & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css"
+    "dev": "ELEVENTY_ENV=development eleventy --serve & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css --watch",
+    "build": "ELEVENTY_ENV=production eleventy & npx tailwindcss -i styles/tailwind.css -c styles/tailwind.config.js -o _site/style.css"
   },
   "repository": {
     "type": "git",

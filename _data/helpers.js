@@ -1,4 +1,5 @@
-module.exports = {
-  // environment helper
-  environment: process.env.ELEVENTY_ENV,
+module.exports = function () {
+  return {
+    environment: process.env.ELEVENTY_ENV,
+  };
 };
