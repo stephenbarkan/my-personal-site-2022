@@ -1,5 +1,17 @@
 [
   {
+    "id": "so-proud",
+    "images": ["/images/so-proud.jpg"],
+    "caption": "So proud!",
+    "details": "Chicago Lakeshore, Pride Parade 2022"
+  },
+  {
+    "id": "two-peas-in-a-beer-can",
+    "images": ["/images/two-peas-in-a-beer-can.jpg"],
+    "caption": "Two lil' peas in a beer can",
+    "details": "Logan Square Arts Fest, June 2022"
+  },
+  {
     "id": "raveena",
     "images": ["/images/raveena-01.jpg", "/images/raveena-02.jpg", "/images/raveena-03.jpg"],
     "caption": "Our fits for the queen-a, Raveena",

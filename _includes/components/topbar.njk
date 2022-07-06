@@ -4,7 +4,7 @@ uiBarTimingIn %}
 {% macro topbarButton(title, featured, onClick, type = "tab", class) %}
     <button
     {% if type === "tab" %}
-        :class="activeApplet === '{{title}}' ? 'bg-ui-divider text-display-primary' : 'text-display-secondary'"
+        :class="activeApplet === '{{title}}' ? 'bg-btnSecondary-bg text-display-primary' : 'text-display-secondary'"
         @click="setActiveApplet('{{title}}')"
     {% elseif type === "dropdown" %}
         @click="{{onClick}}"
@@ -12,7 +12,7 @@ uiBarTimingIn %}
     {% elseif type === "button" %}
         @click="{{onClick}}"
     {% endif %}
-        class="{% if featured %}font-medium text-display-primary{% endif %} {{class}} text-sm leading-none px-2 capitalize pt-[6px] pb-[7px] rounded-sm hover:bg-ui-divider">
+        class="{% if featured %}font-medium text-display-primary{% endif %} {{class}} text-sm leading-none px-2 capitalize pt-[6px] pb-[7px] rounded-sm hover:bg-btnSecondary-bg ease-bounce active:scale-[97%]">
         {{title}}
     </button>
 {% endmacro %}

@@ -35,6 +35,16 @@
         activeApplet: 'posts',
         z: 2,
         appState: '',
+        previewAppletOpen: false,
+        previewAppletDetails: {
+            title: '',
+            externalLink: '',
+            content: ''
+        },
+        openPreviewApplet (title, externalLink, content) {
+            this.previewAppletOpen = true
+            this.previewAppletDetails = {title, externalLink, content}
+        },
         setAppState(state) {
             this.appState = state
         },

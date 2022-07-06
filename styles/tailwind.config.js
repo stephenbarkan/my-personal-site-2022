@@ -77,7 +77,7 @@ module.exports = {
         link: "hsl(var(--display-link))",
       },
       ui: {
-        "applet-bg": "hsl(var(--applet-bg))",
+        "applet-bg": "hsl(var(--applet-bg) / <alpha-value>)",
         divider: "hsl(var(--scoped-shadow-color) / 8%)",
         shade: "hsl(var(--shade))",
         "topbar-bg": "hsl(var(--topbar-bg))",
@@ -88,6 +88,10 @@ module.exports = {
         border: "hsl(var(--btn-border))",
         "bg-hover": "hsl(var(--btn-bg-hover))",
         "highlight-bg-hover": "hsl(var(--btn-highlight-hover))",
+      },
+      btnSecondary: {
+        bg: "hsl(var(--scoped-shadow-color) / 8%)",
+        "bg-hover": "hsl(var(--scoped-shadow-color) / 12%)",
       },
       clr: {
         solid: "hsl(var(--clr-solid))",

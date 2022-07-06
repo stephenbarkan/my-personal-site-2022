@@ -1,0 +1,38 @@
+{% import "components/button.njk" as "btn"%}
+{% set externalLinkIcon %}{% include "icons/external-link.svg" %}{% endset %}
+{% set closeSmallIcon %}{% include "icons/close-small.svg" %}{% endset %}
+
+{% macro previewApplet(parent, title, data, content, externalLink) %}
+    <div
+        data-is-applet
+        data-applet="{{parent}}"
+        x-show="activeApplet === '{{parent}}' && previewAppletOpen"
+        x-transition:enter-start="scale-95 -translate-y-4 opacity-0"
+        x-transition:enter="transition transform duration-[250ms] ease-bounce-small"
+        x-transition:enter-end="scale-100 opacity-100 translate-y-0"
+        x-transition:leave-start="scale-100 opacity-100"
+        x-transition:leave="transition transform duration-[300ms] delay-100 ease-smooth"
+        x-transition:leave-end="scale-105 opacity-0 translate-y-4"
+        class="flex flex-col flex-1 fixed w-full shadow-applet-active max-w-[975px] h-full max-h-[625px] gap-3 pt-2 overflow-hidden transform rounded-lg bg-ui-applet-bg/80 backdrop-blur">
+        <div class="px-2">
+            <header class="grid grid-cols-[1fr_auto_1fr] items-center justify-center w-full">
+                <div class="flex items-center justify-start flex-1">
+                    <button
+                            @click="previewAppletOpen = false"
+                            class="flex items-center justify-center w-6 h-6 transition transform rounded-full active:scale-90 hover:scale-105 bg-btnSecondary-bg hover:bg-btnSecondary-bg-hover text-display-secondary">
+                        <span class="block h-15 w-15">
+                            {{ closeSmallIcon | safe }}
+                        </span>
+                    </button>
+                </div>
+                <h2 class="flex-1 px-3 text-sm font-medium text-center text-display-tertiary">Design / For fun / <span x-text="previewAppletDetails.title"></span></h2>
+                {% if externalLink %}
+                    <div class="flex justify-end flex-1">{{btn.button(label="Visit website", as="a", icon=externalLinkIcon, href=externalLink, newTab=true)}}</div>
+                {% endif %}
+            </header>
+        </div>
+        <section class="flex flex-col flex-1 px-3 pt-px overflow-hidden">
+            {{content}}
+        </section>
+    </div>
+{% endmacro %}

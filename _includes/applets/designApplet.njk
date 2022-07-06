@@ -121,7 +121,7 @@
                 </div>
                 <ul class="flex flex-col gap-1">
                     {% for design in collections.design %}
-                        <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", class="w-full")}}</li>
+                        <li x-show="currentFolder === '{{design.data.tags[1]}}'">{{designListItem(title=design.data.title, date=design.data.publishDate, index=loop.index, type=design.data.type, id=design.data.title, content="item", externalLink="design.data.link", class="w-full")}}</li>
                     {% endfor %}
                 </ul>
             </div>
@@ -144,7 +144,7 @@
     </div>
 {% endblock %}
 
-{% macro designListItem(title, date, class, onClick, type, index, id, content) %}
+{% macro designListItem(title, date, class, onClick, type, index, id, content, externalLink) %}
     {% set icon %}
     {% if type === "website" %}{% include "icons/website.svg" %}
     {% endif %}
@@ -167,7 +167,8 @@
                 currentFolder='{{id}}'
                 $dispatch('reset-current-item')
             } else {
-                currentItem='{{id}}'
+                 currentItem='{{id}}'
+               // openPreviewApplet('{{title}}', '{{externalLink}}', '{{content}}')
             }
             $nextTick(() => { $refs.scroller.scrollTo({ left: 1000 }) })"
         :class="{ 'appletListItemActive': openDesign === {{index}} }"
