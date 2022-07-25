@@ -9,6 +9,8 @@
         {% if icon %}
             <span class="appletListItemContents text-display-tertiary group-active:text-display-secondary h-15 w-15">{{icon | safe}}</span>
         {% endif %}
-        <span class="appletListItemContents">{{label | safe}}</span>
+        {% if label %}
+            <span class="appletListItemContents">{{label | safe}}</span>
+        {% endif %}
     </{{as}}>
 {% endmacro %}
