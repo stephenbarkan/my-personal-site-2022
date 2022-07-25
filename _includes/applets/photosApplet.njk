@@ -1,5 +1,8 @@
 {% extends "components/appletShell.njk" %}
+{% import "components/avatar.njk" as "avatar"%}
 {% import "components/button.njk" as "btn"%}
+{% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
+{% set chevronRightIcon %}{% include "icons/chevron-right.svg" %}{% endset %}
 {% set prevPhoto %}{% include "icons/prev-photo.svg" %}{% endset %}
 {% set nextPhoto %}{% include "icons/next-photo.svg" %}{% endset %}
 {% set twitterIcon %}{% include "icons/twitter.svg" %}{% endset %}
@@ -7,21 +10,21 @@
 {% set heartIcon %}
 <div class="grid grid-cols-1 grid-rows-1">
     <span
-            x-transition:enter="transform ease-out delay-75 duration-200"
-            x-transition:enter-start="opacity-50 scale-[.65]"
-            x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="transition ease-out duration-300 transform"
-            x-transition:leave-start="opacity-100"
-            x-transition:leave-end="scale-125 opacity-0"
-            class="block col-span-1 col-start-1 row-start-1 transition text-display-tertiary group-active:scale-95" x-show="!liked">{% include "icons/heart-outline.svg" %}</span>
+                x-transition:enter="transform ease-out delay-75 duration-200"
+                x-transition:enter-start="opacity-50 scale-[.65]"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="transition ease-out duration-300 transform"
+                x-transition:leave-start="opacity-100"
+                x-transition:leave-end="scale-125 opacity-0"
+                class="block col-span-1 col-start-1 row-start-1 transition text-display-tertiary group-active:scale-95" x-show="!liked">{% include "icons/heart-outline.svg" %}</span>
     <span
-            x-transition:enter="ease-in duration-500 delay-150"
-            x-transition:enter-start="opacity-0 scale-125"
-            x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="ease-out duration-500 delay-75"
-            x-transition:leave-start="opacity-100 "
-            x-transition:leave-end="scale-150 opacity-0"
-            class="block col-span-1 col-start-1 row-start-1 transition transform text-clr-solid group-active:scale-110" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
+                x-transition:enter="ease-in duration-500 delay-150"
+                x-transition:enter-start="opacity-0 scale-125"
+                x-transition:enter-end="opacity-100 scale-100"
+                x-transition:leave="ease-out duration-500 delay-75"
+                x-transition:leave-start="opacity-100 "
+                x-transition:leave-end="scale-150 opacity-0"
+                class="block col-span-1 col-start-1 row-start-1 transition transform text-clr-solid group-active:scale-110" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
 </div>
 {% endset %}
 {% set label %}
@@ -32,104 +35,157 @@
 {% endset %}
 
 {% block content %}
-    <div class="flex flex-col gap-3 px-3 pb-6 overflow-auto">
-        {# top section #}
-        <section class="flex gap-4">
-            <div class="relative flex-shrink-0 w-20 h-20 overflow-hidden rounded-full">
-                <img src="/images/profile-pic.jpg" alt="Profile picture of Stephen lookin' cute at the park.">
-                <div class="absolute inset-0 rounded-full shadow-inset-stroke"></div>
-            </div>
-            <div class="flex flex-col flex-1 gap-4">
-                <div class="flex flex-col gap-1">
-                    <h3 class="text-lg text-display-primary">{{copy.photosName}}</h3>
-                    <p class="text-sm text-display-secondary">{{copy.photosBio}}</p>
-                </div>
-                <div class="flex gap-2">
-                    {{btn.button(label="Instagram", icon=instagramIcon, class="flex-1", as="a", href="https://www.instagram.com/stephen_barkan/", newTab=true)}}
-                    {{btn.button(label="Twitter", icon=twitterIcon, class="flex-1", as="a", href="https://twitter.com/barkan_steve", newTab=true)}}
-                </div>
-            </div>
-        </section>
-        <div class="w-full divider"></div>
-        <section class="flex flex-col flex-1 gap-8">
-            {% for post in data %}
-                <div
-                :key="{{loop.index}}"
-                x-data="{
-                    count: {{post.images.length}},
-                    currentIndex: 1,
-                    next() {
-                        $refs.slider.style.setProperty('--tw-translate-x', -1 * (this.currentIndex * 100) + '%')
-                        this.currentIndex = Math.min((this.currentIndex + 1), this.count);
-                    },
-                    prev() {
-                        this.currentIndex = Math.max((this.currentIndex - 1), 1);
-                        $refs.slider.style.setProperty('--tw-translate-x', -1 * ((this.currentIndex -1)  * 100) + '%')
-                    }
-                }"
-                class="flex flex-col gap-3">
-                    {# carousel #}
-                    <div class="relative overflow-hidden rounded">
-                        {% if post.images.length > 1 %}
-                            <div class="absolute z-10 flex justify-between w-full transform -translate-y-1/2 top-1/2">
-                                <button
-                                    @click="prev"
-                                    x-transition:enter="duration-250 delay-150"
-                                    x-transition:enter-start="opacity-0 translate-x-8"
-                                    x-transition:enter-end="opacity-100 scale-100"
-                                    x-transition:leave="duration-300 delay-75"
-                                    x-transition:leave-start="opacity-100 scale-100"
-                                    x-transition:leave-end="opacity-0 translate-x-8"
-                                    x-show="currentIndex > 1"
-                                    class="z-10 p-3 transition transform group active:scale-90 hover:scale-105">
-                                    <span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic group-hover:text-btn-bg-hover">{{prevPhoto | safe}}</span>
-                                </button>
-                                <button
-                                    @click="next"
-                                    x-transition:enter="duration-250 delay-150"
-                                    x-transition:enter-start="opacity-0 -translate-x-8"
-                                    x-transition:enter-end="opacity-100 scale-100"
-                                    x-transition:leave="duration-300 delay-75"
-                                    x-transition:leave-start="opacity-100 scale-100"
-                                    x-transition:leave-end="opacity-0 -translate-x-8"
-                                    x-show="currentIndex < {{post.images.length}}"
-                                    class="z-10 p-3 ml-auto transition group active:scale-90 hover:scale-105">
-                                    <span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic group-hover:text-btn-bg-hover">{{nextPhoto | safe}}</span>
-                                </button>
-                            </div>
-                        {% endif %}
-
-                        <div x-ref="slider"
-                            class="flex transition-transform duration-500 transform translate-x-0"
-                            style="scroll-snap-type: x mandatory;">
-                            {% for image in post.images %}
-                                <img loading="lazy" class="object-fill w-full aspect-square" style="scroll-snap-align: start;" src="{{image}}" alt="">
-                            {% endfor %}
+    <div
+        x-data="{
+            appletState: 'grid',
+            numOfPosts: {{data.length}},
+            currentPost: 0,
+            scrollTo(index) {
+                this.appletState = 'stream'
+                this.currentPost = index
+                this.$refs.photosStream.children[index].scrollIntoView()
+            },
+            nextPost() {
+                if (this.currentPost < this.numOfPosts - 1) {
+                    this.currentPost++
+                    this.$refs.photosStream.children[this.currentPost].scrollIntoView({behavior: 'smooth'})
+                }
+            },
+            prevPost() {
+                if (this.currentPost > 0) {
+                    this.currentPost--
+                    this.$refs.photosStream.children[this.currentPost].scrollIntoView({behavior: 'smooth'})
+                }
+            }
+        }"
+        class="flex flex-col flex-1 overflow-hidden">
+        <div
+            class="relative flex flex-1 h-full">
+            {# grid #}
+            <div
+                :class="appletState === 'stream' && '-translate-x-4 opacity-0 pointer-events-none'"
+                class="flex flex-col flex-shrink-0 w-full gap-3 px-3 pb-3 overflow-auto transition-transform duration-300 transform ">
+                <section class="flex gap-4">
+                    {{avatar.avatar(size="w-20 h-20")}}
+                    <div class="flex flex-col flex-1 gap-4">
+                        <div class="flex flex-col gap-1">
+                            <h3 class="text-lg text-display-primary">{{copy.photosName}}</h3>
+                            <p class="text-sm text-display-secondary">{{copy.photosBio}}</p>
+                        </div>
+                        <div class="flex gap-2">
+                            {{btn.button(label="Instagram", icon=instagramIcon, class="flex-1", as="a", href="https://www.instagram.com/stephen_barkan/", newTab=true)}}
+                            {{btn.button(label="Twitter", icon=twitterIcon, class="flex-1", as="a", href="https://twitter.com/barkan_steve", newTab=true)}}
                         </div>
                     </div>
-
-                    {# like button and indicator dots #}
-                    <div class="flex items-center">
-                        <div x-data="{liked: false}" class="flex-1">{{btn.button(label=label, icon=heartIcon, as="button", onClick="liked = !liked")}}</div>
-                        {% if post.images.length > 1 %}
-                            <div class="flex gap-1.5">
-                                {% for images in post.images %}
-                                    <span
-                            :class="currentIndex === {{loop.index}} ? 'opacity-100' : 'opacity-25'"
-                            class="block w-1.5 h-1.5 transition rounded-full bg-clr-solid"></span>
-                                {% endfor %}
-                            </div>
-                            <div class="flex-1"></div>
-                        {% endif %}
-                    </div>
-                    <div class="flex flex-col gap-1">
-                        <p class="text-display-secondary">
-                            <span class="font-medium text-display-primary">stephen_barkan</span>
-                            {{post.caption}}</p>
-                        <time class="text-sm text-display-tertiary">{{post.details}}</time>
+                </section>
+                <div class="w-full divider"></div>
+                <section class="grid grid-cols-3 gap-2.5">
+                    {% for post in data %}
+                        <button
+                            :key="{{loop.index - 1}}"
+                            id="photosGrid-{{loop.index - 1}}"
+                            @click="scrollTo({{loop.index - 1}})"
+                            class="relative overflow-hidden transition-transform rounded-sm active:scale-[99%] hover:opacity-90 ease-bounce">
+                            <img loading="lazy" class="object-fill w-full aspect-square" style="scroll-snap-align: start;" src="{{post.images[0]}}" alt="">
+                            <div class="absolute inset-0 rounded-sm shadow-inset-stroke"></div>
+                        </button>
+                    {% endfor %}
+                </section>
+            </div>
+            {# stream #}
+            <div
+                :class="appletState === 'grid' && 'translate-x-8 opacity-0 pointer-events-none'"
+                class="absolute flex flex-col flex-shrink-0 w-full h-full gap-3 px-3 pb-3 transition-transform duration-500 transform ">
+                <div class="sticky top-0 flex justify-between pt-px pb-3 border-b bg-ui-applet-bg -z--1 border-b-ui-divider">
+                    {{btn.button(label='Return to feed', icon=chevronLeftIcon, as="button", onClick="appletState = 'grid'")}}
+                    <div class="flex gap-1.5">
+                        <div :class="currentPost < 1 && 'disabled'">{{btn.button(icon=chevronLeftIcon, as="button", onClick="prevPost")}}</div>
+                        <div :class="currentPost >= numOfPosts - 1 && 'disabled'">{{btn.button(icon=chevronRightIcon, as="button", onClick="nextPost")}}</div>
                     </div>
                 </div>
-            {% endfor %}
-        </section>
+                <section
+                    x-ref="photosStream"
+                    class="flex flex-col flex-1 h-full gap-10 pb-3 overflow-auto">
+                    {% for post in data %}
+                        <div
+                        :key="{{loop.index}}"
+                        id="photosStream-{{loop.index}}"
+                        x-data="{
+                            count: {{post.images.length}},
+                            currentIndex: 1,
+                            next() {
+                                $refs.slider.style.setProperty('--tw-translate-x', -1 * (this.currentIndex * 100) + '%')
+                                this.currentIndex = Math.min((this.currentIndex + 1), this.count);
+                            },
+                            prev() {
+                                this.currentIndex = Math.max((this.currentIndex - 1), 1);
+                                $refs.slider.style.setProperty('--tw-translate-x', -1 * ((this.currentIndex -1)  * 100) + '%')
+                            }
+                        }"
+                        class="flex flex-col gap-3 px-px">
+                            {# carousel #}
+                            <div class="relative overflow-hidden rounded">
+                                {% if post.images.length > 1 %}
+                                    <div class="absolute z-10 flex justify-between w-full transform -translate-y-1/2 top-1/2">
+                                        <button
+                                            @click="prev"
+                                            x-transition:enter="duration-250 delay-150"
+                                            x-transition:enter-start="opacity-0 translate-x-8"
+                                            x-transition:enter-end="opacity-100 scale-100"
+                                            x-transition:leave="duration-300 delay-75"
+                                            x-transition:leave-start="opacity-100 scale-100"
+                                            x-transition:leave-end="opacity-0 translate-x-8"
+                                            x-show="currentIndex > 1"
+                                            class="z-10 p-3 transition transform group active:scale-90 hover:scale-105">
+                                            <span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic group-hover:text-btn-bg-hover">{{prevPhoto | safe}}</span>
+                                        </button>
+                                        <button
+                                            @click="next"
+                                            x-transition:enter="duration-250 delay-150"
+                                            x-transition:enter-start="opacity-0 -translate-x-8"
+                                            x-transition:enter-end="opacity-100 scale-100"
+                                            x-transition:leave="duration-300 delay-75"
+                                            x-transition:leave-start="opacity-100 scale-100"
+                                            x-transition:leave-end="opacity-0 -translate-x-8"
+                                            x-show="currentIndex < {{post.images.length}}"
+                                            class="z-10 p-3 ml-auto transition group active:scale-90 hover:scale-105">
+                                            <span class="block w-6 h-6 rounded-full text-btn-bg shadow-btn-basic group-hover:text-btn-bg-hover">{{nextPhoto | safe}}</span>
+                                        </button>
+                                    </div>
+                                {% endif %}
+                                <div x-ref="slider"
+                                    class="flex transition-transform duration-500 transform translate-x-0"
+                                    style="scroll-snap-type: x mandatory;">
+                                    {% for image in post.images %}
+                                        <img loading="lazy" class="object-fill w-full aspect-square" style="scroll-snap-align: start;" src="{{image}}" alt="">
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {# like button and indicator dots #}
+                            <div class="flex items-center">
+                                <div x-data="{liked: false}" class="flex-1">{{btn.button(label=label, icon=heartIcon, as="button", onClick="liked = !liked")}}</div>
+                                {% if post.images.length > 1 %}
+                                    <div class="flex gap-1.5">
+                                        {% for images in post.images %}
+                                            <span
+                                    :class="currentIndex === {{loop.index}} ? 'opacity-100' : 'opacity-25'"
+                                    class="block w-1.5 h-1.5 transition rounded-full bg-clr-solid"></span>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="flex-1"></div>
+                                {% endif %}
+                            </div>
+                            <div class="flex flex-col gap-1">
+                                <p class="text-display-secondary">
+                                    <span class="font-medium text-display-primary">stephen_barkan</span>
+                                    {{post.caption}}</p>
+                                <time class="text-sm text-display-tertiary">{{post.details}}</time>
+
+                            </div>
+                        </div>
+                    {% endfor %}
+                </section>
+            </div>
+        </div>
     </div>
 {% endblock %}

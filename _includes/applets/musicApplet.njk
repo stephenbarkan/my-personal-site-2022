@@ -191,9 +191,19 @@ class="flex flex-col h-full gap-3 focus:outline-none">
             class="flex items-center gap-3 appletListItemContents">
             <div
                 :class="currentSong.index === {{index}} ? 'text-clr-solid' : 'text-display-tertiary'"
-                class="w-5 h-5 sm:w-15 sm:h-15">
-                <span x-show="currentSong.index === {{index}}" class="text-clr-solid">{{playFillIcon | safe }}</span>
-                <span x-show="currentSong.index !== {{index}}">
+                class="grid w-5 h-5 grid-absolute sm:w-15 sm:h-15">
+                <span
+                    x-show="currentSong.index === {{index}}"
+                    x-transition:enter="ease-in duration-500 delay-150"
+                    x-transition:enter-start="opacity-0 scale-125"
+                    x-transition:enter-end="opacity-100 scale-100"
+                    class="grid-inset-0 text-clr-solid">{{playFillIcon | safe }}</span>
+                <span
+                    x-transition:leave="transition ease-out duration-300 transform"
+                    x-transition:leave-start="opacity-100"
+                    x-transition:leave-end="scale-125 opacity-0"
+                    x-show="currentSong.index !== {{index}}"
+                    class="grid-inset-0">
                     <span class="hidden group-hover:block">{{playOutlineIcon | safe }}</span>
                     <span class="group-hover:hidden">{{musicIcon | safe }}</span>
                 </span>
