@@ -38,7 +38,6 @@
     <div
         x-data="{
             appletState: 'grid',
-            numOfPosts: {{data.length}},
             currentPost: 0,
             scrollTo(index) {
                 this.appletState = 'stream'
@@ -46,7 +45,7 @@
                 this.$refs.photosStream.children[index].scrollIntoView()
             },
             nextPost() {
-                if (this.currentPost < this.numOfPosts - 1) {
+                if (this.currentPost < '{{data.length}}' - 1) {
                     this.currentPost++
                     this.$refs.photosStream.children[this.currentPost].scrollIntoView({behavior: 'smooth'})
                 }
@@ -98,9 +97,14 @@
                 class="absolute flex flex-col flex-shrink-0 w-full h-full gap-3 px-3 pb-3 transition-transform duration-500 transform ">
                 <div class="sticky top-0 flex justify-between pt-px pb-3 border-b bg-ui-applet-bg -z--1 border-b-ui-divider">
                     {{btn.button(label='Return to feed', icon=chevronLeftIcon, as="button", onClick="appletState = 'grid'")}}
-                    <div class="flex gap-1.5">
+                    <div class="flex gap-2">
                         <div :class="currentPost < 1 && 'disabled'">{{btn.button(icon=chevronLeftIcon, as="button", onClick="prevPost")}}</div>
-                        <div :class="currentPost >= numOfPosts - 1 && 'disabled'">{{btn.button(icon=chevronRightIcon, as="button", onClick="nextPost")}}</div>
+                        <div class="flex items-center gap-px text-sm text-display-secondary">
+                            <span x-text="currentPost"></span>
+                            <span>/</span>
+                            <span>{{data.length}}</span>
+                        </div>
+                        <div :class="currentPost >= {{data.length}} - 1 && 'disabled'">{{btn.button(icon=chevronRightIcon, as="button", onClick="nextPost")}}</div>
                     </div>
                 </div>
                 <section
