@@ -1,0 +1,17 @@
+{% set inactiveIconProps %}
+    x-transition:enter='transform ease-out delay-75 duration-200'
+    x-transition:enter-start='opacity-50 scale-[.65]'
+    x-transition:enter-end='opacity-100 scale-100'
+    x-transition:leave='transition ease-out duration-300 transform'
+    x-transition:leave-start='opacity-100'
+    x-transition:leave-end='scale-125 opacity-0'
+{% endset %}
+
+{% set activeIconProps %}
+    x-transition:enter='ease-in duration-500 delay-150'
+    x-transition:enter-start='opacity-0 scale-125'
+    x-transition:enter-end='opacity-100 scale-100'
+    x-transition:leave='ease-out duration-500 delay-75'
+    x-transition:leave-start='opacity-100 '
+    x-transition:leave-end='scale-150 opacity-0'
+{% endset %}

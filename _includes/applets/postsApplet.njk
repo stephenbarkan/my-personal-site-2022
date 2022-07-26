@@ -2,6 +2,8 @@
 {% import "components/button.njk" as "btn"%}
 {% set closeIcon %}{% include "icons/close.svg" %}{% endset %}
 {% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
+{% from "snippets/iconAnimationProperties.njk" import inactiveIconProps,
+activeIconProps %}
 {% block content %}
     <div x-data="{ openPost: 'welcome', open: false }" class="flex flex-1 max-h-full px-3">
         <div
@@ -11,7 +13,7 @@
             class="absolute inset-0 pb-3 bg-ui-shade backdrop-blur md:hidden"></div>
         {# desktop sidebar #}
         <aside
-            class="flex flex-col hidden w-48 gap-6 pr-3 overflow-auto md:block">
+            class="flex-col hidden w-48 gap-6 pr-3 overflow-auto md:flex">
             <div class="flex flex-col gap-1 md:mt-0">
                 {% for post in data %}
                     {% if post.data.featured == true %}
@@ -19,7 +21,7 @@
                     {% endif %}
                 {% endfor %}
                 <div class="divider"></div>
-                <ul class="flex flex-col gap-1 pt-1 pb-3">
+                <ul class="flex flex-col gap-1 pb-3">
                     {% for post in data %}
                         {% if post.data.featured !== true %}
                             {{ postLink(post.data.title, post.data.date, false, fileSlug=post.fileSlug) }}
@@ -86,10 +88,13 @@
             <time class="block text-sm text-display-tertiary">{{date | dateDisplay}}</time>
         </div>
         {% if (isPinned) %}
-            <div
-                class="flex-shrink-0 pt-0.5 h-15 w-15  group-active:translate-y-px duration-75 transition-transform"
-                :class="{'text-clr-solid translate-y-px': openPost === '{{fileSlug}}', 'text-display-tertiary': openPost !=='{{fileSlug}}'}">
-                {% include "icons/pin-fill.svg" %}
+            <div class="grid w-15 h-15 grid-absolute">
+                <span
+                {{ inactiveIconProps | safe }}
+                class="block transition grid-inset-0 text-display-tertiary group-active:scale-95" x-show="openPost !== '{{fileSlug}}'">{% include "icons/pin-fill.svg" %}</span>
+                <span
+                {{activeIconProps | safe}}
+                class="block transition transform grid-inset-0 text-clr-solid group-active:scale-110" x-show="openPost === '{{fileSlug}}'">{% include "icons/pin-fill.svg" %}</span>
             </div>
         {% endif %}
     </button>
