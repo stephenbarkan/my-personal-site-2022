@@ -1,6 +1,6 @@
 ---
 title: Digital Style Library
-link: https://stylelibrary.ink-co.com/
+link: https://inkstylelibrary.netlify.app/
 publishDate: Oct 2019
 type: website
 contribution: design, coding

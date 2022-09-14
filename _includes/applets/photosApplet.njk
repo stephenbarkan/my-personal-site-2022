@@ -2,29 +2,22 @@
 {% import "components/avatar.njk" as "avatar"%}
 {% import "components/button.njk" as "btn"%}
 {% set chevronLeftIcon %}{% include "icons/chevron-left.svg" %}{% endset %}
-{% set chevronRightIcon %}{% include "icons/chevron-right.svg" %}{% endset %}
+{% set chevronUpIcon %}{% include "icons/chevron-up.svg" %}{% endset %}
+{% set chevronDownIcon %}{% include "icons/chevron-down.svg" %}{% endset %}
 {% set prevPhoto %}{% include "icons/prev-photo.svg" %}{% endset %}
 {% set nextPhoto %}{% include "icons/next-photo.svg" %}{% endset %}
 {% set twitterIcon %}{% include "icons/twitter.svg" %}{% endset %}
 {% set instagramIcon %}{% include "icons/instagram.svg" %}{% endset %}
+{% from "snippets/iconAnimationProperties.njk" import inactiveIconProps,
+activeIconProps %}
 {% set heartIcon %}
-<div class="grid grid-cols-1 grid-rows-1">
+<div class="grid grid-absolute">
     <span
-                x-transition:enter="transform ease-out delay-75 duration-200"
-                x-transition:enter-start="opacity-50 scale-[.65]"
-                x-transition:enter-end="opacity-100 scale-100"
-                x-transition:leave="transition ease-out duration-300 transform"
-                x-transition:leave-start="opacity-100"
-                x-transition:leave-end="scale-125 opacity-0"
-                class="block col-span-1 col-start-1 row-start-1 transition text-display-tertiary group-active:scale-95" x-show="!liked">{% include "icons/heart-outline.svg" %}</span>
+        {{ inactiveIconProps | safe }}
+        class="block transition grid-inset-0 text-display-tertiary group-active:scale-95" x-show="!liked">{% include "icons/heart-outline.svg" %}</span>
     <span
-                x-transition:enter="ease-in duration-500 delay-150"
-                x-transition:enter-start="opacity-0 scale-125"
-                x-transition:enter-end="opacity-100 scale-100"
-                x-transition:leave="ease-out duration-500 delay-75"
-                x-transition:leave-start="opacity-100 "
-                x-transition:leave-end="scale-150 opacity-0"
-                class="block col-span-1 col-start-1 row-start-1 transition transform text-clr-solid group-active:scale-110" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
+        {{ activeIconProps | safe }}
+        class="block transition transform grid-inset-0 text-clr-solid group-active:scale-110" x-show="liked">{% include "icons/heart-fill.svg" %}</span>
 </div>
 {% endset %}
 {% set label %}
@@ -38,7 +31,6 @@
     <div
         x-data="{
             appletState: 'grid',
-            numOfPosts: {{data.length}},
             currentPost: 0,
             scrollTo(index) {
                 this.appletState = 'stream'
@@ -46,7 +38,7 @@
                 this.$refs.photosStream.children[index].scrollIntoView()
             },
             nextPost() {
-                if (this.currentPost < this.numOfPosts - 1) {
+                if (this.currentPost < '{{data.length}}' - 1) {
                     this.currentPost++
                     this.$refs.photosStream.children[this.currentPost].scrollIntoView({behavior: 'smooth'})
                 }
@@ -64,29 +56,31 @@
             {# grid #}
             <div
                 :class="appletState === 'stream' && '-translate-x-4 opacity-0 pointer-events-none'"
-                class="flex flex-col flex-shrink-0 w-full gap-3 px-3 pb-3 overflow-auto transition-transform duration-300 transform ">
-                <section class="flex gap-4">
-                    {{avatar.avatar(size="w-20 h-20")}}
-                    <div class="flex flex-col flex-1 gap-4">
-                        <div class="flex flex-col gap-1">
-                            <h3 class="text-lg text-display-primary">{{copy.photosName}}</h3>
-                            <p class="text-sm text-display-secondary">{{copy.photosBio}}</p>
-                        </div>
-                        <div class="flex gap-2">
-                            {{btn.button(label="Instagram", icon=instagramIcon, class="flex-1", as="a", href="https://www.instagram.com/stephen_barkan/", newTab=true)}}
-                            {{btn.button(label="Twitter", icon=twitterIcon, class="flex-1", as="a", href="https://twitter.com/barkan_steve", newTab=true)}}
+                class="flex flex-col flex-shrink-0 w-full px-3 pb-3 overflow-auto transition-transform duration-300 transform">
+                <section class="sticky top-0 z-10 flex flex-col gap-3 pb-3 bg-ui-applet-bg">
+                    <div class="flex gap-4">
+                        {{avatar.avatar(size="w-20 h-20")}}
+                        <div class="flex flex-col flex-1 gap-4">
+                            <div class="flex flex-col gap-1">
+                                <h3 class="text-lg text-display-primary">{{copy.photosName}}</h3>
+                                <p class="text-sm text-display-secondary">{{copy.photosBio}}</p>
+                            </div>
+                            <div class="flex gap-2">
+                                {{btn.button(label="Instagram", icon=instagramIcon, class="flex-1", as="a", href="https://www.instagram.com/stephen_barkan/", newTab=true)}}
+                                {{btn.button(label="Twitter", icon=twitterIcon, class="flex-1", as="a", href="https://twitter.com/barkan_steve", newTab=true)}}
+                            </div>
                         </div>
                     </div>
+                    <div class="w-full divider"></div>
                 </section>
-                <div class="w-full divider"></div>
                 <section class="grid grid-cols-3 gap-2.5">
                     {% for post in data %}
                         <button
                             :key="{{loop.index - 1}}"
                             id="photosGrid-{{loop.index - 1}}"
                             @click="scrollTo({{loop.index - 1}})"
-                            class="relative overflow-hidden transition-transform rounded-sm active:scale-[99%] hover:opacity-90 ease-bounce">
-                            <img loading="lazy" class="object-fill w-full aspect-square" style="scroll-snap-align: start;" src="{{post.images[0]}}" alt="">
+                            class="relative transition-transform rounded-sm active:scale-[99%] hover:opacity-90 ease-bounce">
+                            <img loading="lazy" class="object-fill w-full rounded-sm aspect-square" style="scroll-snap-align: start;" src="{{post.images[0]}}" alt="">
                             <div class="absolute inset-0 rounded-sm shadow-inset-stroke"></div>
                         </button>
                     {% endfor %}
@@ -98,9 +92,9 @@
                 class="absolute flex flex-col flex-shrink-0 w-full h-full gap-3 px-3 pb-3 transition-transform duration-500 transform ">
                 <div class="sticky top-0 flex justify-between pt-px pb-3 border-b bg-ui-applet-bg -z--1 border-b-ui-divider">
                     {{btn.button(label='Return to feed', icon=chevronLeftIcon, as="button", onClick="appletState = 'grid'")}}
-                    <div class="flex gap-1.5">
-                        <div :class="currentPost < 1 && 'disabled'">{{btn.button(icon=chevronLeftIcon, as="button", onClick="prevPost")}}</div>
-                        <div :class="currentPost >= numOfPosts - 1 && 'disabled'">{{btn.button(icon=chevronRightIcon, as="button", onClick="nextPost")}}</div>
+                    <div class="flex gap-2">
+                        <div :class="currentPost < 1 && 'disabled'">{{btn.button(icon=chevronUpIcon, as="button", onClick="prevPost")}}</div>
+                        <div :class="currentPost >= {{data.length}} - 1 && 'disabled'">{{btn.button(icon=chevronDownIcon, as="button", onClick="nextPost")}}</div>
                     </div>
                 </div>
                 <section

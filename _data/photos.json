@@ -1,5 +1,23 @@
 [
   {
+    "id": "gay-cowboy",
+    "images": ["/images/gay-cowboy.jpg"],
+    "caption": "Just a gay cowboy on the bus",
+    "details": "CTA on the way to Kehlani, Aug 2022"
+  },
+  {
+    "id": "monster-lick",
+    "images": ["/images/monster-lick.jpg"],
+    "caption": "Yummy 👹",
+    "details": "Bristol Renaissance Faire, Aug 2022"
+  },
+  {
+    "id": "golden-hour",
+    "images": ["/images/golden-hour.jpg"],
+    "caption": "",
+    "details": "Cleveland, Ohio, July 2022"
+  },
+  {
     "id": "so-proud",
     "images": ["/images/so-proud.jpg"],
     "caption": "So #proud!",
