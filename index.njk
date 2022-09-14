@@ -23,9 +23,9 @@ postsAppletTimingOut %}
     x-show="appState === 'loggedIn'" class="relative flex justify-center flex-1 row-start-2 gap-3 max-w-[100vw] items-center page-container">
         <div class="relative sm:grid place-items-center w-full grid-absolute max-w-[1800px] xs:px-2 py-2 max-h-[1100px] h-full">
             {{designApplet.applet(title='design', maxWidth='w-full sm:w-[calc(100vw-1rem)] md:max-w-[780px]', height='sm:h-[350px]', data=collections.designs, posX='sm:absolute lg:left-[4.4vw]', posY='lg:top-[3vh]', timingIn=designAppletTimingIn, timingOut=designAppletTimingOut)}}
-            {{musicApplet.applet(title='music', maxWidth='sm:w-[520px]', height='sm:h-[320px]', data=music, posX='sm:absolute lg:left-[2.4vw]', posY='lg:bottom-[3vh]', timingIn=musicAppletTimingIn, timingOut=musicAppletTimingOut)}}
-            {{chatApplet.applet(title='chat', maxWidth='sm:w-[316px]', height='sm:h-[616px]', posX='sm:absolute lg:right-[14vw]', posY='lg:top-[7vh]', timingIn=chatAppletTimingIn, timingOut=chatAppletTimingOut)}}
-            {{photosApplet.applet(title='photos', maxWidth='sm:w-[335px]', height='sm:h-[523px]', data=photos, posX='sm:absolute lg:right-[3.3vw]', posY='lg:bottom-[5vh]', timingIn=photosAppletTimingIn, timingOut=photosAppletTimingOut)}}
+            {{musicApplet.applet(title='music', maxWidth='w-full sm:w-[520px]', height='sm:h-[320px]', data=music, posX='sm:absolute lg:left-[2.4vw]', posY='lg:bottom-[3vh]', timingIn=musicAppletTimingIn, timingOut=musicAppletTimingOut)}}
+            {{chatApplet.applet(title='chat', maxWidth='w-full sm:w-[316px]', height='sm:h-[616px]', posX='sm:absolute lg:right-[14vw]', posY='lg:top-[7vh]', timingIn=chatAppletTimingIn, timingOut=chatAppletTimingOut)}}
+            {{photosApplet.applet(title='photos', maxWidth='w-full sm:w-[335px]', height='sm:h-[523px]', data=photos, posX='sm:absolute lg:right-[3.3vw]', posY='lg:bottom-[5vh]', timingIn=photosAppletTimingIn, timingOut=photosAppletTimingOut)}}
             {{postsApplet.applet(title='posts', maxWidth='w-full sm:w-[calc(100vw-1rem)] md:max-w-[740px]', height='sm:h-[468px]', data=collections.posts, timingIn=postsAppletTimingIn, timingOut=postsAppletTimingOut)}}
             {# {{previewAppletShell.previewApplet(parent='design')}} #}
         </div>
