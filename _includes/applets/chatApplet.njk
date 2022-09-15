@@ -58,7 +58,7 @@
                     'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
                     enctype: 'application/x-www-form-urlencoded',
                 },
-                body: new URLSearchParams(formData).toString(),
+                body: new URLSearchParams(new FormData(this.$refs.form)).toString(),
                 }).then((res) => {
                 if (res) {
                     setTimeout(() => {
