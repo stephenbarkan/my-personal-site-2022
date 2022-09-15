@@ -12,7 +12,7 @@
                 {id: 2, title: 'Message', placeholder: 'Your message', value: '', botMessage: `Oh heyyy! What’s up?`},
                 {id: 3, title: 'Email', placeholder: 'Your email', value: '', botMessage: `Okay, that’s pretty cool. Will you give me your email so I can reply to you?`},
                 {id: 4, title: 'blank', placeholder: '', value: '', disabled: true, botMessage: ''},
-                {id: 5, title: 'blank', placeholder: '', value: '', disabled: true, botMessage: `Thanks! I’ll try to get back to you soon.`}
+                {id: 5, title: 'blank2', placeholder: '', value: '', disabled: true, botMessage: `Thanks! I’ll try to get back to you soon.`}
             ],
             userName: 'Stephen',
             conversation: [],
@@ -107,7 +107,7 @@
             <textarea name="Message"></textarea>
             <textarea name="Email"></textarea>
             <textarea name="blank"></textarea>
-            <textarea name="blank"></textarea>
+            <textarea name="blank2"></textarea>
         </form>
         <form x-ref="form" id="contact-form" class="flex flex-col gap-3">
             <div class="divider"></div>
@@ -130,7 +130,7 @@
                             x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
                             x-bind:placeholder="formField.placeholder"
                             resize=""
-                            class="flex-1 py-2 pl-3 pr-1.5 h-full focus:translate-y-px transition-transform active:ease-bounce bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder">test</textarea>
+                            class="flex-1 py-2 pl-3 pr-1.5 h-full focus:translate-y-px transition-transform active:ease-bounce bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder"></textarea>
                     </label>
                     <button
                         type="button"
