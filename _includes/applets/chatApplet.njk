@@ -103,7 +103,6 @@
 
         {# form section #}
         <form data-netlify="true" method="POST" hidden name="contact-form">
-            <input type="text" name="testField">
             <textarea name="Name"></textarea>
             <textarea name="Message"></textarea>
             <textarea name="Email"></textarea>
@@ -113,7 +112,6 @@
         <form x-ref="form" id="contact-form" class="flex flex-col gap-3">
             <div class="divider"></div>
             <input type="hidden" name="form-name" value="contact-form"/>
-            <input type="text" name="testField" value="test">
             <template x-for="formField in formFields" :key="formField.id">
                 <div
                     x-show="activeField === formField.id"
@@ -127,6 +125,7 @@
                             rows="1"
                             x-bind:name="formField.title"
                             x-model="formField.value"
+                            x-text="formField.value"
                             x-bind:id="'formField'+ formField.id"
                             x-bind:disabled="appletState === 'transitioning'"
                             x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
