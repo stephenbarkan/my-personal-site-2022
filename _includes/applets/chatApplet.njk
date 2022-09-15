@@ -102,14 +102,14 @@
         </div>
 
         {# form section #}
-        <form data-netlify="true" method="POST" hidden name="contact-form">
-            <textarea name="Name"></textarea>
-            <textarea name="Message"></textarea>
-            <textarea name="Email"></textarea>
-            <textarea name="blank"></textarea>
-            <textarea name="blank2"></textarea>
+        <form x-ref="form" data-netlify="true" method="POST" name="contact-form">
+            <input type="text" x-model="formFields[0].value" name="Name"/>
+            <input type="text" x-model="formFields[1].value" name="Message"/>
+            <input type="text" x-model="formFields[2].value" name="Email"/>
+            <input type="text" x-model="" name="blank"/>
+            <input type="text" x-model="" name="blank2"/>
         </form>
-        <form x-ref="form" id="contact-form" class="flex flex-col gap-3">
+        <div  id="contact-form" class="flex flex-col gap-3">
             <div class="divider"></div>
             <input type="hidden" name="form-name" value="contact-form"/>
             <template x-for="formField in formFields" :key="formField.id">
@@ -125,7 +125,6 @@
                             rows="1"
                             x-bind:name="formField.title"
                             x-model="formField.value"
-                            x-text="formField.value"
                             x-bind:id="'formField'+ formField.id"
                             x-bind:disabled="appletState === 'transitioning'"
                             x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
@@ -146,7 +145,7 @@
                 </div>
             </template>
 
-        </form>
+        </div>
 
         {# confirm send dialog #}
         <div
