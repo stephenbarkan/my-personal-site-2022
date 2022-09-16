@@ -50,6 +50,9 @@
                 }
             },
             submitForm () {
+                this.formFields.forEach(field => {
+                    field.disabled = false
+                })
                 const formData = new FormData(this.$refs.form);
                 fetch(`/`, {
                 method: 'POST',
@@ -113,7 +116,6 @@
         <form x-ref="form" id="contact-form" class="flex flex-col gap-3">
             <div class="divider"></div>
             <input type="hidden" name="form-name" value="contact-form"/>
-            <input type="text" name="testField" value="test">
             <template x-for="formField in formFields" :key="formField.id">
                 <div
                     x-show="activeField === formField.id"
