@@ -119,7 +119,6 @@
             <template x-for="formField in formFields" :key="formField.id">
                 <div
                     x-show="activeField === formField.id"
-                    :class="{'disabled': appletState === 'transitioning' || formField.disabled}"
                     class="flex items-end transition-shadow rounded bg-clr-highlight focus-within:shadow-list-inset">
                     <label class="relative inline-grid items-center flex-1 align-top input-wrapper">
                         <span x-text="formField.placeholder" class="hidden"></span>
