@@ -119,6 +119,7 @@
             <template x-for="formField in formFields" :key="formField.id">
                 <div
                     x-show="activeField === formField.id"
+                    :class="{'disabled': appletState === 'transitioning' || formField.disabled}"
                     class="flex items-end transition-shadow rounded bg-clr-highlight focus-within:shadow-list-inset">
                     <label class="relative inline-grid items-center flex-1 align-top input-wrapper">
                         <span x-text="formField.placeholder" class="hidden"></span>
@@ -129,7 +130,6 @@
                             x-bind:name="formField.title"
                             x-model="formField.value"
                             x-bind:id="'formField'+ formField.id"
-                            x-bind:disabled="appletState === 'transitioning'"
                             x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
                             x-bind:placeholder="formField.placeholder"
                             resize=""
