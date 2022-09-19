@@ -119,7 +119,7 @@
             <template x-for="formField in formFields" :key="formField.id">
                 <div
                     x-show="activeField === formField.id"
-                    :class="{'disabled': appletState === 'transitioning' || formField.disabled}"
+                    {# :class="{'disabled': appletState === 'transitioning' || formField.disabled}" #}
                     class="flex items-end transition-shadow rounded bg-clr-highlight focus-within:shadow-list-inset">
                     <label class="relative inline-grid items-center flex-1 align-top input-wrapper">
                         <span x-text="formField.placeholder" class="hidden"></span>
@@ -139,7 +139,7 @@
                         type="button"
                         x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
                         :class="!formField.value && 'disabled'"
-                        x-bind:disabled="!formField.value"
+                        {# x-bind:disabled="!formField.value" #}
                         @click="incrementFormField"
                         class="pr-3 pl-1.5 py-2 group outline-none">
                         <div class="shadow-btn-highlight active:shadow-btn-highlight-inset transition flex items-center justify-center w-[22px] h-[22px] rounded-full group-hover:bg-btn-highlight-bg-hover bg-clr-solid">
