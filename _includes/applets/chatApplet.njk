@@ -8,9 +8,9 @@
             activeField: 0,
             appletState: 'idle',
             formFields: [
-                {id: 1, title: 'Name', placeholder: 'Your name', value: '', botMessage: `Hello, Stephen here! 👋 Who are you?`},
-                {id: 2, title: 'Message', placeholder: 'Your message', value: '', botMessage: `Oh heyyy! What’s up?`},
-                {id: 3, title: 'Email', placeholder: 'Your email', value: '', botMessage: `Okay, that’s pretty cool. Will you give me your email so I can reply to you?`},
+                {id: 1, title: 'Name', placeholder: 'Your name', value: '',  disabled: false,botMessage: `Hello, Stephen here! 👋 Who are you?`},
+                {id: 2, title: 'Message', placeholder: 'Your message', value: '', disabled: false, botMessage: `Oh heyyy! What’s up?`},
+                {id: 3, title: 'Email', placeholder: 'Your email', value: '', disabled: false, botMessage: `Okay, that’s pretty cool. Will you give me your email so I can reply to you?`},
                 {id: 4, title: 'blank', placeholder: '', value: '', disabled: true, botMessage: ''},
                 {id: 5, title: 'blank2', placeholder: '', value: '', disabled: true, botMessage: `Thanks! I’ll try to get back to you soon.`}
             ],
@@ -69,6 +69,9 @@
                     }, 500);
                 }
                 });
+                this.formFields.forEach(field => {
+                    field.disabled = true
+                })
             },
 
         }"
@@ -132,6 +135,7 @@
                             x-bind:id="'formField'+ formField.id"
                             x-bind:tabindex="appletState === 'transitioning' ? -1 : 0"
                             x-bind:placeholder="formField.placeholder"
+                            x-bind:disabled="formField.disabled"
                             resize=""
                             class="flex-1 py-2 pl-3 pr-1.5 h-full focus:translate-y-px transition-transform active:ease-bounce bg-transparent outline-none placeholder:text-display-tertiary" x-bind:placeholder="formField.placeholder"></textarea>
                     </label>
@@ -156,12 +160,20 @@
             x-transition:enter="transition duration-700 delay-1000"
             x-transition:enter-start="opacity-0"
             x-transition:enter-end="opacity-100"
-            x-transition:leave="transition duration-700"
+            x-transition:leave="transition duration-700 delay-[600ms]"
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
             class="absolute inset-0 flex items-center justify-center rounded-sm bg-ui-shade backdrop-blur">
             <div class="flex flex-col w-full max-h-full p-5">
-                <div class="flex flex-col overflow-auto gap-8 p-6 rounded bg-ui-applet-bg shadow-applet-header animate-slide-up [animation-delay:1500ms]">
+                <div
+                    x-show="activeField === formFields.length - 1"
+                    x-transition:enter="transition duration-[600ms] delay-[1500ms]"
+                    x-transition:enter-start="opacity-0 translate-y-3"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    x-transition:leave="transition duration-[300ms]"
+                    x-transition:leave-start="opacity-100 translate-y-0"
+                    x-transition:leave-end="opacity-0 -translate-y-3"
+                    class="flex flex-col gap-8 p-6 overflow-auto rounded bg-ui-applet-bg shadow-applet-header">
                     <div class="flex flex-col gap-6">
                         <header class="flex flex-col justify-center">
                             <h3 class="text-lg text-center">Ready to send?</h3>
