@@ -89,7 +89,7 @@ activeIconProps %}
             {# stream #}
             <div
                 :class="appletState === 'grid' && 'translate-x-8 opacity-0 pointer-events-none'"
-                class="absolute flex flex-col flex-shrink-0 w-full h-full gap-3 px-3 pb-3 transition-transform duration-500 transform ">
+                class="absolute flex flex-col flex-shrink-0 w-full h-full gap-3 px-3 pb-3 transition-transform duration-1000">
                 <div class="sticky top-0 flex justify-between pt-px pb-3 border-b bg-ui-applet-bg -z--1 border-b-ui-divider">
                     {{btn.button(label='Return to feed', icon=chevronLeftIcon, as="button", onClick="appletState = 'grid'")}}
                     <div class="flex gap-2">
@@ -148,7 +148,7 @@ activeIconProps %}
                                     </div>
                                 {% endif %}
                                 <div x-ref="slider"
-                                    class="flex transition-transform duration-500 transform translate-x-0"
+                                    class="flex transition-transform duration-500 transform translate-x-0 aspect-square"
                                     style="scroll-snap-type: x mandatory;">
                                     {% for image in post.images %}
                                         <img loading="lazy" class="object-fill w-full aspect-square" style="scroll-snap-align: start;" src="{{image}}.jpg" alt="">
