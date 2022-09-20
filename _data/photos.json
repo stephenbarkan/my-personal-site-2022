@@ -1,67 +1,67 @@
 [
   {
     "id": "gay-cowboy",
-    "images": ["/images/gay-cowboy.jpg"],
+    "images": ["/images/gay-cowboy"],
     "caption": "Just a gay cowboy on the bus",
     "details": "CTA on the way to Kehlani, Aug 2022"
   },
   {
     "id": "monster-lick",
-    "images": ["/images/monster-lick.jpg"],
+    "images": ["/images/monster-lick"],
     "caption": "Yummy 👹",
     "details": "Bristol Renaissance Faire, Aug 2022"
   },
   {
     "id": "golden-hour",
-    "images": ["/images/golden-hour.jpg"],
+    "images": ["/images/golden-hour"],
     "caption": "",
     "details": "Cleveland, Ohio, July 2022"
   },
   {
     "id": "so-proud",
-    "images": ["/images/so-proud.jpg"],
+    "images": ["/images/so-proud"],
     "caption": "So #proud!",
     "details": "Chicago Lakeshore, Pride Parade 2022"
   },
   {
     "id": "two-peas-in-a-beer-can",
-    "images": ["/images/two-peas-in-a-beer-can.jpg"],
+    "images": ["/images/two-peas-in-a-beer-can"],
     "caption": "Two lil' peas in a beer can",
     "details": "Logan Square Arts Fest, June 2022"
   },
   {
     "id": "raveena",
-    "images": ["/images/raveena-01.jpg", "/images/raveena-02.jpg", "/images/raveena-03.jpg"],
+    "images": ["/images/raveena-01", "/images/raveena-02", "/images/raveena-03"],
     "caption": "Our fits for Raveena!",
     "details": "Home, May 2022"
   },
   {
     "id": "photos-of-photos",
-    "images": ["/images/photos-of-photos-1.jpg", "/images/photos-of-photos-2.jpg", "/images/photos-of-photos-3.jpg"],
+    "images": ["/images/photos-of-photos-01", "/images/photos-of-photos-02", "/images/photos-of-photos-03"],
     "caption": "Photos of photos of fun",
     "details": "Home, Feb 2022"
   },
   {
     "id": "spilt-milk",
-    "images": ["/images/spilt-milk-1.jpg", "/images/spilt-milk-2.jpg"],
+    "images": ["/images/spilt-milk-01", "/images/spilt-milk-02"],
     "caption": "Love and cucumber cocktails",
     "details": "Spilt Milk, Nov 2021"
   },
   {
     "id": "chicago friends",
-    "images": ["/images/soph.jpg", "/images/paul.jpg", "/images/ls-crew.jpg"],
+    "images": ["/images/soph", "/images/paul", "/images/ls-crew"],
     "caption": "Chicago friends!",
     "details": "Chicago, 2021"
   },
   {
     "id": "doister friends",
-    "images": ["/images/heather.jpg", "/images/aer-becky.jpg", "/images/jackie-elaine.jpg"],
+    "images": ["/images/heather", "/images/aer-becky", "/images/jackie-elaine"],
     "caption": "Work friends!",
     "details": "Around the world, 2021"
   },
   {
     "id": "me and eug",
-    "images": ["/images/california.jpg", "/images/bending-circle.jpg", "/images/dunes.jpg"],
+    "images": ["/images/outside-01", "/images/outside-02", "/images/outside-03"],
     "caption": "Me and Eug outside",
     "details": "Outside, 2021"
   }
