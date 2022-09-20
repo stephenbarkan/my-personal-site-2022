@@ -1,5 +1,11 @@
 [
   {
+    "id": "aura",
+    "images": ["/images/aura"],
+    "caption": "Our aura is strong!",
+    "details": "Garfield Park Conservatory, Sep 2022"
+  },
+  {
     "id": "gay-cowboy",
     "images": ["/images/gay-cowboy"],
     "caption": "Just a gay cowboy on the bus",
