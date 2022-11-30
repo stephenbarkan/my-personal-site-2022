@@ -1,5 +1,11 @@
 [
   {
+    "id": "tattoo",
+    "images": ["/images/tattoo"],
+    "caption": "🎵 With you, floating in a parachute",
+    "details": "Second Shift bathroom, Nov 2022"
+  },
+  {
     "id": "aura",
     "images": ["/images/aura"],
     "caption": "This aura is very strong!",
