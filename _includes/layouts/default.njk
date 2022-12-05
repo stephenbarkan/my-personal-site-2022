@@ -61,7 +61,7 @@
             return value;
         },
         setLoginState() {
-            `{{helpers.environment }}` !== `development` && setTimeout(() => {this.setAppState('loggedOut')}, 1500)
+            `{{helpers.environment }}` !== `development` && setTimeout(() => {this.setAppState('loggedIn')}, 1500)
         },
         getInitActiveApplet() {
             if (this.getUrlParam('activeApplet')) {
