@@ -1,7 +1,14 @@
 {
+  "siteName": "Stephen Barkan",
   "topbarDropdown": "Hello friend! I hope this site has brought you some joy today.",
-  "photosName": "stephen_barkan",
+  "photosName": "steph_barkan",
   "photosBio": "📍 Chicago, IL",
   "musicEmptyState": "Choose a song to listen to some of the music I've written!",
-  "musicCompletedState": "Thanks for listening!"
+  "musicCompletedState": "Thanks for listening!",
+  "chatMessage1": "Hello, Steph here! 👋 Who are you?",
+  "chatMessage2": "Oh heyyy! What’s up?",
+  "chatMessage3": "Okay, that’s pretty cool. Will you give me your email so I can reply to you?",
+  "chatMessage4": "",
+  "chatMessage5": "Thanks! I’ll try to get back to you soon.",
+  "chatSendMessage": "Ready to send?"
 }
