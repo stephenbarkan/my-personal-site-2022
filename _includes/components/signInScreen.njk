@@ -17,13 +17,16 @@ loadingBarTimingOut %}
         x-transition:enter-end="opacity-100"
         class="absolute inset-0 -z-1 bg-clr-neutral filter shadow-body-login"
         style="background-image: url(/images/dot-pattern.svg); filter: blur(2px)"></div>
-    <div
-        x-show="appState === 'startUp'"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave="transition {{loadingBarTimingOut}}"
-        x-transition:leave-end="opacity-0"
-        class="grid-inset-0 w-48 h-1.5 overflow-hidden rounded-full bg-clr-neutral shadow-list-inset">
-        <div class="w-full h-full rounded-full animate-loading-bar bg-clr-solid"></div>
+    <div class="flex flex-col items-center gap-4 grid-inset-0">
+        <h2 class="text-lg text-display-tertiary">Loading stephOS...</h2>
+        <div
+            x-show="appState === 'startUp'"
+            x-transition:leave-start="opacity-100"
+            x-transition:leave="transition {{loadingBarTimingOut}}"
+            x-transition:leave-end="opacity-0"
+            class="w-48 h-1.5 overflow-hidden rounded-full bg-clr-neutral shadow-list-inset">
+            <div class="w-full h-full rounded-full animate-loading-bar bg-clr-solid"></div>
+        </div>
     </div>
     {# login panel #}
     <div x-cloak class="relative flex flex-col items-center gap-8 grid-inset-0">
