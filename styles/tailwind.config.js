@@ -81,13 +81,14 @@ module.exports = {
         divider: "hsl(var(--scoped-shadow-color) / 8%)",
         shade: "hsl(var(--shade))",
         "topbar-bg": "hsl(var(--topbar-bg))",
-        wallpaper: "hsl(var(--wallpaper))",
+        wallpaper: "hsl(var(--clr-wallpaper))",
       },
       btn: {
         bg: "hsl(var(--btn-bg))",
         border: "hsl(var(--btn-border))",
         "bg-hover": "hsl(var(--btn-bg-hover))",
-        "highlight-bg-hover": "hsl(var(--btn-highlight-hover))",
+        "highlight-bg": "hsl(var(--btn-highlight-bg))",
+        "highlight-bg-hover": "hsl(var(--btn-highlight-bg-hover))",
       },
       btnSecondary: {
         bg: "hsl(var(--scoped-shadow-color) / 8%)",
@@ -96,7 +97,7 @@ module.exports = {
       clr: {
         solid: "hsl(var(--clr-solid))",
         tint: "hsl(var(--clr-tint))",
-        highlight: "hsl(var(--clr-highlight))",
+        neutral: "hsl(var(--clr-neutral))",
       },
     },
     keyframes: {

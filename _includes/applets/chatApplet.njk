@@ -90,7 +90,7 @@
                     <div
                         :class="{
                             'bg-clr-solid text-display-inverse-primary sentByUser': message.sentByUser,
-                            'bg-clr-highlight text-display-secondary': !message.sentByUser,
+                            'bg-clr-neutral text-display-secondary': !message.sentByUser,
                             'animate-clear-typing-bubble [animation-delay:750ms]': message.typingDots,
                             'animate-slide-up': !message.typingDots
                             }"
@@ -123,7 +123,7 @@
                 <div
                     x-show="activeField === formField.id"
                     :class="{'disabled': appletState === 'transitioning' || formField.disabled}"
-                    class="flex items-end transition-shadow rounded bg-clr-highlight focus-within:shadow-list-inset">
+                    class="flex items-end transition-shadow rounded bg-clr-neutral focus-within:shadow-list-inset">
                     <label class="relative inline-grid items-center flex-1 align-top input-wrapper">
                         <span x-text="formField.placeholder" class="hidden"></span>
                         <textarea

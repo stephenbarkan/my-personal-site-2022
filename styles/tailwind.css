@@ -22,8 +22,8 @@
 
     /* button colors */
     --btn-bg: 0deg 0% 99%;
-    --btn-border: 0deg 0% 0% / 12%;
     --btn-bg-hover: 0deg 0% 97%;
+    --btn-border: 0deg 0% 0% / 12%;
 
     /* shadow colors */
     --shadow-photos: 20deg 100% 13%;
@@ -34,86 +34,93 @@
   }
 
   [data-active-applet="photos"] {
-    --wallpaper: 20deg 36% 95%;
+    --clr-wallpaper: 20deg 36% 95%;
     --global-shadow-color: var(--shadow-photos);
   }
   [data-applet="photos"] {
     --clr-solid: 8deg 97% 65%;
     --clr-tint: 20deg 100% 95%;
-    --clr-highlight: 0deg 9% 96%;
-    --btn-bg: 0deg 20% 99% / 1;
+    --clr-neutral: 20deg 9% 96%;
+    --btn-bg: 20deg 20% 99% / 1;
     --btn-bg-hover: 20deg 20% 97%;
     --scoped-shadow-color: var(--shadow-photos);
     --display-primary: 8deg 18% 10%;
     --display-secondary: 8deg 40% 8% / 78%;
     --display-tertiary: 8deg 18% 10% / 50%;
+    --shade: var(--display-primary) / 50%;
   }
 
   [data-active-applet="design"] {
-    --wallpaper: 267deg 36% 95%;
+    --clr-wallpaper: 245deg 30% 95%;
     --global-shadow-color: var(--shadow-design);
   }
   [data-applet="design"] {
     --clr-solid: 245deg 81% 60%;
     --clr-tint: 246deg 100% 96%;
-    --clr-highlight: 240deg 10% 96%;
+    --clr-neutral: 240deg 10% 96%;
     --btn-bg: 240deg 20% 99%;
     --btn-bg-hover: 240deg 7% 97%;
     --scoped-shadow-color: var(--shadow-design);
     --display-primary: 246deg 18% 10%;
-    --display-secondary: 246deg 50% 8% / 78%;
+    --display-secondary: 246deg 30% 8% / 78%;
     --display-tertiary: 246deg 28% 10% / 50%;
+    --shade: var(--display-primary) / 50%;
   }
 
   [data-active-applet="posts"] {
-    --wallpaper: 45deg 46% 95%;
+    --clr-wallpaper: 45deg 46% 95%;
     --global-shadow-color: var(--shadow-posts);
   }
   [data-applet="posts"] {
     --clr-solid: 32deg 79% 58%;
     --clr-tint: 42deg 100% 93%;
-    --clr-highlight: 30deg 8% 96%;
+    --clr-neutral: 30deg 8% 96%;
     --btn-bg: 60deg 20% 99% / 1;
     --btn-bg-hover: 60deg 13% 97%;
     --scoped-shadow-color: var(--shadow-posts);
     --display-primary: 22deg 18% 10%;
     --display-secondary: 22deg 30% 8% / 78%;
     --display-tertiary: 22deg 8% 10% / 50%;
+    --shade: var(--display-primary) / 50%;
   }
 
   [data-active-applet="music"] {
-    --wallpaper: 90deg 23% 95%;
+    --clr-wallpaper: 90deg 23% 95%;
     --global-shadow-color: var(--shadow-music);
   }
   [data-applet="music"] {
     --clr-solid: 173deg 57% 46%;
     --clr-tint: 144deg 66% 92%;
-    --clr-highlight: 150deg 10% 96%;
+    --clr-neutral: 150deg 10% 96%;
     --btn-bg: 150deg 20% 99% / 1;
     --btn-bg-hover: 150deg 13% 97%;
     --scoped-shadow-color: var(--shadow-music);
     --btn-highlight-border: 173deg 77% 34%;
     --btn-highlight-hover: 173deg 54% 43%;
     --display-primary: 144deg 18% 10%;
-    --display-secondary: 144deg 60% 8% / 78%;
-    --display-tertiary: 144deg 38% 10% / 50%;
+    --display-secondary: 144deg 30% 8% / 78%;
+    --display-tertiary: 144deg 28% 10% / 50%;
+    --shade: var(--display-primary) / 50%;
   }
 
   [data-active-applet="chat"] {
-    --wallpaper: 204deg 38% 95%;
+    --clr-wallpaper: 204deg 38% 95%;
     --global-shadow-color: var(--shadow-chat);
   }
   [data-applet="chat"] {
     --clr-solid: 202deg 92% 48%;
     --clr-tint: 208deg 100% 94%;
-    --clr-highlight: 204deg 20% 95%;
+    --clr-neutral: 204deg 20% 95%;
+    --btn-bg: 200deg 20% 99% / 1;
     --btn-bg-hover: 200deg 20% 97%;
     --scoped-shadow-color: var(--shadow-chat);
+    --btn-highlight-bg: var(--clr-solid);
+    --btn-highlight-bg-hover: 202deg 90% 43%;
     --btn-highlight-border: 202deg 62% 40%;
-    --btn-highlight-hover: 202deg 90% 43%;
     --display-primary: 208deg 18% 10%;
     --display-secondary: 208deg 60% 8% / 78%;
-    --display-tertiary: 208deg 38% 10% / 50%;
+    --display-tertiary: 208deg 50% 10% / 50%;
+    --shade: var(--display-primary) / 50%;
   }
 }
 
@@ -268,7 +275,7 @@
     font-size: 0.875em;
     padding: 2px 4px;
     margin: 0;
-    background-color: theme("colors.clr.highlight");
+    background-color: theme("colors.clr.neutral");
     /* border-width: 1px; */
     /* border-style: solid; */
     /* border-color: theme("colors.ui.divider"); */
@@ -451,7 +458,7 @@
     z-index: 1;
     bottom: -2px;
     left: 0;
-    border-left: 10px solid theme("colors.clr.highlight");
+    border-left: 10px solid theme("colors.clr.neutral");
     border-bottom-right-radius: 16px 14px;
     border-bottom-left-radius: 3px;
     height: 50%;
@@ -468,14 +475,14 @@
   } */
 
   .appletListItem {
-    @apply transition-shadow duration-200 rounded hover:bg-clr-highlight active:shadow-list-inset;
+    @apply transition-shadow duration-200 rounded hover:bg-clr-neutral active:shadow-list-inset;
   }
   .appletListItemContents {
     @apply transition duration-200 group-active:translate-y-px group-active:ease-bounce;
   }
 
   .appletListItemActive {
-    @apply bg-clr-highlight shadow-list-inset;
+    @apply bg-clr-neutral shadow-list-inset;
   }
 }
 
