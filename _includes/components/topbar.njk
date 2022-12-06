@@ -5,14 +5,14 @@ uiBarTimingIn %}
     <button
     {% if type === "tab" %}
         :class="activeApplet === '{{title}}' ? 'bg-btnSecondary-bg text-display-primary' : 'text-display-secondary'"
-        @click="setActiveApplet('{{title}}')"
+        @click="setActiveApplet('{{title | lower}}')"
     {% elseif type === "dropdown" %}
         @click="{{onClick}}"
         :class="open && ' bg-ui-divider'"
     {% elseif type === "button" %}
         @click="{{onClick}}"
     {% endif %}
-        class="{% if featured %}font-medium text-display-primary{% endif %} {{class}} text-sm leading-none px-2 capitalize pt-[6px] pb-[7px] rounded-sm hover:bg-btnSecondary-bg ease-bounce active:scale-[97%]">
+        class="{% if featured %}font-medium text-display-primary{% endif %} {{class}} text-sm leading-none px-2 pt-[6px] pb-[7px] rounded-sm hover:bg-btnSecondary-bg ease-bounce active:scale-[97%]">
         {{title}}
     </button>
 {% endmacro %}
@@ -29,7 +29,7 @@ uiBarTimingIn %}
     class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar backdrop-blur">
     <div class="flex space-x-1">
         <div x-data="{open: false}" class="relative">
-            {{topbarButton(title="stephOS", featured=true, type="dropdown", onClick="open = !open")}}
+            {{topbarButton(title=copy.websiteTitle, featured=true, type="dropdown", onClick="open = !open")}}
             <div
                 x-cloak x-show="open"
                 @click.away="open = false"
@@ -48,11 +48,11 @@ uiBarTimingIn %}
             </div>
         </div>
         <nav class="flex space-x-1">
-            {{topbarButton(title="photos")}}
-            {{topbarButton(title="design")}}
-            {{topbarButton(title="posts")}}
-            {{topbarButton(title="music")}}
-            {{topbarButton(title="chat")}}
+            {{topbarButton(title="Photos")}}
+            {{topbarButton(title="Design")}}
+            {{topbarButton(title="Posts")}}
+            {{topbarButton(title="Music")}}
+            {{topbarButton(title="Chat")}}
         </nav>
     </div>
     <div class="hidden md:flex pt-[6px] pb-[7px]">

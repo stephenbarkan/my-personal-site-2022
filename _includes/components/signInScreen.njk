@@ -23,7 +23,7 @@ loadingBarTimingOut %}
         x-transition:leave="transition {{loadingBarTimingOut}}"
         x-transition:leave-end="opacity-0"
         class="flex flex-col items-center gap-4 grid-inset-0">
-        <h2 class="text-lg text-display-tertiary">Loading stephOS...</h2>
+        <h2 class="text-lg text-display-tertiary">Loading {{copy.websiteTitle}}...</h2>
         <div class="w-48 h-1.5 overflow-hidden rounded-full bg-clr-neutral shadow-list-inset">
             <div class="w-full h-full rounded-full animate-loading-bar bg-clr-solid"></div>
         </div>
@@ -49,7 +49,7 @@ loadingBarTimingOut %}
             x-transition:enter="transition transform {{loginPanelTimingIn}}"
             x-transition:enter-end="scale-100 opacity-100"
             class="flex flex-col items-center gap-4">
-            <h2 class="text-xl font-medium">Welcome to stephOS</h2>
+            <h2 class="text-xl font-medium">Welcome to {{copy.websiteTitle}}</h2>
             {{btn.button(label="Log in", as="button", onClick="appState = 'loggedIn'")}}
         </div>
     </div>
