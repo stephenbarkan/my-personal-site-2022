@@ -32,59 +32,59 @@
     </head >
     <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll bg-ui-wallpaper">
         <div id="app"
-    x-data="{
-        activeApplet: 'posts',
-        z: 2,
-        appState: '',
-        previewAppletOpen: false,
-        previewAppletDetails: {
-            title: '',
-            externalLink: '',
-            content: ''
-        },
-        openPreviewApplet (title, externalLink, content) {
-            this.previewAppletOpen = true
-            this.previewAppletDetails = {title, externalLink, content}
-        },
-        setAppState(state) {
-            this.appState = state
-        },
-        allApplets: document.querySelectorAll('[data-is-applet]'),
-        getUrlParam(param) {
-            let value;
-            const queries = window.location.search.substring(1).split('&');
-            queries.forEach(function(query) {
-                const pair = query.split('=');
-                if(pair[0] == param) {
-                    value = pair[1];
+        x-data="{
+            activeApplet: 'posts',
+            z: 2,
+            appState: '',
+            previewAppletOpen: false,
+            previewAppletDetails: {
+                title: '',
+                externalLink: '',
+                content: ''
+            },
+            openPreviewApplet (title, externalLink, content) {
+                this.previewAppletOpen = true
+                this.previewAppletDetails = {title, externalLink, content}
+            },
+            setAppState(state) {
+                this.appState = state
+            },
+            allApplets: document.querySelectorAll('[data-is-applet]'),
+            getUrlParam(param) {
+                let value;
+                const queries = window.location.search.substring(1).split('&');
+                queries.forEach(function(query) {
+                    const pair = query.split('=');
+                    if(pair[0] == param) {
+                        value = pair[1];
+                    }
+                })
+                return value;
+            },
+            setLoginState() {
+                `{{helpers.environment }}` !== `development` && setTimeout(() => {this.setAppState('loggedIn')}, 1500)
+            },
+            getInitActiveApplet() {
+                if (this.getUrlParam('activeApplet')) {
+                    this.activeApplet = this.getUrlParam('activeApplet');
                 }
-            })
-            return value;
-        },
-        setLoginState() {
-            `{{helpers.environment }}` !== `development` && setTimeout(() => {this.setAppState('loggedIn')}, 1500)
-        },
-        getInitActiveApplet() {
-            if (this.getUrlParam('activeApplet')) {
-                this.activeApplet = this.getUrlParam('activeApplet');
-            }
-        },
-        setActiveApplet(applet) {
-            this.activeApplet = applet;
-            this.z++;
-            this.allApplets.forEach(el => {
-                el.classList.remove('applet-animate')
-                if (el.dataset.applet === applet) {
-                 el.style.zIndex = this.z
-                 if (this.z > 3) {
-                    el.classList.add('applet-animate')
-                 }
-                }
-            });
-            history.replaceState({}, '', `?activeApplet=${applet}`);
-            this.setFavicons(applet)
-        },
-        setFavicons(favImg) {
+            },
+            setActiveApplet(applet) {
+                this.activeApplet = applet;
+                this.z++;
+                this.allApplets.forEach(el => {
+                    el.classList.remove('applet-animate')
+                    if (el.dataset.applet === applet) {
+                    el.style.zIndex = this.z
+                    if (this.z > 3) {
+                        el.classList.add('applet-animate')
+                    }
+                    }
+                });
+                history.replaceState({}, '', `?activeApplet=${applet}`);
+                this.setFavicons(applet)
+            },
+            setFavicons(favImg) {
                 let headTitle = document.querySelector('head');
                 const existingFavicons = headTitle.querySelectorAll(`link[rel='shortcut icon']`)
                 existingFavicons.forEach(el => el.remove())
@@ -93,25 +93,25 @@
                 setFavicon.setAttribute('href', `./favicons/favicon-${favImg}.png`);
                 headTitle.appendChild(setFavicon);
             }
-    }"
-    x-init="
-        setAppState(
-            `{{helpers.environment}}` === `development` ?  `loggedIn` :  `startUp`
-        ),
+        }"
+        x-init="setAppState(`{{helpers.environment}}` === `development` ?  `loggedIn` :  `startUp`),
         setLoginState(),
         getInitActiveApplet(),
         setActiveApplet(activeApplet)"
-    :data-active-applet="activeApplet"
-    :data-applet="activeApplet"
-    class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
-    style="background-image: url(/images/dot-pattern.svg)">
+        :data-active-applet="activeApplet"
+        :data-applet="activeApplet"
+        class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
+        style="background-image: url(/images/dot-pattern.svg)">
             <main class="grid w-full h-screen grid-rows-site" x-cloak>
-                <div class="z-[1000] flex-shrink-0 hidden sm:block">{% include "components/topbar.njk" %}</div>
-
+                <div class="z-[1000] flex-shrink-0 hidden sm:block">
+                    {% include "components/topbar.njk" %}
+                </div>
                 {% block content %}
                     {{ content | safe }}
                 {% endblock %}
-                <div class="bottom-0 z-[1000] flex-shrink-0 row-start-3 lg:hidden page-container">{% include "components/appletIconFooter.njk" %}</div>
+                <div class="bottom-0 z-[1000] flex-shrink-0 row-start-3 lg:hidden page-container">
+                    {% include "components/appletIconFooter.njk" %}
+                </div>
             </main>
             {% include "components/signInScreen.njk" %}
         </div>
