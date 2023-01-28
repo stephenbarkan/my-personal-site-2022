@@ -42,13 +42,13 @@ module.exports = {
       // shadows generated https://www.joshwcomeau.com/shadow-palette/
       // oomph: .03, crispy: 0, light position: centered like 1/3 up, resolution .75
       "inset-stroke": "0px 0px 0px 0.6px inset hsl(var(--global-shadow-color) /  15%)",
-      "applet-header": "0px 1px 1px 0px hsl(var(--scoped-shadow-color) / 3%), 0px 1px 3px 0px hsl(var(--clr-solid) / 20%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 10%), inset 0 1px 2px -1px hsl(var(--applet-header-highlight)), inset 0 -1px 1px -1px hsl(var(--clr-solid) / 15%)",
+      "applet-header": "0px 1px 1px 0px hsl(var(--scoped-shadow-color) / 3%), 0px 1px 4px 0px hsl(var(--clr-solid) / 15%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 10%), inset 0 1px 0px hsl(var(--applet-header-highlight) / 50%), inset 0 -1px 1px -1px hsl(var(--clr-solid) / 15%)",
       "app-icon": "0px 1px 1px 0px hsl(var(--scoped-shadow-color) / 5%), 0px 1px 3px 0px hsl(var(--clr-solid) / 8%), 0 1px 1px 0px inset hsl(var(--applet-header-highlight), 15%), inset 0 -1px 2px -1px hsl(var(--clr-solid) / 20%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 12%)",
-      "btn-basic": "0px 1px 2px hsl(var(--scoped-shadow-color) / 10%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 15%)",
+      "btn-basic": "0px 1px 2px hsl(var(--scoped-shadow-color) / 10%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 15%), inset 0 1px 0px hsl(var(--applet-header-highlight) / 50%)",
       "btn-basic-inset": "0px 1px 3px -1px inset hsl(var(--scoped-shadow-color) / 15%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 20%)",
       "btn-highlight": "0px 1px 2px hsl(var(--scoped-shadow-color) / 20%), 0px 0px 0px 0.6px hsl(var(--btn-highlight-border) /  80%), 0px 1px 1px 0px hsl(var(--clr-solid) / 80%)",
       "btn-highlight-inset": "0px 1px 1px inset hsl(var(--btn-highlight-border) / 90%), 0px 0px 0px 0.6px hsl(var(--btn-highlight-border))",
-      "list-inset": "0px 1px 3px -1px inset hsl(var(--scoped-shadow-color) / 15%), 0px 0px .6px inset hsl(var(--scoped-shadow-color) / 20%)",
+      "list-inset": "0px 1px 4px -1px inset hsl(var(--scoped-shadow-color) / 10%), 0px 0.6px 0px inset hsl(var(--scoped-shadow-color) / 7%), 0px 0px .6px inset hsl(var(--scoped-shadow-color) / 20%)",
       topbar: "0px 1px 1px hsl(var(--global-shadow-color) / 15%), 0px 1px 40px 0px hsl(var(--clr-solid) / 5%), 0px 0px 0px 0.6px hsl(var(--global-shadow-color) / 15%)",
       body: "0px 0px 40px 0px inset hsl(var(--clr-solid) / 20%)",
       "body-login": "0px 0px 120px -40px inset hsl(var(--clr-solid) / 60%)",
