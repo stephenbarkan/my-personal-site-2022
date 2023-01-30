@@ -22,7 +22,7 @@
             {% endif %}
             {% endset %}
             <template x-if="currentItem === '{{design.data.title}}'">
-                <div class="flex-shrink-0 overflow-auto flex flex-col items-start gap-8 sm:gap-6 px-2 py-4 sm:px-4 sm:w-[300px]">
+                <div class="flex-shrink-0 overflow-auto flex flex-col items-start gap-8 sm:gap-6 px-2 py-4 sm:w-[300px]">
                     <div class="flex flex-col gap-5">
                         <div class="grid flex-shrink-0 w-12 h-12 transition transform rounded-lg sm:hidden shadow-applet-header place-content-center text-clr-solid bg-clr-tint">
                             <div class="w-6 h-6">{{typeIcon | safe}}</div>
@@ -35,11 +35,16 @@
                     </div>
                     {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
                     <div class="hidden w-full sm:block divider"></div>
-                    <dl class="grid items-baseline max-w-full text-display-secondary grid-cols-dl gap-x-6 gap-y-4">
-                        <dt class="text-sm text-display-tertiary">Contribution</dt>
-                        <dl class="capitalize">{{design.data.contribution}}</dl>
-                        <dt class="text-sm text-display-tertiary">Date</dt>
-                        <dl>{{design.data.publishDate}}</dl>
+                    <dl class="grid items-baseline max-w-full pb-2 text-sm text-display-secondary grid-cols-dl gap-x-4 gap-y-4">
+                        <dt class="text-display-tertiary">Contribution</dt>
+                        <dl class="flex flex-wrap gap-1.5 capitalize">
+                            {% for item in design.data.contribution %}
+                                <span class="inline-block px-2 py-1.5 rounded text-display-secondary bg-clr-neutral">{{item}}</span>
+                            {% endfor %}
+                        </dl>
+                        <dt class="text-display-tertiary">Date</dt>
+                        <dl>
+                            <span class="inline-block px-2 py-1.5 rounded text-display-secondary bg-clr-neutral">{{design.data.publishDate}}</span></dl>
                     </dl>
                 </div>
             </template>

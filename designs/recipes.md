@@ -1,9 +1,12 @@
 ---
 title: Recipe Book
 link: https://cook.stephenbarkan.com
-publishDate: Ongoing
+publishDate: 2020 – current
 type: website
-contribution: design, coding, recipes
+contribution:
+  - design
+  - coding
+  - recipes
 excerpt: My favorite recipes (mostly from Bon Appetit)!
 tags:
   - fun
