@@ -80,7 +80,7 @@ activeIconProps %}
                             id="photosGrid-{{loop.index - 1}}"
                             @click="scrollTo({{loop.index - 1}})"
                             class="relative transition-transform rounded-sm active:scale-[99%] hover:opacity-90 ease-bounce">
-                            <img loading="lazy" class="object-fill w-full rounded-sm aspect-square" style="scroll-snap-align: start;" src="{{post.images[0]}}-thumb.jpg" alt="">
+                            <img loading="lazy" class="object-fill w-full rounded-sm dark:opacity-80 aspect-square" style="scroll-snap-align: start;" src="{{post.images[0]}}-thumb.jpg" alt="">
                             <div class="absolute inset-0 rounded-sm shadow-inset-stroke"></div>
                         </button>
                     {% endfor %}
@@ -151,7 +151,7 @@ activeIconProps %}
                                     class="flex transition-transform duration-500 transform translate-x-0 aspect-square"
                                     style="scroll-snap-type: x mandatory;">
                                     {% for image in post.images %}
-                                        <img loading="lazy" class="object-fill w-full aspect-square" style="scroll-snap-align: start;" src="{{image}}.jpg" alt="">
+                                        <img loading="lazy" class="object-fill w-full dark:opacity-80 aspect-square" style="scroll-snap-align: start;" src="{{image}}.jpg" alt="">
                                     {% endfor %}
                                 </div>
                             </div>
