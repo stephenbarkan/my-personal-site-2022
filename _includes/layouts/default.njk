@@ -30,12 +30,13 @@
         {% endif %}
         {% block head %}{% endblock %}
     </head >
-    <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll dark">
+    <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll">
         <div id="app"
         x-data="{
             activeApplet: 'posts',
             z: 2,
             appState: '',
+            theme: 'dark',
             previewAppletOpen: false,
             previewAppletDetails: {
                 title: '',
@@ -98,10 +99,12 @@
         setLoginState(),
         getInitActiveApplet(),
         setActiveApplet(activeApplet)"
-        :data-active-applet="activeApplet"
-        :data-applet="activeApplet"
-        class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] bg-ui-wallpaper text-display-primary shadow-body easing-linear bg-dot-pattern-light dark:bg-dot-pattern-dark">
-            <main class="grid w-full h-screen grid-rows-site" x-cloak>
+        :class="theme"
+        class="w-full h-screen overflow-hidden">
+            <main
+                :data-active-applet="activeApplet"
+                :data-applet="activeApplet"
+                class="grid w-full h-screen grid-rows-site text-base antialiased transition-shadow duration-[2000ms] bg-ui-wallpaper text-display-primary shadow-body easing-linear bg-dot-pattern-light dark:bg-dot-pattern-dark" x-cloak>
                 <div class="z-[1000] flex-shrink-0 hidden sm:block">
                     {% include "components/topbar.njk" %}
                 </div>

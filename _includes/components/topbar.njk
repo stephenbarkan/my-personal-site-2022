@@ -1,19 +1,35 @@
 {% set heartIcon %}{% include "icons/heart-fill.svg" %}{% endset %}
 {% from "snippets/loginAnimationTimings.njk" import uiBarTimingOut,
 uiBarTimingIn %}
-{% macro topbarButton(title, featured, onClick, type = "tab", class) %}
+{% set themeIcon %}{% include "icons/theme.svg" %}{% endset %}
+
+{% set themeButtonIcon %}
+<span
+    :class="theme === 'dark' ? '-rotate-180' : ''"
+    class="block transition-transform duration-300 transform w-15 h-15 ">
+    {{themeIcon | safe}}
+</span>
+{% endset %}
+
+{% macro topbarButton(label, icon, title, featured, onClick, type = "tab", class) %}
     <button
+        title="{{title}}"
     {% if type === "tab" %}
-        :class="activeApplet === '{{title}}' ? 'bg-btnSecondary-bg text-display-primary' : 'text-display-secondary'"
-        @click="setActiveApplet('{{title | lower}}')"
+        :class="activeApplet === '{{label}}' ? 'bg-btnSecondary-bg text-display-primary' : 'text-display-secondary'"
+        @click="setActiveApplet('{{label | lower}}')"
     {% elseif type === "dropdown" %}
         @click="{{onClick}}"
         :class="open && ' bg-ui-divider'"
     {% elseif type === "button" %}
         @click="{{onClick}}"
     {% endif %}
-        class="{% if featured %}font-medium text-display-primary{% endif %} {{class}} text-sm leading-none px-2 pt-[6px] pb-[7px] rounded-sm hover:bg-btnSecondary-bg ease-bounce active:scale-[97%]">
-        {{title}}
+        class="{% if featured %}font-medium text-display-primary{% endif %} {{class}} text-sm leading-none px-2 pt-[7px] pb-[8px] rounded-sm hover:bg-btnSecondary-bg ease-bounce active:scale-[97%]">
+        {% if label %}
+            {{label}}
+        {% endif %}
+        {% if icon %}
+            {{icon | safe}}
+        {% endif %}
     </button>
 {% endmacro %}
 
@@ -26,10 +42,10 @@ uiBarTimingIn %}
     x-transition:leave-start="translate-0"
     x-transition:leave="transition transform {{uiBarTimingOut}}"
     x-transition:leave-end="-translate-y-full"
-    class="flex items-center justify-between w-full px-5 py-px bg-ui-topbar-bg shadow-topbar backdrop-blur">
+    class="flex items-center justify-between w-full px-5 py-0.5 bg-ui-topbar-bg shadow-topbar backdrop-blur">
     <div class="flex space-x-1">
         <div x-data="{open: false}" class="relative">
-            {{topbarButton(title=copy.websiteTitle, featured=true, type="dropdown", onClick="open = !open")}}
+            {{topbarButton(label=copy.websiteTitle, featured=true, type="dropdown", onClick="open = !open")}}
             <div
                 x-cloak x-show="open"
                 @click.away="open = false"
@@ -44,18 +60,19 @@ uiBarTimingIn %}
                     <span class="text-display-tertiary">&copy; Stephen Barkan 2022</span>
                 </div>
                 <div class="divider"></div>
-                {{topbarButton(title="Log out", class="-mx-2 -my-0.5 text-left", type="button", onClick="appState = 'loggedOut' ; open = !open")}}
+                {{topbarButton(label="Log out", class="-mx-2 -my-0.5 text-left", type="button", onClick="appState = 'loggedOut' ; open = !open")}}
             </div>
         </div>
         <nav class="flex space-x-1">
-            {{topbarButton(title="Photos")}}
-            {{topbarButton(title="Design")}}
-            {{topbarButton(title="Posts")}}
-            {{topbarButton(title="Music")}}
-            {{topbarButton(title="Chat")}}
+            {{topbarButton(label="Photos", title="Focus photos applet")}}
+            {{topbarButton(label="Design", title="Focus design applet")}}
+            {{topbarButton(label="Posts", title="Focus posts applet")}}
+            {{topbarButton(label="Music", title="Focus music applet")}}
+            {{topbarButton(label="Chat", title="Focus chat applet")}}
         </nav>
     </div>
-    <div class="hidden md:flex pt-[6px] pb-[7px]">
-        <time data-clock class="text-sm leading-none text-display-secondary"></time>
+    <div class="flex items-center gap-4">
+        {{topbarButton(icon=themeButtonIcon, title="Switch theme", class="-mx-2 -my-0.5 text-left", type="button", onClick="theme === 'light' ? theme = 'dark' : theme = 'light'")}}
+        <time data-clock class="hidden text-sm leading-none md:block text-display-secondary"></time>
     </div>
 </header>
