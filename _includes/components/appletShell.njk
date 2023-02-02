@@ -14,7 +14,7 @@
     class="h-full grid place-items-center sm:h-auto sm:w-[min-content] {{posX}} {{posY}} grid-inset-0 transform"
     style="z-index: 1">
         <div
-        class="{{maxWidth}} max-w-full {{height}} h-full flex-1 flex flex-col pt-2 gap-3 rounded-lg bg-ui-applet-bg transition-shadow duration-300 overflow-hidden transform relative"
+        class="{{maxWidth}} max-w-full {{height}} h-full flex-1 flex flex-col pt-2 gap-3 rounded-lg bg-ui-applet-bg dark:backdrop-blur-sm transition-shadow duration-300 overflow-hidden transform relative"
         :class="activeApplet === '{{title}}' ? 'xs:shadow-applet-active shadow-applet-idle' :'shadow-applet-idle'">
             <div class="px-2">
                 <header class="flex justify-center w-full px-2 py-1.5 rounded bg-clr-tint shadow-applet-header">

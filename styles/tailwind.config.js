@@ -60,6 +60,7 @@ module.exports = {
       "app-icon": "0px 0px 3px hsl(var(--clr-solid) / 30%)",
     },
     backdropBlur: {
+      sm: "8px",
       DEFAULT: "20px",
       lg: "60px",
     },
@@ -77,7 +78,7 @@ module.exports = {
         link: "hsl(var(--display-link))",
       },
       ui: {
-        "applet-bg": "hsl(var(--applet-bg) / <alpha-value>)",
+        "applet-bg": "hsl(var(--applet-bg))",
         divider: "hsl(var(--divider))",
         shade: "hsl(var(--shade))",
         "topbar-bg": "hsl(var(--topbar-bg))",

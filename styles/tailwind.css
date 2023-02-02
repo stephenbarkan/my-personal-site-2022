@@ -146,7 +146,7 @@
   }
   .dark [data-applet="photos"] {
     --applet-header-highlight: 10deg 50% 85%;
-    --applet-bg: 10deg 8% 13%;
+    --applet-bg: 10deg 8% 13% / 80%;
     --divider: var(--applet-header-highlight) / 13%;
     --clr-solid: 10deg 55% 45%;
     --clr-tint: 8deg 34% 25%;
@@ -172,7 +172,7 @@
   .dark [data-applet="chat"] {
     --applet-header-highlight: 202deg 50% 85%;
     --divider: var(--applet-header-highlight) / 13%;
-    --applet-bg: 202deg 3% 13%;
+    --applet-bg: 202deg 3% 13% / 80%;
     --clr-solid: 198deg 60% 39%;
     --clr-tint: 203deg 32% 26%;
     --clr-neutral: 202deg 5% 18%;
@@ -195,7 +195,7 @@
     --global-shadow-color: var(--shadow-design);
   }
   .dark [data-applet="design"] {
-    --applet-bg: 245deg 3% 13%;
+    --applet-bg: 245deg 3% 13% / 80%;
     --applet-header-highlight: 245deg 50% 85%;
     --divider: var(--applet-header-highlight) / 13%;
     --clr-solid: 245deg 70% 65%;
@@ -220,7 +220,7 @@
     --global-shadow-color: var(--shadow-music);
   }
   .dark [data-applet="music"] {
-    --applet-bg: 172deg 2% 13%;
+    --applet-bg: 172deg 2% 13% / 80%;
     --applet-header-highlight: 172deg 30% 85%;
     --divider: var(--applet-header-highlight) / 13%;
     --clr-solid: 172deg 70% 35%;
@@ -247,12 +247,12 @@
     --global-shadow-color: var(--shadow-posts);
   }
   .dark [data-applet="posts"] {
-    --applet-bg: 42deg 2% 13%;
+    --applet-bg: 42deg 2% 13% / 80%;
     --applet-header-highlight: 45deg 30% 85%;
     --divider: var(--applet-header-highlight) / 13%;
     --clr-solid: 42deg 70% 35%;
     --clr-tint: 42deg 33% 28%;
-    --clr-neutral: 30deg 4% 16%;
+    --clr-neutral: 30deg 4% 18%;
     --btn-bg: 45deg 6% 18%;
     --btn-bg-hover: 45deg 6% 20%;
     --btn-secondary-bg: var(--applet-header-highlight);
@@ -314,7 +314,7 @@
     --shadow-btn-basic-inset: 0px 1px 3px -1px inset hsl(var(--scoped-shadow-color) / 65%), 0px 0px 0px 1px hsl(var(--scoped-shadow-color) / 25%), 0px 0px 0px 0.6px hsl(var(--applet-header-highlight) / 15%);
     /* --shadow-btn-highlight: 0px 1px 2px hsl(var(--scoped-shadow-color) / 20%), 0px 0px 0px 0.6px hsl(var(--btn-highlight-border) / 80%), 0px 1px 1px 0px hsl(var(--clr-solid) / 80%); */
     /* --shadow-btn-highlight-inset: 0px 1px 1px inset hsl(var(--btn-highlight-border) / 90%), 0px 0px 0px 0.6px hsl(var(--btn-highlight-border)); */
-    /* --shadow-list-inset: 0px 1px 4px -1px inset hsl(var(--scoped-shadow-color) / 10%), 0px 0.6px 0px inset hsl(var(--scoped-shadow-color) / 7%), 0px 0px 0.6px inset hsl(var(--scoped-shadow-color) / 20%); */
+    --shadow-list-inset: 0px 1px 4px -1px inset hsl(var(--scoped-shadow-color) / 70%), 0px 0.6px 0px inset hsl(var(--scoped-shadow-color) / 70%), 0px 0px 0.6px inset hsl(var(--applet-header-highlight) / 70%);
     --shadow-topbar: 0px 1px 10px hsl(var(--global-shadow-color) / 100%), 0px 1px 40px hsl(var(--clr-solid) / 15%), 0px 0px 0px 0.6px hsl(var(--applet-header-highlight) / 45%);
     --shadow-body: 0px 0px 120px 0px inset hsl(var(--clr-solid) / 10%);
     --shadow-body-login: 0px 0px 120px -40px inset hsl(var(--clr-solid) / 40%);

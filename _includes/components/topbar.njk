@@ -5,8 +5,8 @@ uiBarTimingIn %}
 
 {% set themeButtonIcon %}
 <span
-    :class="theme === 'dark' ? '-rotate-180' : ''"
-    class="block transition-transform duration-300 transform w-15 h-15 ">
+    :class="theme === 'dark' ? '-rotate-180 ' : ''"
+    class="block transition-transform duration-300 transform ease-bounce-small w-15 h-15 ">
     {{themeIcon | safe}}
 </span>
 {% endset %}
