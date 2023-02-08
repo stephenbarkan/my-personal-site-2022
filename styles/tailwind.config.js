@@ -55,11 +55,13 @@ module.exports = {
       "body-login": "var(--shadow-body-login)",
       "applet-idle": "var(--shadow-applet-idle)",
       "applet-active": "var(--shadow-applet-active)",
+      cursor: "var(--shadow-cursor)",
     },
     dropShadow: {
       "app-icon": "0px 0px 3px hsl(var(--clr-solid) / 30%)",
     },
     backdropBlur: {
+      xs: "0.5px",
       sm: "8px",
       DEFAULT: "20px",
       lg: "60px",
@@ -79,6 +81,7 @@ module.exports = {
       },
       ui: {
         "applet-bg": "hsl(var(--applet-bg))",
+        "applet-bg-base": "hsl(var(--applet-bg-base) / <alpha-value>)",
         divider: "hsl(var(--divider))",
         shade: "hsl(var(--shade))",
         "topbar-bg": "hsl(var(--topbar-bg))",

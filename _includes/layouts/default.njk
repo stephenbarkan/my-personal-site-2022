@@ -114,9 +114,15 @@
                 <div class="bottom-0 z-[1000] flex-shrink-0 row-start-3 lg:hidden page-container">
                     {% include "components/appletIconFooter.njk" %}
                 </div>
+                {# custom cursor #}
+                <div data-cursor class="w-12 h-12 border-2 rounded-full top-1/2 left-1/2 backdrop-blur-xs border-ui-divider bg-ui-applet-bg-base/60 shadow-cursor"></div>
             </main>
             {% include "components/signInScreen.njk" %}
         </div>
+        <script
+  defer
+  src="https://unpkg.com/alpinejs-cursor@latest/dist/cursor.min.js"
+></script>
         <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>
         <script src="/../scripts/clock.js"></script>

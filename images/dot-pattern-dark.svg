@@ -1,3 +1,11 @@
-<svg height="15" width="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="1" cy="1" r="1.5" fill="white" fill-opacity=".09"/>
+<!-- ball -->
+<!-- <svg height="15" width="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="1" cy="1" r="1.5" />
+</svg> -->
+
+<!-- grid -->
+<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path
+ d="M1.75 0H0V15H15V13.25H1.75V0Z"
+ fill="white" fill-opacity=".04"/>
 </svg>
