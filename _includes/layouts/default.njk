@@ -92,17 +92,27 @@
                 setFavicon.setAttribute('rel', 'shortcut icon');
                 setFavicon.setAttribute('href', `./favicons/favicon-${favImg}.png`);
                 headTitle.appendChild(setFavicon);
-            }
+            click(src) {
+                const sound = new Howl({
+                    src: [`../sounds/${src}`],
+                    html5: true
+                });
+                 sound.once('load',() => {
+                    sound.play();
+                });
+            },
         }"
         x-init="setAppState(`{{helpers.environment}}` === `development` ?  `loggedIn` :  `startUp`),
         setLoginState(),
         getInitActiveApplet(),
         setActiveApplet(activeApplet)"
-        :data-active-applet="activeApplet"
-        :data-applet="activeApplet"
-        class="w-full h-screen overflow-hidden text-base antialiased transition duration-[2000ms] shadow-body easing-linear text-display-primary bg-ui-wallpaper"
-        style="background-image: url(/images/dot-pattern.svg)">
-            <main class="grid w-full h-screen grid-rows-site" x-cloak>
+        @click="click('click.wav')"
+        :class="theme"
+        class="w-full h-screen overflow-hidden">
+            <main
+                :data-active-applet="activeApplet"
+                :data-applet="activeApplet"
+                class="grid w-full h-screen grid-rows-site text-base antialiased transition-shadow duration-[2000ms] bg-ui-wallpaper text-display-primary shadow-body easing-linear bg-dot-pattern-light dark:bg-dot-pattern-dark" x-cloak>
                 <div class="z-[1000] flex-shrink-0 hidden sm:block">
                     {% include "components/topbar.njk" %}
                 </div>
@@ -112,8 +122,8 @@
                 <div class="bottom-0 z-[1000] flex-shrink-0 row-start-3 lg:hidden page-container">
                     {% include "components/appletIconFooter.njk" %}
                 </div>
+                {% include "components/signInScreen.njk" %}
             </main>
-            {% include "components/signInScreen.njk" %}
         </div>
         <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>

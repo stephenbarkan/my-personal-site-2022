@@ -7,6 +7,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addWatchTarget("./styles/tailwind.css");
   eleventyConfig.addWatchTarget("./scripts/*.js");
   eleventyConfig.addWatchTarget("./images/*");
+  eleventyConfig.addWatchTarget("./sounds/*");
   eleventyConfig.addWatchTarget("./favicons/*");
 
   eleventyConfig.addShortcode("version", function () {
@@ -34,6 +35,7 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy("scripts");
   eleventyConfig.addPassthroughCopy("images");
+  eleventyConfig.addPassthroughCopy("sounds");
   eleventyConfig.addPassthroughCopy("favicons");
   eleventyConfig.addPassthroughCopy("songs");
 
