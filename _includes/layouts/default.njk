@@ -92,6 +92,7 @@
                 setFavicon.setAttribute('rel', 'shortcut icon');
                 setFavicon.setAttribute('href', `./favicons/favicon-${favImg}.png`);
                 headTitle.appendChild(setFavicon);
+            },
             click(src) {
                 const sound = new Howl({
                     src: [`../sounds/${src}`],
@@ -107,7 +108,6 @@
         getInitActiveApplet(),
         setActiveApplet(activeApplet)"
         @click="click('click.wav')"
-        :class="theme"
         class="w-full h-screen overflow-hidden">
             <main
                 :data-active-applet="activeApplet"
