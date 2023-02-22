@@ -14,7 +14,8 @@
     --display-link: 202deg 100% 36%;
 
     /* ui colors */
-    --applet-bg: 0deg 0% 100% / 80%;
+    --applet-bg-base: 0deg 0% 100%;
+    --applet-bg: var(--applet-bg-base) / 100%;
     --applet-header-highlight: 0deg 0% 100%;
     --divider: 0deg 0% 0% / 7%;
     --topbar-bg: 0deg 0% 100% / 40%;
@@ -163,7 +164,7 @@
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
-    --shade: var(--display-primary) / 50%;
+    --shade: var(--display-inverse-primary) / 50%;
     --topbar-bg: 20deg 22% 13%;
   }
 
@@ -189,7 +190,7 @@
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
-    --shade: var(--display-primary) / 50%;
+    --shade: var(--display-inverse-primary) / 50%;
     --topbar-bg: 202deg 10% 13%;
   }
 
@@ -215,7 +216,7 @@
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
-    --shade: var(--display-primary) / 50%;
+    --shade: var(--display-inverse-primary) / 50%;
     --topbar-bg: 245deg 10% 13%;
   }
 
@@ -243,7 +244,7 @@
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
-    --shade: var(--display-primary) / 50%;
+    --shade: var(--display-inverse-primary) / 50%;
     --topbar-bg: 172deg 10% 13%;
   }
 
@@ -271,7 +272,7 @@
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
-    --shade: var(--display-primary) / 50%;
+    --shade: var(--display-inverse-primary) / 50%;
     --topbar-bg: 45deg 10% 13%;
   }
 
@@ -321,7 +322,7 @@
     --shadow-btn-basic-inset: 0px 1px 3px -1px inset hsl(var(--scoped-shadow-color) / 65%), 0px 0px 0px 1px hsl(var(--scoped-shadow-color) / 25%), 0px 0px 0px 0.6px hsl(var(--applet-header-highlight) / 15%);
     /* --shadow-btn-highlight: 0px 1px 2px hsl(var(--scoped-shadow-color) / 20%), 0px 0px 0px 0.6px hsl(var(--btn-highlight-border) / 80%), 0px 1px 1px 0px hsl(var(--clr-solid) / 80%); */
     /* --shadow-btn-highlight-inset: 0px 1px 1px inset hsl(var(--btn-highlight-border) / 90%), 0px 0px 0px 0.6px hsl(var(--btn-highlight-border)); */
-    --shadow-list-inset: 0px 1px 4px -1px inset hsl(var(--scoped-shadow-color) / 60%), 0px 0.6px 0px inset hsl(var(--scoped-shadow-color) / 60%), 0px 0px 0.6px inset hsl(var(--applet-header-highlight) / 70%);
+    --shadow-list-inset: 0px 1px 4px -1px inset hsl(var(--scoped-shadow-color) / 60%), 0px 0.6px 0px inset hsl(var(--scoped-shadow-color) / 60%), 0px 0px 0.6px inset hsl(var(--applet-header-highlight) / 40%);
     --shadow-topbar: 0px 1px 10px hsl(var(--global-shadow-color) / 100%), 0px 1px 40px hsl(var(--clr-solid) / 15%), 0px 0px 0px 0.6px hsl(var(--applet-header-highlight) / 45%);
     --shadow-body: 0px 0px 120px 0px inset hsl(var(--clr-solid) / 10%);
     --shadow-body-login: 0px 0px 120px -40px inset hsl(var(--clr-solid) / 40%);
