@@ -30,12 +30,13 @@
         {% endif %}
         {% block head %}{% endblock %}
     </head >
-    <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll bg-ui-wallpaper">
+    <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll">
         <div id="app"
         x-data="{
             activeApplet: 'posts',
             z: 2,
             appState: '',
+            theme: 'dark',
             previewAppletOpen: false,
             previewAppletDetails: {
                 title: '',
@@ -92,7 +93,6 @@
                 setFavicon.setAttribute('rel', 'shortcut icon');
                 setFavicon.setAttribute('href', `./favicons/favicon-${favImg}.png`);
                 headTitle.appendChild(setFavicon);
-            },
             click(src) {
                 const sound = new Howl({
                     src: [`../sounds/${src}`],
@@ -125,6 +125,10 @@
                 {% include "components/signInScreen.njk" %}
             </main>
         </div>
+        <script
+  defer
+  src="https://unpkg.com/alpinejs-cursor@latest/dist/cursor.min.js"
+></script>
         <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>
         <script src="/../scripts/clock.js"></script>
