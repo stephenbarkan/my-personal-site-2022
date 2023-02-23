@@ -94,15 +94,7 @@
                 setFavicon.setAttribute('href', `./favicons/favicon-${favImg}.png`);
                 headTitle.appendChild(setFavicon);
                 },
-            click(src) {
-                const sound = new Howl({
-                    src: [`../sounds/${src}`],
-                    html5: true
-                });
-                 sound.once('load',() => {
-                    sound.play();
-                });
-            },
+
         }"
         x-init="setAppState(`{{helpers.environment}}` === `development` ?  `loggedIn` :  `startUp`),
         setLoginState(),
