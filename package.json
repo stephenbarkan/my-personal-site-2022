@@ -21,6 +21,7 @@
   "devDependencies": {
     "@11ty/eleventy": "^0.12.1",
     "alpinejs": "^3.8.1",
+    "alpinejs-cursor": "^1.0.1",
     "autoprefixer": "^10.4.2",
     "html-minifier": "^4.0.0",
     "postcss": "^8.4.12",

@@ -1,6 +1,7 @@
 module.exports = {
   mode: "jit",
   content: ["./**/*.njk"],
+  darkMode: "class",
   theme: {
     extend: {
       screens: {
@@ -41,25 +42,27 @@ module.exports = {
     boxShadow: {
       // shadows generated https://www.joshwcomeau.com/shadow-palette/
       // oomph: .03, crispy: 0, light position: centered like 1/3 up, resolution .75
-      "inset-stroke": "0px 0px 0px 0.6px inset hsl(var(--global-shadow-color) /  15%)",
-      "applet-header": "0px 1px 1px 0px hsl(var(--scoped-shadow-color) / 3%), 0px 1px 4px 0px hsl(var(--clr-solid) / 15%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 10%), inset 0 1px 0px hsl(var(--applet-header-highlight) / 50%), inset 0 -1px 1px -1px hsl(var(--clr-solid) / 15%)",
-      "app-icon": "0px 1px 1px 0px hsl(var(--scoped-shadow-color) / 5%), 0px 1px 3px 0px hsl(var(--clr-solid) / 8%), 0 1px 1px 0px inset hsl(var(--applet-header-highlight), 15%), inset 0 -1px 2px -1px hsl(var(--clr-solid) / 20%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 12%)",
-      "btn-basic": "0px 1px 2px hsl(var(--scoped-shadow-color) / 10%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 15%), inset 0 1px 0px hsl(var(--applet-header-highlight) / 50%)",
-      "btn-basic-inset": "0px 1px 3px -1px inset hsl(var(--scoped-shadow-color) / 15%), 0px 0px 0px 0.6px hsl(var(--scoped-shadow-color) / 20%)",
-      "btn-highlight": "0px 1px 2px hsl(var(--scoped-shadow-color) / 20%), 0px 0px 0px 0.6px hsl(var(--btn-highlight-border) /  80%), 0px 1px 1px 0px hsl(var(--clr-solid) / 80%)",
-      "btn-highlight-inset": "0px 1px 1px inset hsl(var(--btn-highlight-border) / 90%), 0px 0px 0px 0.6px hsl(var(--btn-highlight-border))",
-      "list-inset": "0px 1px 4px -1px inset hsl(var(--scoped-shadow-color) / 10%), 0px 0.6px 0px inset hsl(var(--scoped-shadow-color) / 7%), 0px 0px .6px inset hsl(var(--scoped-shadow-color) / 20%)",
-      topbar: "0px 1px 1px hsl(var(--global-shadow-color) / 15%), 0px 1px 40px 0px hsl(var(--clr-solid) / 5%), 0px 0px 0px 0.6px hsl(var(--global-shadow-color) / 15%)",
-      body: "0px 0px 40px 0px inset hsl(var(--clr-solid) / 20%)",
-      "body-login": "0px 0px 120px -40px inset hsl(var(--clr-solid) / 60%)",
-      "applet-idle": "0px 1.5px 2.3px hsl(var(--global-shadow-color) / 3%), 0px 3px 4.5px hsl(var(--global-shadow-color) / 8%), 0px 5.9px 8.9px hsl(var(--global-shadow-color) / 12%), 0 0 0 0.6px hsl(var(--global-shadow-color) / 16%)",
-      "applet-active":
-        " 0px 0px 3.5px hsl(var(--global-shadow-color) / 1%), 0px 0px 6px hsl(var(--global-shadow-color) / 2%), 0px 6px 10px hsl(var(--global-shadow-color) / 4%), 0px 8px 12px hsl(var(--global-shadow-color) / 8%), 0px 10px 16px -2px hsl(var(--global-shadow-color) / 12%), -0.1px 15px 25px -3px hsl(var(--global-shadow-color) / 14%), 0 0 0 0.6px hsl(var(--global-shadow-color) / 16%)",
+      "inset-stroke": "var(--shadow-inset-stroke)",
+      "applet-header": "var(--shadow-applet-header)",
+      "app-icon": "var(--shadow-app-icon)",
+      "btn-basic": "var(--shadow-btn-basic)",
+      "btn-basic-inset": "var(--shadow-btn-basic-inset)",
+      "btn-highlight": "var(--shadow-btn-highlight)",
+      "btn-highlight-inset": "var(--shadow-btn-highlight-inset)",
+      "list-inset": "var(--shadow-list-inset)",
+      topbar: "var(--shadow-topbar)",
+      body: "var(--shadow-body)",
+      "body-login": "var(--shadow-body-login)",
+      "applet-idle": "var(--shadow-applet-idle)",
+      "applet-active": "var(--shadow-applet-active)",
+      cursor: "var(--shadow-cursor)",
     },
     dropShadow: {
       "app-icon": "0px 0px 3px hsl(var(--clr-solid) / 30%)",
     },
     backdropBlur: {
+      xs: "0.5px",
+      sm: "8px",
       DEFAULT: "20px",
       lg: "60px",
     },
@@ -77,28 +80,32 @@ module.exports = {
         link: "hsl(var(--display-link))",
       },
       ui: {
-        "applet-bg": "hsl(var(--applet-bg) / <alpha-value>)",
-        divider: "hsl(var(--scoped-shadow-color) / 8%)",
+        "applet-bg": "hsl(var(--applet-bg))",
+        "applet-bg-base": "hsl(var(--applet-bg-base) / <alpha-value>)",
+        divider: "hsl(var(--divider))",
         shade: "hsl(var(--shade))",
         "topbar-bg": "hsl(var(--topbar-bg))",
         wallpaper: "hsl(var(--clr-wallpaper))",
       },
       btn: {
         bg: "hsl(var(--btn-bg))",
-        border: "hsl(var(--btn-border))",
         "bg-hover": "hsl(var(--btn-bg-hover))",
         "highlight-bg": "hsl(var(--btn-highlight-bg))",
         "highlight-bg-hover": "hsl(var(--btn-highlight-bg-hover))",
       },
       btnSecondary: {
-        bg: "hsl(var(--scoped-shadow-color) / 8%)",
-        "bg-hover": "hsl(var(--scoped-shadow-color) / 12%)",
+        bg: "hsl(var(--btn-secondary-bg) / 8%)",
+        "bg-hover": "hsl(var(--btn-secondary-bg) / 12%)",
       },
       clr: {
         solid: "hsl(var(--clr-solid))",
         tint: "hsl(var(--clr-tint))",
         neutral: "hsl(var(--clr-neutral))",
       },
+    },
+    backgroundImage: {
+      "dot-pattern-light": "url(/images/dot-pattern-light.svg)",
+      "dot-pattern-dark": "url(/images/dot-pattern-dark.svg)",
     },
     keyframes: {
       spin: {
