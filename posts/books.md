@@ -1,5 +1,5 @@
 ---
-title: The books that educated me
+title: The books that radicalized me
 date: 2023-03-28
 ---
 
@@ -14,3 +14,4 @@ Below is a list of the educational books I've read in the last couple years that
 - Polysecure — Jessica Fern • [link](https://bookshop.org/p/books/polysecure-attachment-trauma-and-consensual-nonmonogamy-jessica-fern/14490932)
 - Good White People — Shannon Sullivan • [link](https://sunypress.edu/Books/G/Good-White-People)
 - The Right to Sex — Amia Srinivasan • [link](https://us.macmillan.com/books/9780374721039/therighttosex)
+- The Patriarchs — Angela Saini • [link](https://www.harvard.com/book/the_patriarchs/)
