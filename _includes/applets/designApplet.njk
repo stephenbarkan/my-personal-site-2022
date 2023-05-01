@@ -28,16 +28,15 @@
                             <div class="w-6 h-6">{{typeIcon | safe}}</div>
                         </div>
                         <div class="flex flex-col items-start gap-1">
-                            <h3 class="text-xl">{{design.data.title}}
-                                <span class="capitalize">{{design.data.type}}</span></h3>
+                            <h3 class="text-xl">{{design.data.title}}</h3>
                             <p class="text-display-tertiary">{{design.data.excerpt}}</p>
                         </div>
                     </div>
                     {{btn.button(label="View project", icon=externalLinkIcon, as="a", href=design.data.link, newTab=true)}}
                     <div class="hidden w-full sm:block divider"></div>
                     <dl class="grid items-baseline max-w-full pb-2 text-sm text-display-secondary grid-cols-dl gap-x-4 gap-y-4">
-                        <dt class="text-display-tertiary">Contribution</dt>
-                        <dl class="flex flex-wrap gap-1.5 capitalize">
+                        <dt class="text-display-tertiary">Contributions</dt>
+                        <dl class="flex flex-wrap gap-1.5">
                             {% for item in design.data.contribution %}
                                 <span class="inline-block px-2 py-1.5 rounded text-display-secondary bg-clr-neutral">{{item}}</span>
                             {% endfor %}
@@ -152,6 +151,8 @@
 {% macro designListItem(title, date, class, onClick, type, index, id, content, externalLink) %}
     {% set icon %}
     {% if type === "website" %}{% include "icons/website.svg" %}
+    {% endif %}
+    {% if type === "video" %}{% include "icons/video.svg" %}
     {% endif %}
     {% if type === "game" %}{% include "icons/dice.svg" %}
     {% endif %}

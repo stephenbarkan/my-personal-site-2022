@@ -5,8 +5,8 @@ link: https://vote.activate-chi.org
 publishDate: Oct 2020
 type: website
 contribution:
-  - design
-  - coding
+  - Web design
+  - Coding
 tags:
   - volunteer
 ---

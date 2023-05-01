@@ -1,13 +1,13 @@
 ---
-title: Activate:Chi
+title: Activate:Chi website
 excerpt: Minimal and bold brand and website!
 link: https://activate-chi.org
 publishDate: Feb 2021
 type: website
 contribution:
-  - branding
-  - design
-  - coding
+  - Branding
+  - Web design
+  - Coding
 tags:
   - volunteer
 ---
