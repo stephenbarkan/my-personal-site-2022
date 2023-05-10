@@ -4,9 +4,9 @@ link: https://inkstylelibrary.netlify.app/
 publishDate: Oct 2019
 type: website
 contribution:
-  - design
-  - coding
-excerpt: An style guide I created to help people at INK apply the brand with confidence 💪
+  - Web design
+  - Coding
+excerpt: A style guide I created to help people at INK apply the brand with confidence 💪
 tags:
   - ink
 ---
