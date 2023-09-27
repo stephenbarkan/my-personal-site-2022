@@ -774,8 +774,16 @@
     }
   }
 }
-* {
-  cursor: none !important;
+@media (pointer: fine) {
+  * {
+    cursor: none !important;
+  }
+}
+
+@media (pointer: coarse) {
+  #cursor {
+    display: none;
+  }
 }
 /* default state */
 #cursor div {
