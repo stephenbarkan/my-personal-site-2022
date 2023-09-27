@@ -7,6 +7,7 @@
     --font-family: "darkmode-off";
     --font-family-inverse: "darkmode-on";
     --base-font-size: 14px;
+    --font-size-multiplier: 1;
 
     /* general display colors */
     --display-inverse-primary: 0deg 0% 100%;
@@ -335,55 +336,69 @@
 }
 
 @layer components {
-  @media screen and (max-width: 500px) {
-    :root {
-      --base-font-size: 15px;
-    }
+  .text-xl,
+  .text-lg,
+  .text-prose,
+  .text-base,
+  .text-sm,
+  .text-button,
+  .text-button-inverse {
+    font-size: calc(var(--base-font-size) * var(--font-size-multiplier));
   }
+
   .text-xl {
-    font-size: calc(var(--base-font-size) * 1.72);
+    --font-size-multiplier: 1.72;
     line-height: 1.4;
     font-weight: 500;
   }
   .text-prose {
-    font-size: calc(var(--base-font-size) * 1.075);
+    --font-size-multiplier: 1.075;
     line-height: 1.75;
     letter-spacing: 0.01em;
   }
   .text-lg {
-    font-size: calc(var(--base-font-size) * 1.075);
+    --font-size-multiplier: 1.075;
     font-weight: 500;
     line-height: 1.5;
   }
   .text-base {
-    font-size: var(--base-font-size);
+    --font-size-multiplier: 1;
     line-height: 1.5;
     letter-spacing: 0.01em;
   }
   .text-sm {
-    font-size: calc(var(--base-font-size) * 0.93);
+    --font-size-multiplier: 0.93;
     line-height: 1.3;
   }
   .text-button,
   .text-button-inverse {
-    font-size: calc(var(--base-font-size) * 0.93);
+    --font-size-multiplier: 0.93;
     line-height: 1.15;
   }
   .text-button-inverse {
     font-family: var(--font-family-inverse);
   }
 
+  @media screen and (max-width: 500px) {
+    :root {
+      --base-font-size: 15px;
+    }
+    .text-xl {
+      --font-size-multiplier: 1.6;
+    }
+  }
+
   /* prose */
 
   .prose {
-    --base-font-size: 1em;
+    --prose-font-size: 1em;
     --em-multiplier: 1.35;
-    --space-half: calc(var(--em-multiplier) * var(--base-font-size) / 6);
-    --space-1: calc(var(--em-multiplier) * var(--base-font-size) / 3);
-    --space-2: calc(var(--em-multiplier) * var(--base-font-size) * 2 / 3);
-    --space-3: calc(var(--em-multiplier) * var(--base-font-size) * 1);
-    --space-4: calc(var(--em-multiplier) * var(--base-font-size) * 4 / 3);
-    --space-6: calc(var(--em-multiplier) * var(--base-font-size) * 5 / 3);
+    --space-half: calc(var(--em-multiplier) * var(--prose-font-size) / 6);
+    --space-1: calc(var(--em-multiplier) * var(--prose-font-size) / 3);
+    --space-2: calc(var(--em-multiplier) * var(--prose-font-size) * 2 / 3);
+    --space-3: calc(var(--em-multiplier) * var(--prose-font-size) * 1);
+    --space-4: calc(var(--em-multiplier) * var(--prose-font-size) * 4 / 3);
+    --space-6: calc(var(--em-multiplier) * var(--prose-font-size) * 5 / 3);
   }
 
   .prose > :first-child,
@@ -758,12 +773,17 @@
     width: 100%;
     height: 100%;
     min-width: 1em;
-    font: inherit;
     margin: 0;
     resize: none;
     background: none;
     appearance: none;
     border: none;
+  }
+  @media screen and (max-width: 500px) {
+    .input-wrapper::after,
+    .input-wrapper textarea {
+      --font-size-multiplier: 1.067;
+    }
   }
 
   .applet-animate {
