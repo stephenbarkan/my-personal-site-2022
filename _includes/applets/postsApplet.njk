@@ -59,7 +59,7 @@ activeIconProps %}
         </aside>
         <div class="hidden mb-3 mr-3 md:block divider vertical"></div>
         <main class="flex justify-center flex-1 max-w-full max-h-full">
-            <div class="flex flex-col flex-1 max-w-full gap-6 p-px">
+            <div data-js="actionableWrapper" class="flex flex-col flex-1 max-w-full gap-6 p-px">
                 <div @click="open=true" class="self-start md:hidden">{{btn.button(label="All entries", icon=chevronLeftIcon, as="button")}}</div>
                 {% for post in data %}
                     <template x-if="openPost === '{{post.fileSlug}}'">

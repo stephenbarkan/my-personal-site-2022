@@ -19,6 +19,7 @@ module.exports = {
       },
       zIndex: {
         "-1": "-1",
+        cursor: 9999,
       },
     },
     fontFamily: {
@@ -34,6 +35,7 @@ module.exports = {
     },
     transitionTimingFunction: {
       DEFAULT: "cubic-bezier(.2,.8,.2,1)",
+      linear: "linear",
       easeIn: "cubic-bezier(0.38, 0.01, 0.86, 0.52)",
       easeInOut: "ease-in-out",
       bounce: "cubic-bezier(0.34, 0.64, 0, 3.5)",

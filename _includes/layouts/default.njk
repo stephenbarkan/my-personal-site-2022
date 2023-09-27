@@ -2,7 +2,8 @@
 <html lang="en">
     <head>
         <title>
-            {% block title %}{{copy.siteName}}
+            {% block title %}
+                {{copy.siteName}}
             {% endblock %}
         </title>
         <meta charset="UTF-8"/>
@@ -30,10 +31,11 @@
         {% endif %}
         {% block head %}{% endblock %}
     </head >
-    <body data-active-applet="posts" class="h-screen overflow-hidden bg-scroll">
+    <body data-active-applet="posts" class="h-[100dvh] overflow-hidden bg-scroll cursor-none">
         <div id="app"
         x-data="{
             activeApplet: 'posts',
+            cursorApplet: 'posts',
             z: 2,
             appState: '',
             theme: 'light',
@@ -109,6 +111,7 @@
         getInitActiveApplet(),
         setActiveApplet(activeApplet)"
         @mousedown="click('click.wav')"
+        :class="theme === 'dark'? 'dark' : ''"
         class="w-full h-screen overflow-hidden">
             <main
                 :data-active-applet="activeApplet"
@@ -133,5 +136,6 @@
         <script defer src="https://unpkg.com/alpinejs@3.5.0/dist/cdn.min.js"></script>
         <script defer src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.1.2/howler.min.js"></script>
         <script src="/../scripts/clock.js"></script>
+        <script src="/../scripts/cursor.js"></script>
     </body>
 </html>

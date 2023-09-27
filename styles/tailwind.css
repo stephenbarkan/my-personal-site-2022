@@ -158,9 +158,9 @@
     --btn-bg-hover: 10deg 7% 20%;
     --btn-secondary-bg: var(--applet-header-highlight);
     --scoped-shadow-color: var(--shadow-photos);
-    --display-primary: 10deg, 2%, 85%;
-    --display-secondary: 10deg, 1%, 72%;
-    --display-tertiary: 10deg, 1%, 52%;
+    --display-primary: 10deg 2% 85%;
+    --display-secondary: 10deg 1% 72%;
+    --display-tertiary: 10deg 1% 52%;
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
@@ -184,9 +184,9 @@
     --btn-bg-hover: 202deg 7% 20%;
     --btn-secondary-bg: var(--applet-header-highlight);
     --scoped-shadow-color: var(--shadow-chat);
-    --display-primary: 202deg, 2%, 85%;
-    --display-secondary: 202deg, 1%, 72%;
-    --display-tertiary: 202deg, 1%, 52%;
+    --display-primary: 202deg 2% 85%;
+    --display-secondary: 202deg 1% 72%;
+    --display-tertiary: 202deg 1% 52%;
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
@@ -210,9 +210,9 @@
     --btn-bg-hover: 240deg 6% 20%;
     --btn-secondary-bg: var(--applet-header-highlight);
     --scoped-shadow-color: var(--shadow-design);
-    --display-primary: 245deg, 2%, 85%;
-    --display-secondary: 245deg, 1%, 72%;
-    --display-tertiary: 245deg, 1%, 52%;
+    --display-primary: 245deg 2% 85%;
+    --display-secondary: 245deg 1% 72%;
+    --display-tertiary: 245deg 1% 52%;
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
@@ -238,9 +238,9 @@
     --btn-highlight-bg-hover: 172deg 70% 29%;
     --btn-highlight-border: 172deg 77% 20%;
     --scoped-shadow-color: var(--shadow-music);
-    --display-primary: 172deg, 2%, 85%;
-    --display-secondary: 172deg, 1%, 72%;
-    --display-tertiary: 172deg, 1%, 52%;
+    --display-primary: 172deg 2% 85%;
+    --display-secondary: 172deg 1% 72%;
+    --display-tertiary: 172deg 1% 52%;
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
@@ -266,9 +266,9 @@
     --btn-highlight-bg-hover: 45deg 70% 29%;
     --btn-highlight-border: 45deg 77% 20%;
     --scoped-shadow-color: var(--shadow-posts);
-    --display-primary: 45deg, 2%, 80%;
-    --display-secondary: 45deg, 1%, 65%;
-    --display-tertiary: 45deg, 1%, 48%;
+    --display-primary: 45deg 2% 80%;
+    --display-secondary: 45deg 1% 65%;
+    --display-tertiary: 45deg 1% 48%;
     --display-inverse-primary: var(--applet-bg-base) / 90%;
     --display-inverse-secondary: var(--applet-bg-base) / 70%;
     --display-inverse-tertiary: var(--applet-bg-base) / 50%;
@@ -301,7 +301,7 @@
     --shadow-applet-idle: 0px 1.5px 2.3px hsl(var(--global-shadow-color) / 3%), 0px 3px 4.5px hsl(var(--global-shadow-color) / 8%), 0px 5.9px 8.9px hsl(var(--global-shadow-color) / 12%), 0 0 0 0.6px hsl(var(--global-shadow-color) / 16%);
     --shadow-applet-active: 0px 0px 3.5px hsl(var(--global-shadow-color) / 1%), 0px 0px 6px hsl(var(--global-shadow-color) / 2%), 0px 6px 10px hsl(var(--global-shadow-color) / 4%), 0px 8px 12px hsl(var(--global-shadow-color) / 8%), 0px 10px 16px -2px hsl(var(--global-shadow-color) / 12%),
       0px 15px 25px -3px hsl(var(--global-shadow-color) / 14%), 0 0 0 0.6px hsl(var(--global-shadow-color) / 16%);
-    --shadow-cursor: 0 1px 5px hsl(var(--global-shadow-color) / 11%);
+    --shadow-cursor: 0 1px 5px hsl(var(--scoped-shadow-color) / 11%), 0px 0px 10px 4px hsl(var(--clr-solid) / 5%), 0px 0px 0px 0.8px hsl(var(--scoped-shadow-color) / 25%);
   }
 
   /* dark mode shadows */
@@ -329,6 +329,7 @@
     --shadow-applet-idle: 0px 1.5px 2.3px hsl(var(--global-shadow-color) / 53%), 0px 3px 4.5px hsl(var(--global-shadow-color) / 58%), 0px 6px 9px hsl(var(--global-shadow-color) / 62%), 0px 0px 24px -4px hsl(var(--clr-solid) / 10%), inset 0 0 0 0.6px hsl(var(--applet-header-highlight) / 20%);
     --shadow-applet-active: 0px 0px 3.5px hsl(var(--scoped-shadow-color) / 41%), 0px 0px 6px hsl(var(--scoped-shadow-color) / 42%), 0px 6px 10px hsl(var(--scoped-shadow-color) / 44%), 0px 8px 12px hsl(var(--scoped-shadow-color) / 48%), 0px 10px 16px hsl(var(--scoped-shadow-color) / 54%),
       0px 15px 25px -3px hsl(var(--scoped-shadow-color) / 54%), 0px 0px 48px hsl(var(--clr-solid) / 14%), inset 0 0 0 0.6px hsl(var(--applet-header-highlight) / 20%);
+    --shadow-cursor: 0 1px 5px hsl(var(--scoped-shadow-color) / 11%), 0px 0px 10px 4px hsl(var(--clr-solid) / 5%), 0px 0px 0px 0.8px hsl(var(--clr-solid) / 35%);
   }
 }
 
@@ -761,7 +762,7 @@
   }
 
   .applet-animate {
-    animation: appletAnimate 350ms theme(transitionTimingFunction.DEFAULT);
+    animation: appletAnimate 200ms theme(transitionTimingFunction.linear);
   }
   @keyframes appletAnimate {
     0%,
@@ -769,7 +770,32 @@
       transform: scale(1);
     }
     25% {
-      transform: scale(1.004);
+      transform: scale(1.008);
     }
   }
+}
+* {
+  cursor: none !important;
+}
+/* default state */
+#cursor div {
+  --scale: 1;
+  transition-duration: 400ms;
+  transition-timing-function: theme("transitionTimingFunction.DEFAULT");
+}
+/* clicking on a non-actionable */
+#cursor.click div {
+  --scale: 0.9;
+  transition-duration: 200ms;
+  transition-timing-function: theme("transitionTimingFunction.bounce-small");
+}
+/* hovering on an actionabnle */
+#cursor.hover div {
+  --scale: 1.4;
+  transition-duration: 200ms;
+  transition-timing-function: theme("transitionTimingFunction.bounce-small");
+}
+/* clicking on an actionable */
+#cursor.hover.click div {
+  --scale: 1.2;
 }
