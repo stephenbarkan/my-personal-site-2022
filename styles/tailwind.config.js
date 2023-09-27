@@ -8,7 +8,7 @@ module.exports = {
         xs: "501px",
       },
       spacing: {
-        15: ".9375rem",
+        15: "calc(1.07 * var(--base-font-size))",
         "max-content": "max-content",
       },
       gridTemplateRows: {
