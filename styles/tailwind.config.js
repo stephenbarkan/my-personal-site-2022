@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       screens: {
         xs: "501px",
+        standalone: { raw: "(display-mode: standalone)" },
       },
       spacing: {
         15: "calc(1.07 * var(--base-font-size))",
