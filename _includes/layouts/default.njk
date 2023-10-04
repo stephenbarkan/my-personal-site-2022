@@ -6,6 +6,7 @@
                 {{copy.siteName}}
             {% endblock %}
         </title>
+        <link rel="manifest" href="/site.webmanifest">
         <meta charset="UTF-8"/>
         {% if description %}
             <meta name="description" content="{{description}}"/>
@@ -20,7 +21,7 @@
         <meta name="twitter:image" content="https://stephenbarkan.com/images/share-image.png">
 
         <meta http-equiv="x-ua-compatible" content="ie=edge"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, viewport-fit=cover, user-scalable=no"/>
         <link rel="stylesheet" href="https://use.typekit.net/bpn0sjs.css">
 
         {# include main.css if in development mode #}

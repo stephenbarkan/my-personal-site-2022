@@ -336,6 +336,9 @@
 }
 
 @layer components {
+  #app {
+    -webkit-tap-highlight-color: transparent;
+  }
   .text-xl,
   .text-lg,
   .text-prose,
