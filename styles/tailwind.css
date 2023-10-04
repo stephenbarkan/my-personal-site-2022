@@ -339,11 +339,7 @@
   #app {
     -webkit-tap-highlight-color: transparent;
   }
-  @media screen and (display-mode: standalone) {
-    html {
-      overscroll-behavior: none;
-    }
-  }
+
   .text-xl,
   .text-lg,
   .text-prose,
