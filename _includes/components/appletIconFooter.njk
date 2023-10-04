@@ -30,12 +30,12 @@ uiBarTimingOut %}
 {% endmacro %}
 <footer
         x-show="appState === 'loggedIn'"
-        x-transition:enter-start="translate-y-full"
+        x-transition:enter-start="translate-y-full opacity-0"
         x-transition:enter="transition transform {{uiBarTimingIn}}"
-        x-transition:enter-end="translate-0"
-        x-transition:leave-start="translate-0"
+        x-transition:enter-end="translate-0 opacity-100"
+        x-transition:leave-start="translate-0 opacity-100"
         x-transition:leave="transition transform {{uiBarTimingOut}}"
-        x-transition:leave-end="translate-y-full"
+        x-transition:leave-end="translate-y-full opacity-0"
         class="flex justify-center w-full pb-2">
     <nav class="flex px-3 pb-1 pt-3 rounded-[15px] gap-3 bg-ui-topbar-bg backdrop-blur shadow-applet-idle min-w-[200px]">
         {{ appletIcon(applet="photos", icon=heartIcon) }}
