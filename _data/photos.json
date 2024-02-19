@@ -6,12 +6,6 @@
     "details": "Second Shift bathroom, Nov 2022"
   },
   {
-    "id": "aura",
-    "images": ["/images/aura"],
-    "caption": "This aura is very strong!",
-    "details": "Garfield Park Conservatory, Sep 2022"
-  },
-  {
     "id": "gay-cowboy",
     "images": ["/images/gay-cowboy"],
     "caption": "Just a gay cowboy on the bus",
@@ -22,12 +16,6 @@
     "images": ["/images/monster-lick"],
     "caption": "Yummy 👹",
     "details": "Bristol Renaissance Faire, Aug 2022"
-  },
-  {
-    "id": "golden-hour",
-    "images": ["/images/golden-hour"],
-    "caption": "",
-    "details": "Cleveland, Ohio, July 2022"
   },
   {
     "id": "so-proud",
