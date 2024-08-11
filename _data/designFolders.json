@@ -1,9 +1,15 @@
 [
   {
+    "id": "zine",
+    "title": "Zines",
+    "type": "zine",
+    "date": "2024"
+  },
+  {
     "id": "doist",
     "title": "Doist",
     "type": "work",
-    "date": "2020 – current"
+    "date": "2020 – 2024"
   },
   {
     "id": "ink",

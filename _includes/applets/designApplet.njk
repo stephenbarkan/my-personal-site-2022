@@ -20,6 +20,8 @@
             {% endif %}
             {% if design.data.type === "volunteer" %}{% include "icons/rocket.svg" %}
             {% endif %}
+            {% if design.data.type === "zine" %}{% include "icons/book.svg" %}
+            {% endif %}
             {% endset %}
             <template x-if="currentItem === '{{design.data.title}}'">
                 <div class="flex-shrink-0 overflow-auto flex flex-col items-start gap-8 sm:gap-6 px-2 py-4 sm:w-[300px]">
@@ -163,6 +165,8 @@
     {% if type === "work" %}{% include "icons/briefcase.svg" %}
     {% endif %}
     {% if type === "volunteer" %}{% include "icons/rocket.svg" %}
+    {% endif %}
+    {% if type === "zine" %}{% include "icons/book.svg" %}
     {% endif %}
     {% endset %}
 
