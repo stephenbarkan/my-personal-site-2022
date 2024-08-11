@@ -39,6 +39,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicons");
   eleventyConfig.addPassthroughCopy("songs");
   eleventyConfig.addPassthroughCopy("site.webmanifest");
+  eleventyConfig.addPassthroughCopy("zines");
 
   // Layout aliases
   eleventyConfig.addLayoutAlias("default", "layouts/default.njk");
