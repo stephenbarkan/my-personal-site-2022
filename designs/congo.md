@@ -6,7 +6,7 @@ type: zine
 contribution:
   - Content
   - Design
-excerpt: A zine we handed out during the presentation of The Shake-Off Podcast at the Lincoln Park Apple Store
+excerpt: A zine we handed out during the presentation of The Shake-Off Podcast at the Lincoln Park Apple Store.
 tags:
   - zine
 ---
