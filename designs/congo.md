@@ -1,6 +1,6 @@
 ---
 title: How Apple Profits off of Forced Labor in the Congo
-link: https://stephenbarkan.com/zines/congo_b&w.pdf
+link: https://stephenbarkan.com/zines/congo_color.pdf
 publishDate: July 2024
 type: zine
 contribution:
