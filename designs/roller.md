@@ -1,6 +1,6 @@
 ---
 title: DnD Dice Roller
-link: https://roll.stephenbarkan.com
+link: https://roll.stephbarkan.com
 publishDate: June 2020
 contribution:
   - Web design

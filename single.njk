@@ -4,7 +4,8 @@
 {% import "applets/postsApplet.njk" as "postsApplet" with context %}
 {% import "applets/musicApplet.njk" as "musicApplet" with context %}
 {% import "applets/chatApplet.njk" as "chatApplet" with context %}
-{% block title %}Stephen Barkan{% endblock %}
+{% block title %}{{copy.siteName}}
+{% endblock %}
 
 {% block content %}
     <div class="flex justify-center flex-1 w-full row-start-2 gap-3 py-2 overflow-auto page-container">

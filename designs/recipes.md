@@ -1,6 +1,6 @@
 ---
 title: Recipe Book
-link: https://cook.stephenbarkan.com
+link: https://cook.stephbarkan.com
 publishDate: 2020 – current
 type: website
 contribution:
