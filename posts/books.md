@@ -16,3 +16,4 @@ Below is a list of the educational books I've read in the last couple years that
 - The Right to Sex — Amia Srinivasan • [link](https://us.macmillan.com/books/9780374721039/therighttosex)
 - The Patriarchs — Angela Saini • [link](https://www.harvard.com/book/the_patriarchs/)
 - Greater than the Sum of Our Parts: Feminism, Inter/Nationalism, and Palestine — Nada Elia • [link](https://www.plutobooks.com/9780745347479/greater-than-the-sum-of-our-parts/)
+- Most Intimate: A Zen Approach to Life's Challenges — Pat Enkyo O'Hara • [link](https://www.shambhala.com/most-intimate-3105.html)
