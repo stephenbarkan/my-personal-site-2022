@@ -1,6 +1,6 @@
 ---
 title: The books that radicalized me
-date: 2023-03-28
+date: 2025-06-05
 ---
 
 Below is a list of the educational books I've read in the last couple years that taught me about myself and the world!
