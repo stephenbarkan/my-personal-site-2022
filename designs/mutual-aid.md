@@ -1,6 +1,6 @@
 ---
 title: Mutual Aid 101
-link: https://stephbarkan.com/zines/mutual-aid_b&w.pdf
+link: https://zinestorefree.com/zine/mutual-aid-101
 publishDate: Aug 2024
 type: zine
 contribution:

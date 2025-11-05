@@ -1,6 +1,6 @@
 ---
 title: A Primer on Exercising Your Rights with Law Enforcement
-link: https://stephbarkan.com/zines/lawenforcementrights_b&w.pdf
+link: https://zinestorefree.com/zine/leo-kyr
 publishDate: March 2024
 type: zine
 contribution:

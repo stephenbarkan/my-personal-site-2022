@@ -1,6 +1,6 @@
 ---
 title: Capitalism 101
-link: https://stephbarkan.com/zines/capitalism_b&w.pdf
+link: https://zinestorefree.com/zine/capitalism-101
 publishDate: Aug 2024
 type: zine
 contribution:

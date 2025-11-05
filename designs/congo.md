@@ -1,6 +1,6 @@
 ---
-title: How Apple Profits off of Forced Labor in the Congo
-link: https://stephbarkan.com/zines/congo_color.pdf
+title: How the Green Energy Transition is Relying on Forced Labor in the Congo
+link: https://zinestorefree.com/zine/congo/
 publishDate: July 2024
 type: zine
 contribution:

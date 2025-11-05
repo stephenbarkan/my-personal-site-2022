@@ -3,7 +3,7 @@
     "id": "zine",
     "title": "Zines",
     "type": "zine",
-    "date": "2024"
+    "date": "2024 – current"
   },
   {
     "id": "doist",
@@ -12,16 +12,16 @@
     "date": "2020 – 2024"
   },
   {
-    "id": "ink",
-    "title": "INK Communications",
-    "type": "work",
-    "date": "2018 – 2019"
-  },
-  {
     "id": "fun",
     "title": "For fun",
     "type": "fun",
     "date": "2018 – current"
+  },
+  {
+    "id": "ink",
+    "title": "INK Communications",
+    "type": "work",
+    "date": "2018 – 2019"
   },
   {
     "id": "volunteer",
