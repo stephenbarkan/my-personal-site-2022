@@ -1,5 +1,5 @@
 ---
-title: Understanding Racial Capitalism (Why it's So Hard to Eat the Rich)
+title: Understanding Racial Capitalism (Why it’s So Hard to Eat the Rich)
 link: https://zinestorefree.com/zine/racial-capitalism/
 publishDate: May 2025
 type: zine
